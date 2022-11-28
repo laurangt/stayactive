@@ -7,17 +7,18 @@ Rails.application.routes.draw do
   devise_for :users
   root to: "pages#home"
 
-  resources :projects do
-    resources :goals
+  resources :projects, :only [:create, :show, :new, :edit, :update, :destroy] do
+    resources :goals 
   end
 
   resources :goals do
-    resources :logs
+    resources :logs, :only [:create, :new, :destroy, :update]
   end
 
-  resources :memberships
+  resources :memberships, :only [:create, :new]
+  resources :groups, :only [:index, :show]
 
-  resources :posts do
-    resources :comments
+  resources :posts, :only [:index, :create, :new, :destroy] do
+    resources :comments [:create, :new, :destroy]
   end
 end
