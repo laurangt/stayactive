@@ -10,4 +10,7 @@ class GoalsController < ApplicationController
 
   def update
   end
+
+  def destroy
+  end
 end
