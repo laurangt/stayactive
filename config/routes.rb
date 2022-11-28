@@ -1,9 +1,5 @@
 Rails.application.routes.draw do
-  get 'projects/new'
-  get 'projects/create'
-  get 'projects/edit'
-  get 'projects/update'
-  get 'projects/destroy'
+
   devise_for :users
   root to: "pages#home"
 
@@ -19,5 +15,9 @@ Rails.application.routes.draw do
 
   resources :posts do
     resources :comments
+  end
+
+  resources :groups do
+    resources :memberships
   end
 end
