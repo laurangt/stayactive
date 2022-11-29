@@ -1,2 +1,13 @@
 <h1>Pages#home</h1>
-<p>Find me in app/views/pages/home.html.erb</p>
+<h2>@<%= @user.username %></h2>
+<div class="d-flex">
+  <%= cl_image_tag @user.photo.key, height: 50, width: 50, crop: :fill, style: "object-fit: fill;"%>
+  <%= @user.bio %>
+</div>
+<%#= @user.membership.name %>
+<h2>My Projects</h2>
+<%#= @projects.all %>
+
+<%#= link_to popup do%>
+  <i class="fa-solid fa-circle-plus"></i>
+<%# end %>
