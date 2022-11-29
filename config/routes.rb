@@ -3,8 +3,8 @@ Rails.application.routes.draw do
   devise_for :users
   root to: "pages#home"
 
-  resources :projects, :only [:create, :show, :new, :edit, :update, :destroy] do
-    resources :goals 
+  resources :projects do
+    resources :goals
   end
 
   resources :goals do
