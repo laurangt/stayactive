@@ -1,7 +1,9 @@
 <h1>Join a group (group index page)</h1>
 <% @groups.each do |group| %>
-  <div class="d-flex mb-4">
-    <%= cl_image_tag group.photo.key, height: 50, width: 50, crop: :fill, style: "object-fit: fill;"%>
-    <%= group.name %>
-  </div>
+  <%= link_to group_path(group) do %>
+    <div class="d-flex mb-4">
+      <%= cl_image_tag group.photo.key, height: 50, width: 50, crop: :fill, style: "object-fit: fill;"%>
+      <%= group.name %>
+    </div>
+  <% end %>
 <% end %>
