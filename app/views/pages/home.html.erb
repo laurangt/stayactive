@@ -6,9 +6,9 @@
 <% end %>
   <%= @user.bio %>
 </div>
-<% @user.memberships.each do |membership| %>
-  <%= link_to group_path(membership.group) do%>
-    <button><%= membership.group.name %></button>
+<% @groups.each do |group| %>
+  <%= link_to group_path(group) do%>
+    <button><%= group.name %></button>
   <% end %>
 <% end %>
 <h2>My Projects</h2>

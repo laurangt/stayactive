@@ -5,6 +5,7 @@ class User < ApplicationRecord
          :recoverable, :rememberable, :validatable
 
   has_many :memberships, dependent: :destroy
+  has_many :groups, through: :memberships
   has_many :posts, through: :membership
   has_many :comments, through: :memberships
   has_many :projects, dependent: :destroy
