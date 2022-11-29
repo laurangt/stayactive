@@ -8,7 +8,7 @@
 
 <h2>Goals:</h2>
 <% @project.goals.each do |goal| %>
-  <%= link_to project_goal_path(goal)	do %>
+  <%= link_to project_goal_path(@project, goal)	do %>
     <div class="border mb-3">
       <p><%= goal.end_date %></p>
       <p><%= goal.title %></p>

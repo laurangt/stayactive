@@ -1,6 +1,6 @@
 class GoalsController < ApplicationController
   def show
-    #@goal.project = Project.find(params[:project_id])
+    @project = Project.find(params[:project_id])
     @goal = Goal.find(params[:id])
   end
 
