@@ -1,8 +1,7 @@
 class PostsController < ApplicationController
   def new
-    # @group = Group.find(params[:group_id])
+    @group = Group.find(params[:group_id])
     @post = Post.new
-    @membership = Membership.find(params[:membership_id])
   end
 
   def create

@@ -6,9 +6,10 @@
       <div class="bg-gray rounded p-3 shadow">
         <h2>What would you like to share?</h2>
           <%= link_to 'Post', group_path(@group) =%>
-          <% simple_form_for @post do |f| %>
+          <%= simple_form_for [@group, @post] do |f| %>
                 <%= f.input :title %>
                 <%= f.input :content %>
+                <%= f.input :photo, as: :file %>
                 <%= f.button :submit %>
            <% end %>
       </div>
