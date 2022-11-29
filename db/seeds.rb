@@ -15,8 +15,10 @@ puts "All Groups Destroy"
 Post.destroy_all
 puts "All Post Destroy"
 # Comment.destroy_all
-# Project.destroy_all
-# Goal.destroy_all
+Project.destroy_all
+puts "All Projects Destroy"
+Goal.destroy_all
+puts "All Goal Destroy"
 # Log.destroy_all
 
 # Users
@@ -150,35 +152,35 @@ Post.create(
 # comment1.save
 
 
-#Projects
-# project1 = Project.new(
-#   title: "Triathlon 2023",
-#   description: "Ironman Venice in May 2023",
-#   user_id: user2.id
-# )
-# project1.save
+# Project
+project1 = Project.new(
+  title: "Triathlon 2023",
+  description: "Ironman Venice in May 2023",
+  user_id: user2.id
+)
+project1.save
 
-# project2 = Project.new(
-#   title: "Yoga",
-#   description: "Getting into yoga for the first time. Planning to do at least 2 sessions a week",
-#   user_id: user2.id
-# )
-# project2.save
+project2 = Project.new(
+  title: "Yoga",
+  description: "Getting into yoga for the first time. Planning to do at least 2 sessions a week",
+  user_id: user2.id
+)
+project2.save
 
 
 #Goals
-# goal1 = Project.new(
-#   title: "Yoga",
-#   description: "Getting into yoga for the first time. Planning to do at least 2 sessions a week",
-#   end_date:,
-#   status:,
-#   project_id:
-# )
-# goal1.save
+goal1 = Goal.new(
+  title: "Yoga",
+  description: "Getting into yoga for the first time. Planning to do at least 2 sessions a week",
+  end_date: '2020-12-31',
+  status:,
+  project_id:
+)
+goal1.save
 
 
 #Logs
-# log1 = Project.new(
+# log1 = Log.new(
 #   content:,
 #   goal_id:
 # )
