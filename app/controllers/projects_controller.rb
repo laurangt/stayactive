@@ -1,6 +1,7 @@
 class ProjectsController < ApplicationController
   def show
     @project = Project.find(params[:id])
+    @goal = Goal.new
   end
 
   def new
