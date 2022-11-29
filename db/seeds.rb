@@ -174,8 +174,8 @@ goal1 = Goal.new(
   title: "Yoga",
   description: "Getting into yoga for the first time. Planning to do at least 2 sessions a week",
   end_date: '2020-12-31',
-  status:,
-  project_id:
+  status: true,
+  project_id: 2,
 )
 goal1.save
 

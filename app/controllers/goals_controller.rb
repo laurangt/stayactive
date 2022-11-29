@@ -1,18 +1,20 @@
 class GoalsController < ApplicationController
   def show
+    @project = Project.find(params[:project_id])
     @goal = Goal.find(params[:id])
   end
 
   def new
     @goal = Goal.new
+    @project = Project.find(params[:project_id])
   end
 
   def create
     @goal = Goal.new(goal_params)
-    @goal.project = Project.find(params[:project_id])
-    @goal.user = current_user
+    @project = Project.find(params[:project_id])
+    @goal.project = @project
     if @goal.save
-      redirect_to goal_create_path
+      redirect_to project_path(@project)
     else
       render :new, status: :unprocessable_entity
     end

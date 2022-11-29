@@ -1,6 +1,7 @@
 class ProjectsController < ApplicationController
   def show
     @project = Project.find(params[:id])
+    @goal = Goal.new
   end
 
   def new
@@ -11,7 +12,7 @@ class ProjectsController < ApplicationController
     @project = Project.new(project_params)
     @project.user = current_user
     if @project.save
-      redirect_to new_project_path
+      redirect_to root_path
     else
       render :new, status: :unprocessable_entity
     end

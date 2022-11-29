@@ -1,3 +1,6 @@
+<%= link_to root_path do %>
+  <i class="fa-solid fa-arrow-left"></i>
+<% end %>
 <h1><%= @group.name %></h1>
 <% @group.posts.each do |post| %>
 <div class="border mb-4">
@@ -5,5 +8,11 @@
   <%= post.membership.user.username %>
   <p><%= post.title %></p>
   <p><%= post.content %></p>
+  <p><%= link_to "Delete post", post_path(post), data: {turbo_method: :delete, turbo_confirm: "Are you sure?"}, class: "text-dark text-decoration-none" %></p>
+
 </div>
+<% end %>
+
+<%= link_to new_post_path do%>
+  <i class="fa-solid fa-circle-plus"></i>
 <% end %>
