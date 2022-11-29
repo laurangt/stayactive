@@ -1,3 +1,7 @@
+<%= link_to root_path do %>
+  <i class="fa-solid fa-arrow-left"></i>
+<% end %>
+
 <h1><%= @project.title %></h1>
 <%= @project.description %>
 <p><%= link_to "Delete project", project_path(@project), data: {turbo_method: :delete, turbo_confirm: "Are you sure?"}, class: "text-danger" %></p>
