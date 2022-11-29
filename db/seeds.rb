@@ -7,16 +7,20 @@
 #   Character.create(name: "Luke", movie: movies.first)
 
 
-# User.destroy_all
- Group.destroy_all
+User.destroy_all
+puts "All Users Destroy"
+Group.destroy_all
+puts "All Groups Destroy"
 # Membership.destroy_all
 Post.destroy_all
+puts "All Post Destroy"
 # Comment.destroy_all
 # Project.destroy_all
 # Goal.destroy_all
 # Log.destroy_all
 
 # Users
+
 file_user1 = URI.open("https://res.cloudinary.com/dqpgsz5ed/image/upload/v1669661696/sam_sresnq.png")
 user1 = User.new(
   email: "sam@gmail.com",
@@ -26,6 +30,7 @@ user1 = User.new(
 )
 user1.photo.attach(io: file_user1, filename: "nes.png", content_type: "image/png")
 user1.save
+puts "User 1 saved: #{user1}"
 
 file_user2 = URI.open("https://res.cloudinary.com/dqpgsz5ed/image/upload/v1669661679/hanna_j3svhk.png")
 user2 = User.new(
@@ -36,6 +41,7 @@ user2 = User.new(
 )
 user2.photo.attach(io: file_user2, filename: "nes.png", content_type: "image/png")
 user2.save
+puts "User 1 saved: #{user2}"
 
 file_user3 = URI.open("https://res.cloudinary.com/dqpgsz5ed/image/upload/v1669661691/paul_sdp6tg.jpg")
 user3 = User.new(
@@ -105,24 +111,35 @@ group5.photo.attach(io: file_group5, filename: "nes.png", content_type: "image/p
 group5.save!
 
 # Memberships
-membership1 = Membership.create(
+membership1 = Membership.new(
   group_id: group2.id,
   user_id: user2.id
 )
+membership1.save!
 
-# membership2 = Membership.create(
-#   group_id: group1.id,
-#   user_id: user1.id
-# )
+membership2 = Membership.create(
+  group_id: group1.id,
+  user_id: user1.id
+)
 
-# # Post
-# post1 = Post.new(
-#   title: "Triathlon",
-#   content: "Finished first week of triathlon training with 10km!",
-#   membership_id: membership1.id
-# )
-# post1.save
+# Post
+Post.create(
+  title: "Triathlon",
+  content: "Finished first week of triathlon training with a 10km run!",
+  membership_id: membership1.id
+)
 
+Post.create(
+  title: "Triathlon",
+  content: "Felt so unmotivated today, but this community made me get out of bed and do a cycling sess",
+  membership_id: membership1.id
+)
+
+Post.create(
+  title: "Great podcast for running",
+  content: "Loved listening to the Mottiv podcast during my run, super good tips",
+  membership_id: membership2.id
+)
 
 #Comments
 # comment1 = Comment.new(
