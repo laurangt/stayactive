@@ -1,1 +1,57 @@
 // Specific CSS for your home-page
+.home_body {
+  padding: 5%;
+}
+
+.photo_bio {
+  display: flex;
+  width: 100%;
+  justify-content: space-between;
+  margin-bottom: 10px;
+}
+
+.user_bio {
+  width: 62%;
+  height: 100%;
+}
+
+.button_groups {
+  margin-bottom: 10px;
+}
+
+.button_groups .btn {
+  background-color: #F7D30B;
+  font-weight: bold;
+  text-decoration: none;
+  color:rgb(0, 0, 0);
+}
+
+.project_box .project_title_box {
+  border-radius: 5px 5px 0 0;
+  border: 1px solid #8D4D9A;
+  background-color: #8D4D9A;
+  margin-top: 5%;
+}
+
+.project_title {
+  margin: 7px;
+}
+
+.project_description {
+  border-radius: 0 0 5px 5px;
+  border: 1px solid white;
+  height: 90px;
+  background-color: rgb(255, 255, 255);
+  color: rgb(0, 0, 0);
+  padding: 3%;
+}
+
+.fa-circle-plus {
+  color: #F7D30B;
+  font-size: xx-large;
+  display: inline-block;
+  width: 90%;
+  text-align:center;
+  line-height: 195px;
+  position: fixed;
+}
