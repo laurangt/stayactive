@@ -7,7 +7,7 @@ class ProjectsController < ApplicationController
     @project = Project.new(project_params)
     @project.user = current_user
     if @project.save
-      redirect_to projects_create_path
+      redirect_to new_project_path
     else
       render :new, status: :unprocessable_entity
     end
@@ -21,7 +21,7 @@ class ProjectsController < ApplicationController
     @project = Project.find(params[:id])
     @project = Project.update(project_params)
 
-    redirect_to projects_update_path
+    redirect_to root_path
   end
 
   def destroy
