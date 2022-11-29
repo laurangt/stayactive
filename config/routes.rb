@@ -9,7 +9,7 @@ Rails.application.routes.draw do
   resources :goals, only: [:destroy]
 
   resources :goals, only: [] do
-    resources :logs, only: [:create, :new, :update]
+    resources :logs, only: [:create, :new]
   end
   resources :logs, only: [:destroy]
 
