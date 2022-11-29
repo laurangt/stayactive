@@ -14,11 +14,12 @@ Rails.application.routes.draw do
   resources :memberships, only: [:create, :new]
   resources :groups, only: [:index, :show]
 
-  resources :posts, only: [:index, :create, :new, :destroy] do
+  resources :posts, only: [:destroy] do
     resources :comments, only: [:create, :new, :destroy]
   end
 
   resources :groups do
     resources :memberships
+    resources :posts, only: [:new, :create]
   end
 end
