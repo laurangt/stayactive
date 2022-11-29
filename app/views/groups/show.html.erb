@@ -1,5 +1,5 @@
 <h1><%= @group.name %></h1>
-<% @posts.each do |post| %>
+<% @group.posts.each do |post| %>
 <div class="border mb-4">
   <%= cl_image_tag post.membership.user.photo.key, height: 50, width: 50, crop: :fill, style: "object-fit: fill;"%>
   <%= post.membership.user.username %>
