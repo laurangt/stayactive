@@ -24,7 +24,6 @@
       <p class="project_description"><%= project.description %></p>
     </div>
   <% end %>
-<% end %>
 <h2>My Projects</h2>
 <% @user.projects.each do |project| %>
   <%= link_to project_path(project) do %>
