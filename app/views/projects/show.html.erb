@@ -10,7 +10,10 @@
       <p><%= goal.title %></p>
       <p><%= goal.description %></p>
       <p><%= link_to "Delete goal", goal_path(goal), data: {turbo_method: :delete, turbo_confirm: "Are you sure?"}, class: "text-dark text-decoration-none" %></p>
-<%= @project.description %> <br>
+  <% end %>
+<% end %>
+
+
 <!-- Button trigger modal -->
 <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModalLong">
   Create Goals
