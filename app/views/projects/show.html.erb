@@ -1,0 +1,23 @@
+<h1>Hello from show#projects</h1>
+<%= link_to root_path do %>
+  <i class="fa-solid fa-arrow-left"></i>
+<% end %>
+<h1><%= @project.title %></h1>
+<%= @project.description %>
+<p><%= link_to "Delete project", project_path(@project), data: {turbo_method: :delete, turbo_confirm: "Are you sure?"}, class: "text-danger" %></p>
+
+<h2>Goals:</h2>
+<% @project.goals.each do |goal| %>
+  <%= link_to project_goal_path(goal)	do %>
+    <div class="border mb-3">
+      <p><%= goal.end_date %></p>
+      <p><%= goal.title %></p>
+      <p><%= goal.description %></p>
+      <p><%= link_to "Delete goal", goal_path(goal), data: {turbo_method: :delete, turbo_confirm: "Are you sure?"}, class: "text-dark text-decoration-none" %></p>
+    </div>
+  <% end %>
+<% end %>
+
+<%= link_to new_project_goal_path(@project) do%>
+  <i class="fa-solid fa-circle-plus"></i>
+<% end %>

@@ -1,4 +1,8 @@
 class ProjectsController < ApplicationController
+  def show
+    @project = Project.find(params[:id])
+  end
+
   def new
     @project = Project.new
   end
@@ -7,7 +11,7 @@ class ProjectsController < ApplicationController
     @project = Project.new(project_params)
     @project.user = current_user
     if @project.save
-      redirect_to projects_create_path
+      redirect_to root_path
     else
       render :new, status: :unprocessable_entity
     end
@@ -19,9 +23,9 @@ class ProjectsController < ApplicationController
 
   def update
     @project = Project.find(params[:id])
-    @project = Project.update(title: params[:title], description: params[:description])
+    @project = Project.update(project_params)
 
-    redirect_to projects_update_path
+    redirect_to root_path
   end
 
   def destroy
@@ -36,4 +40,5 @@ class ProjectsController < ApplicationController
   def project_params
     params.require(:project).permit(:title, :description)
   end
+
 end

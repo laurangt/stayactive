@@ -6,15 +6,19 @@
 <% end %>
   <%= @user.bio %>
 </div>
-<% @user.memberships.each do |membership| %>
-  <%= link_to group_path(membership.group) do%>
-    <button><%= membership.group.name %></button>
+<% @groups.each do |group| %>
+  <%= link_to group_path(group) do%>
+    <button><%= group.name %></button>
   <% end %>
 <% end %>
 <h2>My Projects</h2>
 <% @user.projects.each do |project| %>
-  <p><%= project.title %></p>
-  <p><%= project.description %></p>
+  <%= link_to project_path(project) do %>
+    <div class="border mb-3">
+      <p><%= project.title %></p>
+      <p><%= project.description %></p>
+    </div>
+  <% end %>
 <% end %>
 
 <%#= link_to popup do%>
