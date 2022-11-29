@@ -1,2 +1,14 @@
 <h1>Goal#new</h1>
 
+<%= simple_form_for (@project) do |f| %>
+    <div class="form-group-project" style="width:400px;">
+       <%= f.input :title %>
+    </div>
+    <div class="form-group-project" style="width:400px">
+      <%= f.input :description %>
+    </div>
+    <div class="button-new">
+       <button type="button" class="btn btn-warning"><%= f.button :submit, value: "Create" %></button>
+    </div>
+  <% end %>
+  
