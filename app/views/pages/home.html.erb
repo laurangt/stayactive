@@ -1,12 +1,21 @@
 <h1>Pages#home</h1>
 <h2>@<%= @user.username %></h2>
 <div class="d-flex">
+<% if @user.photo.key.present? %>
   <%= cl_image_tag @user.photo.key, height: 50, width: 50, crop: :fill, style: "object-fit: fill;"%>
+<% end %>
   <%= @user.bio %>
 </div>
-<%#= @user.membership.name %>
+<% @user.memberships.each do |membership| %>
+  <%= link_to group_path(membership.group) do%>
+    <button><%= membership.group.name %></button>
+  <% end %>
+<% end %>
 <h2>My Projects</h2>
-<%#= @user.projects %>
+<% @user.projects.each do |project| %>
+  <p><%= project.title %></p>
+  <p><%= project.description %></p>
+<% end %>
 
 <%#= link_to popup do%>
   <i class="fa-solid fa-circle-plus"></i>
