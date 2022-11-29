@@ -13,8 +13,12 @@
 <% end %>
 <h2>My Projects</h2>
 <% @user.projects.each do |project| %>
-  <p><%= project.title %></p>
-  <p><%= project.description %></p>
+  <%= link_to project_path(project) do %>
+    <div class="border mb-3">
+      <p><%= project.title %></p>
+      <p><%= project.description %></p>
+    </div>
+  <% end %>
 <% end %>
 
 <%#= link_to popup do%>

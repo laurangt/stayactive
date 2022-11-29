@@ -1,10 +1,12 @@
 class GoalsController < ApplicationController
   def show
+    #@goal.project = Project.find(params[:project_id])
     @goal = Goal.find(params[:id])
   end
 
   def new
     @goal = Goal.new
+    @project = Project.find(params[:project_id])
   end
 
   def create
