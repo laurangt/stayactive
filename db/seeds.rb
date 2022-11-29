@@ -8,8 +8,8 @@
 
 
 # User.destroy_all
-Group.destroy_all
-Membership.destroy_all
+ Group.destroy_all
+# Membership.destroy_all
 Post.destroy_all
 # Comment.destroy_all
 # Project.destroy_all
@@ -74,35 +74,35 @@ group1 = Group.new(
   name: "Running"
 )
 group1.photo.attach(io: file_group1, filename: "nes.png", content_type: "image/png")
-group1.save
+group1.save!
 
 file_group2 = URI.open("https://res.cloudinary.com/dqpgsz5ed/image/upload/v1669662449/running_uaizk2.png")
 group2 = Group.new(
   name: "Triathlon"
 )
 group2.photo.attach(io: file_group2, filename: "nes.png", content_type: "image/png")
-group2.save
+group2.save!
 
 file_group3 = URI.open("https://res.cloudinary.com/dqpgsz5ed/image/upload/v1669662449/running_uaizk2.png")
 group3 = Group.new(
   name: "Swimming"
 )
 group3.photo.attach(io: file_group3, filename: "nes.png", content_type: "image/png")
-group3.save
+group3.save!
 
 file_group4 = URI.open("https://res.cloudinary.com/dqpgsz5ed/image/upload/v1669662449/running_uaizk2.png")
 group4 = Group.new(
   name: "Trek"
 )
 group4.photo.attach(io: file_group4, filename: "nes.png", content_type: "image/png")
-group4.save
+group4.save!
 
 file_group5 = URI.open("https://res.cloudinary.com/dqpgsz5ed/image/upload/v1669662449/running_uaizk2.png")
 group5 = Group.new(
   name: "Padel"
 )
 group5.photo.attach(io: file_group5, filename: "nes.png", content_type: "image/png")
-group5.save
+group5.save!
 
 # Memberships
 membership1 = Membership.create(
