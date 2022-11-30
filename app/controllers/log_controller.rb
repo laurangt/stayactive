@@ -1,4 +1,4 @@
-class LogController < ApplicationController
+class LogsController < ApplicationController
   def new
     @log = Log.new
     @goal = Goal.find(params[:goal_id])
@@ -6,10 +6,12 @@ class LogController < ApplicationController
 
   def create
     @log = Log.new(log_params)
-    @log.goal = Goal.find(params[:goal_id])
+    @goal = Goal.find(params[:goal_id])
+    @log.goal = @goal
     if @log.save
-      redirect_to goal_path(@log.goal)
+      redirect_to goal_path(@goal)
     else
+      raise
       render :new, status: :unprocessable_entity
     end
   end
