@@ -26,7 +26,6 @@ class GoalsController < ApplicationController
 
   def update
     @goal = Goal.find(params[:id])
-    @goal = Goal.update(goal_params)
     redirect_to project_path
   end
 
