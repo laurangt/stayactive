@@ -3,7 +3,7 @@ Rails.application.routes.draw do
   devise_for :users
   root to: "pages#home"
 
-  resources :projects, only: [:new, :show, :destroy] do
+  resources :projects, only: [:new, :show, :create, :destroy] do
     resources :goals,  only: [:create, :new, :show, :update]
   end
   resources :goals, only: [:destroy]
@@ -13,13 +13,14 @@ Rails.application.routes.draw do
   end
   resources :logs, only: [:destroy]
 
-  resources :posts, only: [:index, :create, :new, :destroy] do
+  resources :posts, only: [:destroy] do
     resources :comments, only: [:create, :new]
   end
   resources :comments, only: [:destroy]
 
-  resources :groups do
+  resources :groups, only: [:index, :show] do
     resources :memberships
+    resources :posts, only: [:create, :new]
   end
 
   # resources :memberships, only: [:create, :new]
