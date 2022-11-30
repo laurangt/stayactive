@@ -13,7 +13,7 @@
 
   <h2>Goals:</h2>
   <% @project.goals.each do |goal| %>
-    <input type="checkbox"/>
+    <input type="checkbox" <%= goal.status ? "checked" : "" %>/>
     <p class="p-show-end-date"><%= goal.end_date %></p>
     <%= link_to project_goal_path(@project, goal)	do %>
       <div class="p-show-goals">
