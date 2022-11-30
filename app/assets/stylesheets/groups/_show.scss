@@ -14,11 +14,15 @@
 .b-create-memb {
   background-color: #F7D30B;
   margin-bottom: 4%;
-  font-weight: bold;
 }
 
 .group-post-head {
   border-radius: 10px 10px 0 0;
+  color: white;
+}
+
+.g-post-name {
+  text-decoration: none;
 }
 
 .group-post-head {
@@ -39,9 +43,13 @@
 .g-post-del {
   display: flex;
   justify-content: right;
-  margin-right: 1%;
 }
 
-.d-post {
-  margin-right: 3%;
+.g-post-del .show-message {
+  margin-right: 6%;
+}
+
+a {
+  text-decoration: none;
+  color: black;
 }
