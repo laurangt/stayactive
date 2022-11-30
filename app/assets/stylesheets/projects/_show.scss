@@ -1,0 +1,56 @@
+.project_show {
+  padding: 5%;
+}
+
+.project-show-main {
+  display: flex;
+  margin-bottom: 2%;
+}
+
+.fa-arrow-left{
+  color: rgb(255, 255, 255);
+}
+.project-show-title {
+  margin: auto;
+}
+
+.project-show-desc {
+  border: 1px solid white;
+  border-radius: 10px;
+  color: rgb(0, 0, 0);
+  background-color: rgb(255, 255, 255);
+  margin-bottom: 2%;
+  padding: 2%;
+}
+
+.p-show-desc-del {
+  text-align: right;
+}
+
+.text-danger {
+  text-decoration: none;
+}
+
+.p-show-end-date {
+  background-color: #0C2641;
+  color: rgb(255, 255, 255);
+}
+
+.p-show-goal-box {
+  background-color: #8D4D9A;
+  border-radius: 10px;
+  padding: 2%;
+  margin-bottom: 5%;
+}
+
+.p-show-goal-del {
+  text-align: right;
+}
+
+.b-create-goal {
+  float: right;
+  background-color: #F7D30B;
+  color: black;
+  text-decoration: none;
+  font-weight: bold;
+}

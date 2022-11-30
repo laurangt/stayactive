@@ -1,5 +1,9 @@
 class Post < ApplicationRecord
   belongs_to :membership
   has_many :comments, dependent: :destroy
+
+  validates :title, presence: true, length: { maximum: 25 }
+  validates :content, presence: true, length: { maximum: 200 }
+
   has_one_attached :photo
 end
