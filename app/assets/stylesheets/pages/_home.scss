@@ -3,6 +3,9 @@
   padding: 5%;
 }
 
+.home_body > a {
+  text-decoration: none;}
+
 .photo_bio {
   display: flex;
   width: 100%;
@@ -35,11 +38,12 @@
 
 .project_title {
   margin: 7px;
+  color: rgb(255, 255, 255);
 }
 
 .project_description {
   border-radius: 0 0 5px 5px;
-  border: 1px solid white;
+  border: 1px solid rgb(255, 255, 255);
   height: 90px;
   background-color: rgb(255, 255, 255);
   color: rgb(0, 0, 0);
@@ -52,6 +56,27 @@
   display: inline-block;
   width: 90%;
   text-align:center;
-  line-height: 195px;
   position: fixed;
+  bottom: 11%;
+}
+
+.modal-content-home {
+  background-color: #0C2641;
+  text-align: center;
+}
+
+.modal-title-home {
+  padding: 5%;
+}
+
+.b-home-pop {
+  background-color: #8D4D9A;
+  width: 100px;
+  height: 80px;
+  margin: 5%;
+}
+
+.b-home-pop > a {
+  color: rgb(255, 255, 255);
+  text-decoration: none;
 }
