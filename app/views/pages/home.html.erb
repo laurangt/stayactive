@@ -38,18 +38,13 @@
         <div class="modal-content-home">
           <div class="modal-header-home">
             <h5 class="modal-title-home" id="exampleModalLabel">What do you want to do?</h5>
-            <%# <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-              <span aria-hidden="true">&times;</span>
-            </button> %>
           </div>
           <div class="modal-body">
-            <button class="b-home-pop"><%= link_to "Sports groups", groups_path %></button>
-            <button class="b-home-pop"><%= link_to "Add a project", new_project_path %></button>
+            <%# <button class="b-home-pop"><%= link_to "Sports groups", groups_path(@groups) %></button> %>
+            <%# <button class="b-home-pop"><%= link_to "Add a project", new_project_path</button> %> %>
+            <%= link_to "Sports groups", groups_path(@groups) %>
+            <%= link_to "Add a project", new_project_path %>
           </div>
-          <%# <div class="modal-footer">
-            <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-            <button type="button" class="btn btn-primary">Save changes</button>
-          </div> %>
         </div>
       </div>
     </div>

@@ -24,6 +24,7 @@ class GoalsController < ApplicationController
 
   def edit
     @goal = Goal.find(params[:id])
+    authorize @goal
   end
 
   def update
