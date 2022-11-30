@@ -35,11 +35,12 @@
 
 .project_title {
   margin: 7px;
+  color: rgb(255, 255, 255);
 }
 
 .project_description {
   border-radius: 0 0 5px 5px;
-  border: 1px solid white;
+  border: 1px solid rgb(255, 255, 255);
   height: 90px;
   background-color: rgb(255, 255, 255);
   color: rgb(0, 0, 0);
@@ -52,6 +53,6 @@
   display: inline-block;
   width: 90%;
   text-align:center;
-  line-height: 195px;
   position: fixed;
+  bottom: 9%;
 }
