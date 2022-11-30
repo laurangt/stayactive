@@ -7,8 +7,13 @@
 <p><%= @goal.end_date %></p>
 <p><%= @goal.status %></p>
 
-<% @goal.logs.each do |log| %>
-  <%= log.content %>
+<% @goal.logs.reverse.each do |log| %>
+  <div class="border mb-3">
+    <p><%= log.content %></p>
+    <% if policy(log).destroy? %>
+        <%= link_to "Delete log", log_path(log), data: {turbo_method: :delete, turbo_confirm: "Are you sure?"}, class: "text-light text-decoration-none" %>
+      <% end %>
+  </div>
 <% end %>
 
 <!-- Button trigger modal -->
@@ -35,10 +40,7 @@
           </div>
         <% end %>
       </div>
-      <div class="modal-footer">
-        <%# <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button> %>
-        <button type="button" class="btn btn-primary">Save</button>
-      </div>
+
     </div>
   </div>
 </div>

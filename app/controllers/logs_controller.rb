@@ -14,7 +14,7 @@ class LogsController < ApplicationController
       redirect_to goal_path(@goal)
       authorize @log
     else
-      render :new, status: :unprocessable_entity
+      render "new", status: :unprocessable_entity
     end
   end
 
