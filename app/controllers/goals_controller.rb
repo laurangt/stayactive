@@ -2,6 +2,7 @@ class GoalsController < ApplicationController
   def show
     @project = Project.find(params[:project_id])
     @goal = Goal.find(params[:id])
+    @log = Log.new
     authorize @goal
   end
 
@@ -29,7 +30,7 @@ class GoalsController < ApplicationController
 
   def update
     @goal = Goal.find(params[:id])
-    @goal = Goal.update(goal_params)
+    @goal.update(goal_params)
     redirect_to project_path
     authorize @goal
   end

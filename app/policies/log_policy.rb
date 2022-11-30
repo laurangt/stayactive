@@ -15,10 +15,10 @@ class LogPolicy < ApplicationPolicy
   end
 
   def update?
-    record.project.user == user
+    record.goal.user == user
   end
 
   def destroy?
-    record.project.user == user
+    record.goal.user == user
   end
 end

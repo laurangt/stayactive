@@ -8,4 +8,11 @@ class MembershipsController < ApplicationController
       redirect_to root_path
     end
   end
+
+  def destroy
+    @membership = Membership.find(params[:id])
+    @membership.destroy
+    redirect_to root_path
+    authorize @membership
+  end
 end

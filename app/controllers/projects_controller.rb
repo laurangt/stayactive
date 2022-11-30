@@ -22,19 +22,20 @@ class ProjectsController < ApplicationController
     end
   end
 
-  def edit
-    @project = Project.find(params[:id])
-    authorize @project
-  end
+  # def edit
+  #   @project = Project.find(params[:id])
+  #   authorize @project
+  # end
 
   def update
     @project = Project.find(params[:id])
-    @project = Project.update(project_params)
+    @user = current_user
+    @project.update(project_params)
 
-    redirect_to root_path
+    redirect_to project_path(@project)
     authorize @project
-
   end
+
 
   def destroy
     @project = Project.find(params[:id])
@@ -42,7 +43,6 @@ class ProjectsController < ApplicationController
 
     redirect_to root_path
     authorize @project
-
   end
 
   private
