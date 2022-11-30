@@ -12,4 +12,11 @@ class User < ApplicationRecord
   has_many :goals, through: :projects
   has_one_attached :photo
 
+  validates :email, presence: true, format: {
+    with: /\A([^@\s]+)@((?:[-a-z0-9]+\.)+[a-z]{2,})\z/i
+  }
+  validates :password, presence: true
+  validates :username, presence: true, uniqueness: true
+  validates :bio, presence: true
+
 end

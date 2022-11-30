@@ -5,6 +5,7 @@ class CommentsController < ApplicationController
     @group =  @comment.membership.group
     @post = Post.find(params[:post_id])
     @comment.post = @post
+    authorize @comment
     if @comment.save
       redirect_to group_post_path(@group, @post)
     else
@@ -17,6 +18,7 @@ class CommentsController < ApplicationController
     @comment = Comment.find(params[:id])
     @comment.destroy
     redirect_to group_path
+    authorize @comment
   end
 
   private

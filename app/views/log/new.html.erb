@@ -1,0 +1,15 @@
+<%# <%= link_to group_path(@goals) do =%>
+<div class="container py-5">
+  <div class="post">
+    <div class="col-12 col-md-12 offset-lg-3">
+      <div class="bg-gray rounded p-3 shadow">
+        <h2>New Log</h2>
+          <%= simple_form_for [@log] do |f| %>
+                <%= f.input :content %>
+                <%= f.input :log_id %>
+                <%= f.button :submit %>
+           <% end %>
+      </div>
+    </div>
+  </div>
+<div>

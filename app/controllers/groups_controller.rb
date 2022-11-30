@@ -6,5 +6,6 @@ class GroupsController < ApplicationController
   def show
     @group = Group.find(params[:id])
     @membership = Membership.new
+    authorize @group.posts
   end
 end
