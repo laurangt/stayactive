@@ -39,7 +39,6 @@ class GoalsController < ApplicationController
     @goal.destroy
     redirect_to project_path
     authorize @goal
-
   end
 
   private

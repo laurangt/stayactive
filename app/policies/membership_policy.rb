@@ -1,4 +1,4 @@
-class GoalPolicy < ApplicationPolicy
+class MembershipPolicy < ApplicationPolicy
   class Scope < Scope
     # NOTE: Be explicit about which records you allow access to!
     # def resolve
@@ -6,19 +6,11 @@ class GoalPolicy < ApplicationPolicy
     # end
   end
 
-  def show?
-    true
-  end
-
   def create?
     true
   end
 
-  def update?
-    record.project.user == user
-  end
-
   def destroy?
-    record.project.user == user
+    record.user == user
   end
 end
