@@ -180,9 +180,9 @@ goal1 = Goal.new(
 goal1.save
 
 
-#Logs
-# log1 = Log.new(
-#   content:,
-#   goal_id:
-# )
-# log1.save
+# Logs
+log1 = Log.new(
+  content: "New log",
+  goal_id: 2,
+)
+log1.save

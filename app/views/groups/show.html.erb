@@ -4,6 +4,8 @@
 
 <h1><%= @group.name %></h1>
 
+<%# if current user has that group then show another message  %>
+
 <%= simple_form_for [@group, @membership] do |f| %>
   <%= f.button :submit %>
 <% end %>
