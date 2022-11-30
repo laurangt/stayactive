@@ -5,10 +5,11 @@ class PostsController < ApplicationController
   end
 
   def create
+    @group = Group.find(params[:group_id])
     @post = Post.new(post_params)
-    @post.membership = Membership.find(params[:membership_id])
+    @post.membership = Membership.find_by(user: current_user, group: @group)
     if @post.save
-      redirect_to group_path(params[:id])
+      redirect_to group_path @group
     else
       render :new, status: :unprocessable_entity
     end
@@ -22,7 +23,7 @@ class PostsController < ApplicationController
 
   private
 
-  def params_post
+  def post_params
     params.require(:post).permit(:title, :content, :membership_id)
   end
 end
