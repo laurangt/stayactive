@@ -27,14 +27,14 @@
     <% end %>
   <% end %>
   <h2>My Projects</h2>
-<% @user.projects.each do |project| %>
-  <%= link_to project_path(project) do %>
-    <div class="border mb-3">
-      <p><%= project.title %></p>
-      <p><%= project.description %></p>
-    </div>
+  <% @user.projects.each do |project| %>
+    <%= link_to project_path(project) do %>
+      <div class="border mb-3">
+        <p><%= project.title %></p>
+        <p><%= project.description %></p>
+      </div>
+    <% end %>
   <% end %>
-<% end %>
 
 
 <!-- Button trigger modal -->
