@@ -12,8 +12,8 @@ class GoalsController < ApplicationController
   end
 
   def create
-    @goal = Goal.new(goal_params)
     @project = Project.find(params[:project_id])
+    @goal = Goal.new(goal_params)
     @goal.project = @project
     authorize @goal
     if @goal.save
