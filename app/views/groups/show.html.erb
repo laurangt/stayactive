@@ -1,7 +1,13 @@
 <%= link_to root_path do %>
   <i class="fa-solid fa-arrow-left"></i>
 <% end %>
+
 <h1><%= @group.name %></h1>
+
+<%= simple_form_for [@group, @membership] do |f| %>
+  <%= f.button :submit %>
+<% end %>
+
 <% @group.posts.each do |post| %>
 <div class="border mb-4">
   <%= cl_image_tag post.membership.user.photo.key, height: 50, width: 50, crop: :fill, style: "object-fit: fill;"%>

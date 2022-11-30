@@ -11,4 +11,5 @@ class User < ApplicationRecord
   has_many :projects, dependent: :destroy
   has_many :goals, through: :projects
   has_one_attached :photo
+
 end

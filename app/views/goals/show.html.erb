@@ -1,1 +1,13 @@
-<h1>this is goal show page</h1>
+<%= link_to project_path(@project) do %>
+  <i class="fa-solid fa-arrow-left"></i>
+<% end %>
+
+<h1><%= @goal.title %></h1>
+<p><%= @goal.description %></p>
+<p><%= @goal.end_date %></p>
+<p><%= @goal.status %></p>
+
+
+<%#= link_to pop up of new log do%>
+  <i class="fa-solid fa-circle-plus"></i>
+<%# end %>
