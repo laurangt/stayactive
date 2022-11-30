@@ -15,9 +15,14 @@
       <%= post.membership.user.username %>
       <p><%= post.title %></p>
       <p><%= post.content %></p>
-      <%= link_to "Delete post", post_path(post), data: {turbo_method: :delete, turbo_confirm: "Are you sure?"}, class: "text-light text-decoration-none" %>
+
+
       <%= link_to group_post_path(@group, post) do %>
         <i class="fa-solid fa-message"></i>
+      <% end %>
+      <%#= button_to "Delete this post", post, method: :delete if policy(post).destroy? %>
+      <% if policy(post).destroy? %>
+        <%= link_to "Delete post", post_path(post), data: {turbo_method: :delete, turbo_confirm: "Are you sure?"}, class: "text-light text-decoration-none" %>
       <% end %>
     </div>
   <% end %>

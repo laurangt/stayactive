@@ -2,6 +2,7 @@ class GoalsController < ApplicationController
   def show
     @project = Project.find(params[:project_id])
     @goal = Goal.find(params[:id])
+    authorize @goal
   end
 
   def new
@@ -13,6 +14,7 @@ class GoalsController < ApplicationController
     @goal = Goal.new(goal_params)
     @project = Project.find(params[:project_id])
     @goal.project = @project
+    authorize @goal
     if @goal.save
       redirect_to project_path(@project)
     else
@@ -28,12 +30,15 @@ class GoalsController < ApplicationController
     @goal = Goal.find(params[:id])
     @goal = Goal.update(goal_params)
     redirect_to project_path
+    authorize @goal
   end
 
   def destroy
     @goal = Goal.find(params[:id])
     @goal.destroy
     redirect_to project_path
+    authorize @goal
+
   end
 
   private
