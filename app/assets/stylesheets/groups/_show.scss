@@ -14,10 +14,15 @@
 .b-create-memb {
   background-color: #F7D30B;
   margin-bottom: 4%;
-  }
+}
 
 .group-post-head {
   border-radius: 10px 10px 0 0;
+  color: white;
+}
+
+.g-post-name {
+  text-decoration: none;
 }
 
 .group-post-head {
@@ -42,4 +47,9 @@
 
 .g-post-del .show-message {
   margin-right: 6%;
+}
+
+a {
+  text-decoration: none;
+  color: black;
 }
