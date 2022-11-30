@@ -7,8 +7,9 @@ class CommentsController < ApplicationController
     @comment.post = @post
     if @comment.save
       redirect_to group_post_path(@group, @post)
+      authorize @comment
     else
-      #redirect_to group_path(@group)
+      redirect_to group_path(@group)
       #render 'groups/show', status: :unprocessable_entity
     end
   end
@@ -17,6 +18,7 @@ class CommentsController < ApplicationController
     @comment = Comment.find(params[:id])
     @comment.destroy
     redirect_to group_path
+    authorize @comment
   end
 
   private

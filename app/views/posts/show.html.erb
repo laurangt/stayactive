@@ -2,20 +2,22 @@
   <i class="fa-solid fa-arrow-left"></i>
 <% end %>
 
-<h1>this is post show page</h1>
-<%= @post.title %>
-<%= @post.content %>
+<h1>Post title:<%= @post.title %></h1>
+<%= cl_image_tag @post.membership.user.photo.key, height: 50, width: 50, crop: :fill, style: "object-fit: fill;"%>
+<%= @post.membership.user.username %>
+<p><%= @post.content %></p>
 <% @post.comments.reverse.each do |comment| %>
   <div class="border mb-3">
     <%= cl_image_tag comment.membership.user.photo.key, height: 50, width: 50, crop: :fill, style: "object-fit: fill;"%>
     <%= comment.membership.user.username %>
     <p><%= comment.content %></p>
+    <% if policy(comment).destroy? %>
+      <%= link_to "Delete comment", comment_path(comment), data: {turbo_method: :delete, turbo_confirm: "Are you sure?"}, class: "text-light text-decoration-none" %>
+    <% end %>
   </div>
 <% end %>
 
 <%= simple_form_for([@post, @comment]) do |f| %>
-  <%= f.input :content %>
+  <%= f.input :content, as: :text%>
   <%= f.submit value: "Create", class: 'btn btn-warning' %>
 <% end %>
-
-<%#= link_to "add comment", new_post_comment_path(@post, @comment)	%>

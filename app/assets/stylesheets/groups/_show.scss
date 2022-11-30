@@ -1,0 +1,55 @@
+.g_show {
+  padding: 5%;
+}
+
+.g-show-title {
+  display: flex;
+  margin-bottom: 2%;
+}
+
+.g-show-name {
+  margin: auto;
+}
+
+.b-create-memb {
+  background-color: #F7D30B;
+  margin-bottom: 4%;
+}
+
+.group-post-head {
+  border-radius: 10px 10px 0 0;
+  color: white;
+}
+
+.g-post-name {
+  text-decoration: none;
+}
+
+.group-post-head {
+  background-color: #8D4D9A;
+}
+.group-post-head > img {
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+}
+
+.group-post-cont {
+  background-color: rgb(255, 255, 255);
+  border-radius: 0px 0px 10px 10px;
+  padding: 2%;
+}
+
+.g-post-del {
+  display: flex;
+  justify-content: right;
+}
+
+.g-post-del .show-message {
+  margin-right: 6%;
+}
+
+a {
+  text-decoration: none;
+  color: black;
+}

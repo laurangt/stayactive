@@ -1,13 +1,15 @@
 class PostsController < ApplicationController
   def show
     @post = Post.find(params[:id])
-    @comment = Comment.new
     @group = Group.find(params[:group_id])
+    @comment = Comment.new
+    authorize @post
   end
 
   def new
     @group = Group.find(params[:group_id])
     @post = Post.new
+    authorize @post
   end
 
   def create
@@ -16,6 +18,7 @@ class PostsController < ApplicationController
     @post.membership = Membership.find_by(user: current_user, group: @group)
     if @post.save
       redirect_to group_path @group
+      authorize @post
     else
       render :new, status: :unprocessable_entity
     end
@@ -25,6 +28,7 @@ class PostsController < ApplicationController
     @post = Post.find(params[:id])
     @post.destroy
     redirect_to group_path
+    authorize @post
   end
 
   private

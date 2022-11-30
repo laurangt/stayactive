@@ -1,29 +1,44 @@
-<%= link_to root_path do %>
-  <i class="fa-solid fa-arrow-left"></i>
-<% end %>
+<div class="g_show">
+  <div class="g-show-title">
+    <%= link_to root_path do %>
+      <i class="fa-solid fa-arrow-left fa-lg"></i>
+    <% end %>
 
-<h1><%= @group.name %></h1>
-
-<%= simple_form_for [@group, @membership] do |f| %>
-  <%= f.button :submit %>
-<% end %>
-
-<% @group.posts.each do |post| %>
-  <%= link_to group_post_path(@group, post) do %>
-    <div class="border mb-4">
-      <%= cl_image_tag post.membership.user.photo.key, height: 50, width: 50, crop: :fill, style: "object-fit: fill;"%>
-      <%= post.membership.user.username %>
-      <p><%= post.title %></p>
-      <p><%= post.content %></p>
-      <%= link_to "Delete post", post_path(post), data: {turbo_method: :delete, turbo_confirm: "Are you sure?"}, class: "text-light text-decoration-none" %>
-      <%= link_to group_post_path(@group, post) do %>
-        <i class="fa-solid fa-message"></i>
-      <% end %>
-    </div>
+    <h1 class="g-show-name"><%= @group.name %></h1>
+  </div>
+  <%= simple_form_for [@group, @membership] do |f| %>
+    <button type="button" class="btn btn-link btn-sm b-create-memb"><%= f.button :submit %></button>
   <% end %>
-<% end %>
 
+  <% @group.posts.each do |post| %>
+    <%= link_to group_post_path(@group, post) do %>
+      <div class="g-post-all mb-4">
+        <div class="group-post-head">
+          <%= cl_image_tag post.membership.user.photo.key, height: 50, width: 50, crop: :fill, style: "object-fit: fill;"%>
+          <%= post.membership.user.username %>
+        </div>
+        <div class="group-post-cont">
+          <p><%= post.title %></p>
+          <p><%= post.content %></p>
 
-<%= link_to new_group_post_path(@group) do%>
-  <i class="fa-solid fa-circle-plus"></i>
-<% end %>
+          <div class="g-post-del">
+            <div class="show-message">
+              <%= link_to group_post_path(@group, post) do %>
+                <i class="fa-solid fa-message"></i>
+              <% end %>
+            </div>
+            <% if policy(post).destroy? %>
+              <%= link_to post_path(post), data: {turbo_method: :delete, turbo_confirm: "Are you sure?"}, class: "text-dark text-decoration-none d-post" do %>
+                <i class="fa-solid fa-trash"></i>
+              <% end %>
+            <% end %>
+          </div>
+        </div>
+      </div>
+    <% end %>
+  <% end %>
+
+  <%= link_to new_group_post_path(@group) do%>
+    <i class="fa-solid fa-circle-plus"></i>
+  <% end %>
+</div>

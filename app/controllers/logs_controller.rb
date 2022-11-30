@@ -1,17 +1,19 @@
 class LogsController < ApplicationController
   def new
-    @log = Log.new
     @goal = Goal.find(params[:goal_id])
+    @log = Log.new
+    authorize @log
   end
 
   def create
-    @log = Log.new(log_params)
     @goal = Goal.find(params[:goal_id])
+    @log = Log.new(log_params)
     @log.goal = @goal
+
     if @log.save
       redirect_to goal_path(@goal)
+      authorize @log
     else
-      raise
       render :new, status: :unprocessable_entity
     end
   end
@@ -20,7 +22,10 @@ class LogsController < ApplicationController
     @log = Log.find(params[:id])
     @log.destroy
     redirect_to goal_path
+    authorize @log
   end
+
+  private
 
   def log_params
     params.require(:log).permit(:content)
