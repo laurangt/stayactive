@@ -3,6 +3,9 @@
   padding: 5%;
 }
 
+.home_body > a {
+  text-decoration: none;}
+
 .photo_bio {
   display: flex;
   width: 100%;
@@ -57,7 +60,23 @@
   bottom: 9%;
 }
 
-.modal-content {
+.modal-content-home {
   background-color: #0C2641;
   text-align: center;
+}
+
+.modal-title-home {
+  padding: 5%;
+}
+
+.b-home-pop {
+  background-color: #8D4D9A;
+  width: 100px;
+  height: 80px;
+  margin: 5%;
+}
+
+.b-home-pop > a {
+  color: rgb(255, 255, 255);
+  text-decoration: none;
 }
