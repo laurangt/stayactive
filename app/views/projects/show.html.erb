@@ -40,13 +40,14 @@
         </div>
         <div class="modal-body">
           <%= simple_form_for([@project, @goal]) do |f| %>
-            <div class="form-group-goal" style="width:400px;">
+            <div class="form-group-goal" style="width:325px;">
+              <%= f.label :title, "Title" %>
               <%= f.input :title %>
             </div>
-            <div class="form-group-goal" style="width:400px">
+            <div class="form-group-goal" style="width:325px">
               <%= f.input :description %>
             </div>
-            <div class="form-group-goal" style="width:400px">
+            <div class="form-group-goal" style="width:325px">
               <%= f.input :end_date, as: :date %>
             </div>
             <div class="button-new">
@@ -54,11 +55,46 @@
             </div>
           <% end %>
         </div>
-        <div class="modal-footer">
-          <%# <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button> %>
-          <button type="button" class="btn btn-primary">Save</button>
-        </div>
+        <%# <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+        <button type="button" class="btn btn-primary">Save</button>
+      </div> %>
       </div>
     </div>
   </div>
-</div>
+  <!-- Button trigger modal -->
+  <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#editProject">
+    Edit Project
+  </button>
+  <!-- Modal -->
+  <div class="modal fade" id="editProject" tabindex="-1" role="dialog" aria-labelledby="editProjectTitle" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="editProjectTitle">Edit Project</h5>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body">
+          <%= simple_form_for([@project]) do |f| %>
+            <div class="form-edit-project" style="width:325px;">
+              <%= f.label :title, "Title" %>
+              <%= f.input :title, placeholder: @project.title %>
+            </div>
+            <div class="form-edit-project" style="width:325px;">
+              <%= f.label :description, "Description" %>
+              <%= f.input :description, placeholder: @project.description %>
+            </div>
+            <div class="button-new">
+              <button type="button" class="btn btn-warning"><%= f.button :submit, name: "subaction", value: "update" %></button>
+            </div>
+          <% end %>
+        </div>
+        <%# <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+        <button type="button" class="btn btn-primary">Save</button>
+      </div> %>
+      </div>
+    </div>
+  </div>
