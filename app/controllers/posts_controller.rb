@@ -1,8 +1,8 @@
 class PostsController < ApplicationController
   def show
     @post = Post.find(params[:id])
-    @comment = Comment.new
     @group = Group.find(params[:group_id])
+    @comment = Comment.new
     authorize @post
   end
 

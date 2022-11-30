@@ -9,7 +9,7 @@
         <h2>New Post</h2>
           <%= simple_form_for [@group, @post] do |f| %>
                 <%= f.input :title %>
-                <%= f.input :description %>
+                <%= f.input :content %>
                 <%= f.input :photo, as: :file %>
                 <%= f.button :submit %>
            <% end %>
