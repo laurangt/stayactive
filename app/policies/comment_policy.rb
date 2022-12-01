@@ -11,11 +11,7 @@ class CommentPolicy < ApplicationPolicy
   end
 
   def create?
-    # record.membership == user.membership
     true
-    # if  @comment.membership.group == current_user.membership.group
-    #   true
-    # end
   end
 
   def destroy?
