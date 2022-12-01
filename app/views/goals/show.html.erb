@@ -14,11 +14,13 @@
 </div>
 <div class="border mt-0" id="content">
   <p class='text'><%= log.content %></p>
+  <% if log.photo.key.present? %>
+    <p><%= cl_image_tag log.photo.key, height: 50, width: 50, crop: :fill%></p>
+  <% end %>
   <% if policy(log).destroy? %>
-    <%= link_to "Delete log", log_path(log), data: {turbo_method: :delete, turbo_confirm: "Are you sure?"}, class: "text-color-black" %>
+    <%= link_to "Delete log", log_path(log), data: {turbo_method: :delete, turbo_confirm: "Are you sure?"}, class: "text-light text-decoration-none" %>
   <% end %>
 </div>
-<% end %>
 <!-- Button trigger modal -->
 <button type="button" id="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModalLong">
   <i id="round" class="fa-solid fa-circle-plus"></i> Add a log
@@ -37,6 +39,7 @@
         <%= simple_form_for([@goal, @log]) do |f| %>
           <div class="form-group-goal" style="width:400px;">
             <%= f.input :content %>
+            <%= f.input :photo, as: :file %>
           </div>
           <div class="button-new">
             <%= f.button :submit, value: "Create" %>

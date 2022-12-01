@@ -41,7 +41,7 @@
   color: rgb(255, 255, 255);
 }
 
-.project_description {
+.project_descr {
   border-radius: 0 0 5px 5px;
   border: 1px solid rgb(255, 255, 255);
   height: 90px;
@@ -57,16 +57,16 @@
   width: 90%;
   text-align:center;
   position: fixed;
-  bottom: 11%;
+  bottom: 10%;
 }
 
-.modal-content-home {
+.modal-content {
   background-color: #0C2641;
   text-align: center;
 }
 
-.modal-title-home {
-  padding: 5%;
+.modal-title {
+  font-weight: bold;
 }
 
 .b-home-pop {
@@ -77,6 +77,7 @@
 }
 
 .b-home-pop > a {
+  font-weight: bold;
   color: rgb(255, 255, 255);
   text-decoration: none;
 }

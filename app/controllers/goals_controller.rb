@@ -9,6 +9,7 @@ class GoalsController < ApplicationController
   def new
     @goal = Goal.new
     @project = Project.find(params[:project_id])
+    authorize @goal
   end
 
   def create
@@ -19,7 +20,7 @@ class GoalsController < ApplicationController
     if @goal.save
       redirect_to project_path(@project)
     else
-      render :new, status: :unprocessable_entity
+      render 'projects/show', status: :unprocessable_entity
     end
   end
 
