@@ -32,8 +32,8 @@
     <% end %>
   </div>
 
-    <%= simple_form_for([@post, @comment]) do |f| %>
-      <%= f.input :content, as: :text%>
-      <%= f.submit value: "Create", class: 'btn btn-link b-create-comm' %>
-    <% end %>
+  <%= simple_form_for([@post, @comment]) do |f| %>
+    <%= f.input :content, as: :text%>
+    <%= f.submit value: "Create", class: 'btn btn-link b-create-comm' %>
+  <% end %>
 </div>
