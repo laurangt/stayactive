@@ -5,11 +5,14 @@
         <i class="fa-solid fa-arrow-left fa-lg"></i>
       <% end %>
 
+
       <h1 class="po-show-title"><%= @post.title %></h1>
     </div>
     <div class="po-show-content">
       <div class="po-show-member">
-        <%= cl_image_tag @post.membership.user.photo.key, height: 50, width: 50, crop: :fill, style: "object-fit: fill;"%>
+        <% if @post.photo.key.present? %>
+          <%= cl_image_tag @post.membership.user.photo.key, height: 50, width: 50, crop: :fill, style: "object-fit: fill;"%>
+        <% end %>
         <%= @post.membership.user.username %>
       </div>
       <p class="po-sh-content-member"><%= @post.content %></p>
@@ -32,8 +35,18 @@
     <% end %>
   </div>
 
-  <%= simple_form_for([@post, @comment]) do |f| %>
-    <%= f.input :content, as: :text%>
-    <%= f.submit value: "Create", class: 'btn btn-link b-create-comm' %>
+
+
+<% groupsid = @user.groups.map do |group| %>
+  <% group.id %>
+<% end %>
+<% if groupsid.include?(@group.id) %>
+
+  <% if policy(@comment).create? %>
+    <%= simple_form_for([@post, @comment]) do |f| %>
+      <%= f.input :content, as: :text%>
+      <%= f.submit value: "Create", class: 'btn btn-link b-create-comm' %>
+    <% end %>
   <% end %>
-</div>
+
+<% end %>
