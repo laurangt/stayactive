@@ -55,6 +55,13 @@
   font-weight: bold;
 }
 
+.posh-comment {
+  padding: 5%;
+  height: 192px;
+  background-color: #0C2641;
+  width: 100%;
+}
+
 .b-create-comm {
   background-color: #F7D30B;
   margin-bottom: 4%;
@@ -62,4 +69,6 @@
   text-decoration: none;
   font-weight: bold;
   float: right;
+  border-radius: 10px;
+  border-bottom: 3px solid #999904;
 }

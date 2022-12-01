@@ -8,9 +8,16 @@
   </div>
   <div class="project-show-desc">
     <p><%= @project.description %></p>
-    <p class="p-show-desc-del"><%= link_to project_path(@project), data: {turbo_method: :delete, turbo_confirm: "Are you sure?"}, class: "text-danger" do %>
-      <i class="fa-solid fa-trash"></i>
-    <% end %></p>
+    <div class="ps-icon">
+      <p class="p-show-desc-del p-2"><%= link_to project_path(@project), data: {turbo_method: :delete, turbo_confirm: "Are you sure?"}, class: "text-dark" do %>
+        <i class="fa-solid fa-trash"></i>
+      <% end %></p>
+        <!-- MODAL EDIT -->
+  <!-- Button trigger modal -->
+      <button type="button" class="btn btn-link text-dark" data-toggle="modal" data-target="#editProject">
+        <i class="fa-solid fa-pen"></i>
+      </button>
+    </div>
   </div>
 
   <h2>Goals:</h2>
@@ -33,14 +40,14 @@
   <!--MODAL CREATE-->
   <!-- Button trigger modal -->
   <button type="button" class="btn btn-link b-create-goal" data-toggle="modal" data-target="#exampleModalLong">
-    Create Goals
+    Create Goal
   </button>
   <!-- Modal -->
   <div class="modal fade" id="exampleModalLong" tabindex="-1" role="dialog" aria-labelledby="exampleModalLongTitle" aria-hidden="true">
     <div class="modal-dialog" role="document">
       <div class="modal-content">
         <div class="modal-header">
-          <h5 class="modal-title" id="exampleModalLongTitle">Create Goals</h5>
+          <h5 class="modal-title" id="exampleModalLongTitle">Create Goal</h5>
           <button type="button" class="close" data-dismiss="modal" aria-label="Close">
             <span aria-hidden="true">&times;</span>
           </button>
@@ -71,11 +78,6 @@
   </div>
 
 
-  <!-- MODAL EDIT -->
-  <!-- Button trigger modal -->
-  <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#editProject">
-    Edit Project
-  </button>
   <!-- Modal -->
   <div class="modal fade" id="editProject" tabindex="-1" role="dialog" aria-labelledby="editProjectTitle" aria-hidden="true">
     <div class="modal-dialog" role="document">
