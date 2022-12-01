@@ -20,7 +20,7 @@
       <div class="border mb-3 po-sh-comment-member">
         <%= cl_image_tag comment.membership.user.photo.key, height: 50, width: 50, crop: :fill, style: "object-fit: fill;"%>
         <div class="po-con-fit">
-          <%= comment.membership.user.username %>
+          <span class="pcf-user">@<%= comment.membership.user.username %></span>
           <p class="text-dark"><%= comment.content %></p>
         </div>
         <% if policy(comment).destroy? %>
@@ -34,6 +34,6 @@
 
     <%= simple_form_for([@post, @comment]) do |f| %>
       <%= f.input :content, as: :text%>
-      <%= f.submit value: "Create", class: 'btn btn-warning' %>
+      <%= f.submit value: "Create", class: 'btn btn-link b-create-comm' %>
     <% end %>
 </div>
