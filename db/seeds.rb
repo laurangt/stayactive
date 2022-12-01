@@ -102,7 +102,7 @@ group3.save!
 
 file_group4 = URI.open("https://img.icons8.com/dusk/64/D5B3DC/trekking.png")
 group4 = Group.new(
-  name: "Trek"
+  name: "Trekking"
 )
 group4.photo.attach(io: file_group4, filename: "nes.png", content_type: "image/png")
 group4.save!
