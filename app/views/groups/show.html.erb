@@ -40,8 +40,10 @@
               <% end %>
             <% end %>
             <div class="show-message">
-              <%= link_to group_post_path(@group, post) do %>
-                <i class="fa-solid fa-message"></i>
+              <% if groupsid.include?(@group.id) %>
+                <%= link_to group_post_path(@group, post) do %>
+                  <i class="fa-solid fa-message"></i>
+                <% end %>
               <% end %>
             </div>
           </div>
