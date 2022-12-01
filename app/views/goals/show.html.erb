@@ -11,41 +11,42 @@
 <p class='text'><%= @goal.status %#></p> %>
 </div>
 <% @goal.logs.reverse.each do |log| %>
-</div>
-<div class="border mt-0" id="content">
-  <p class='text'><%= log.content %></p>
-  <% if log.photo.key.present? %>
-    <p><%= cl_image_tag log.photo.key, height: 50, width: 50, crop: :fill%></p>
-  <% end %>
-  <% if policy(log).destroy? %>
-    <%= link_to "Delete log", log_path(log), data: {turbo_method: :delete, turbo_confirm: "Are you sure?"}, class: "text-light text-decoration-none" %>
-  <% end %>
-</div>
-<!-- Button trigger modal -->
-<button type="button" id="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModalLong">
-  <i id="round" class="fa-solid fa-circle-plus"></i> Add a log
-</button>
-<!-- Modal -->
-<div class="modal fade" id="exampleModalLong" tabindex="-1" role="dialog" aria-labelledby="exampleModalLongTitle" aria-hidden="true">
-  <div class="modal-dialog" role="document">
-    <div class="modal-content">
-      <div class="modal-header">
-        <h5 class="modal-title" id="exampleModalLongTitle">Your Goals</h5>
-        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-          <span aria-hidden="true">&times;</span>
-        </button>
+  <div class="border mt-0" id="content">
+    <p class='text'><%= log.content %></p>
+    <% if log.photo.key.present? %>
+      <p><%= cl_image_tag log.photo.key, height: 50, width: 50, crop: :fill%></p>
+    <% end %>
+    <% if policy(log).destroy? %>
+      <div class = "link">
+        <%= link_to "Delete log", log_path(log), data: {turbo_method: :delete, turbo_confirm: "Are you sure?"}%>
       </div>
-      <div class="modal-body">
-        <%= simple_form_for([@goal, @log]) do |f| %>
-          <div class="form-group-goal" style="width:400px;">
-            <%= f.input :content %>
-            <%= f.input :photo, as: :file %>
-          </div>
-          <div class="button-new">
-            <%= f.button :submit, value: "Create" %>
-          </div>
-        <% end %>
+    <% end %>
+  </div>
+<% end %>
+  <!-- Button trigger modal -->
+  <button id="round" class="fa-solid fa-circle-plus"data-toggle="modal" data-target="#exampleModalLong">
+  </button>
+  <!-- Modal -->
+  <div class="modal fade" id="exampleModalLong" tabindex="-1" role="dialog" aria-labelledby="exampleModalLongTitle" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="exampleModalLongTitle">Your Goals</h5>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body">
+          <%= simple_form_for([@goal, @log]) do |f| %>
+            <div class="form-group-goal" style="width:400px;">
+              <%= f.input :content %>
+              <%= f.input :photo, as: :file %>
+            </div>
+            <div class="button-new">
+              <%= f.button :submit, value: "Create" %>
+            </div>
+          <% end %>
+        </div>
       </div>
     </div>
   </div>
-</div>
