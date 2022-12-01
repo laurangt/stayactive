@@ -2,17 +2,18 @@
   <div class="footer-links">
     <a href="#"><i class="fa-solid fa-gear"></i></a>
     <a href="#"><i class="fa-solid fa-comments"></i></a>
+    
 <!-- Button trigger modal -->
-<button type="button" class="btn btn-link btn-group text-white" data-bs-toggle="modal" data-bs-target="#exampleModal">
+<button type="button" class="btn btn-link btn-group text-white" data-bs-toggle="modal" data-bs-target="#groupModal">
   <i class="fa-solid fa-user-group"></i>
 </button>
 
 <!-- Modal -->
-<div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+<div class="modal fade" id="groupModal" tabindex="-1" aria-labelledby="groupModalLabel" aria-hidden="true">
   <div class="modal-dialog">
     <div class="modal-content">
       <div class="modal-header">
-        <h5 class="modal-title" id="exampleModalLabel">Select a group</h5>
+        <h5 class="modal-title" id="groupModalLabel">Select a group:</h5>
         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
       </div>
       <div class="modal-body">
@@ -29,3 +30,9 @@
   </div>
 
 </div>
+
+<%# <%= @memberships.groups.each do |group| %>
+          <%# <button class="b-home-pop"><%= link_to group.name, group_path(group) </button> %>
+        <%# <% end %>
+
+  <%# <i class="fa-solid fa-user-group"></i> %>
