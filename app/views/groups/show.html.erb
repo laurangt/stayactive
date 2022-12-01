@@ -22,16 +22,16 @@
           <p><%= post.content %></p>
 
           <div class="g-post-del">
-            <div class="show-message">
-              <%= link_to group_post_path(@group, post) do %>
-                <i class="fa-solid fa-message"></i>
-              <% end %>
-            </div>
             <% if policy(post).destroy? %>
               <%= link_to post_path(post), data: {turbo_method: :delete, turbo_confirm: "Are you sure?"}, class: "text-dark text-decoration-none d-post" do %>
                 <i class="fa-solid fa-trash"></i>
               <% end %>
             <% end %>
+            <div class="show-message">
+              <%= link_to group_post_path(@group, post) do %>
+                <i class="fa-solid fa-message"></i>
+              <% end %>
+            </div>
           </div>
         </div>
       </div>

@@ -25,6 +25,7 @@
 
 .p-show-desc-del {
   text-align: right;
+  margin-bottom: 0;
 }
 
 .text-danger {
@@ -45,12 +46,40 @@
 
 .p-show-goal-del {
   text-align: right;
+  margin-bottom: 0;
 }
 
 .b-create-goal {
   float: right;
   background-color: #F7D30B;
-  color: black;
+  color: rgb(0, 0, 0);
   text-decoration: none;
   font-weight: bold;
+}
+
+.modal-body-create-g {
+  background-color: #D5B3DC;
+  padding: 5%;
+  margin: 3%;
+  border-radius: 5px;
+}
+
+.b-c-goal {
+  background-color: #F7D30B;
+}
+.b-c-goal > input{
+  font-weight: bold;
+  color: rgb(0, 0, 0);
+}
+
+.modal-body-edit-p {
+  background-color: #D5B3DC;
+  padding: 5%;
+  margin: 3%;
+  border-radius: 5px;
+}
+
+.btn-primary {
+  font-weight: bold;
+  color: rgb(255, 255, 255);
 }
