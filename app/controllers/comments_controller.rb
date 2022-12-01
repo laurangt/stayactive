@@ -2,14 +2,14 @@ class CommentsController < ApplicationController
   def create
     @comment = Comment.new(comment_params)
     @comment.membership = Membership.find_by(user: current_user)
-    @group =  @comment.membership.group
+    @group = @comment.membership.group
     @post = Post.find(params[:post_id])
     @comment.post = @post
+    authorize @comment
     if @comment.save
       redirect_to group_post_path(@group, @post)
-      authorize @comment
     else
-      redirect_to group_path(@group)
+      #redirect_to group_post_path(@group, @post)
       #render 'groups/show', status: :unprocessable_entity
     end
   end

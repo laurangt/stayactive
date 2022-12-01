@@ -10,9 +10,12 @@
 <% @goal.logs.reverse.each do |log| %>
   <div class="border mb-3">
     <p><%= log.content %></p>
+    <% if log.photo.key.present? %>
+      <p><%= cl_image_tag log.photo.key, height: 50, width: 50, crop: :fill%></p>
+    <% end %>
     <% if policy(log).destroy? %>
-        <%= link_to "Delete log", log_path(log), data: {turbo_method: :delete, turbo_confirm: "Are you sure?"}, class: "text-light text-decoration-none" %>
-      <% end %>
+      <%= link_to "Delete log", log_path(log), data: {turbo_method: :delete, turbo_confirm: "Are you sure?"}, class: "text-light text-decoration-none" %>
+    <% end %>
   </div>
 <% end %>
 
@@ -34,13 +37,13 @@
         <%= simple_form_for([@goal, @log]) do |f| %>
           <div class="form-group-goal" style="width:400px;">
             <%= f.input :content %>
+            <%= f.input :photo, as: :file %>
           </div>
           <div class="button-new">
             <%= f.button :submit, value: "Create" %>
           </div>
         <% end %>
       </div>
-
     </div>
   </div>
 </div>
