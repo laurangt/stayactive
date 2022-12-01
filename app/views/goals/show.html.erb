@@ -1,24 +1,27 @@
 <%= link_to project_path(@project) do %>
   <i class="fa-solid fa-arrow-left"></i>
 <% end %>
-
 <h1><%= @goal.title %></h1>
-<p><%= @goal.description %></p>
-<p><%= @goal.end_date %></p>
-<p><%= @goal.status %></p>
-
+<div class="border mt-0" id="description">
+  <p class='text'><%= @goal.description %></p>
+</div>
+<div id="status" class="border mb-3 mt-0">
+  <p class='text'>Date of log to be added</p>
+  <%# <p class='text'><%= @goal.end_date %#></p>
+<p class='text'><%= @goal.status %#></p> %>
+</div>
 <% @goal.logs.reverse.each do |log| %>
-  <div class="border mb-3">
-    <p><%= log.content %></p>
-    <% if policy(log).destroy? %>
-        <%= link_to "Delete log", log_path(log), data: {turbo_method: :delete, turbo_confirm: "Are you sure?"}, class: "text-light text-decoration-none" %>
-      <% end %>
-  </div>
+</div>
+<div class="border mt-0" id="content">
+  <p class='text'><%= log.content %></p>
+  <% if policy(log).destroy? %>
+    <%= link_to "Delete log", log_path(log), data: {turbo_method: :delete, turbo_confirm: "Are you sure?"}, class: "text-color-black" %>
+  <% end %>
+</div>
 <% end %>
-
 <!-- Button trigger modal -->
-<button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModalLong">
-   <i class="fa-solid fa-circle-plus"></i> Add a log
+<button type="button" id="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModalLong">
+  <i id="round" class="fa-solid fa-circle-plus"></i> Add a log
 </button>
 <!-- Modal -->
 <div class="modal fade" id="exampleModalLong" tabindex="-1" role="dialog" aria-labelledby="exampleModalLongTitle" aria-hidden="true">
@@ -40,7 +43,6 @@
           </div>
         <% end %>
       </div>
-
     </div>
   </div>
 </div>
