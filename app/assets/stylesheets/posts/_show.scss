@@ -1,0 +1,51 @@
+.po_show {
+  padding: 5%;
+}
+
+.po_show_title-arrow {
+  display: flex;
+  margin-bottom: 2%;
+}
+
+.po-show-title {
+  margin: auto;
+  margin-bottom: 2%;
+}
+
+.po-show-member {
+  background-color: #8D4D9A;
+  border-radius: 5px 5px 0 0;
+}
+
+.po-show-member > img {
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+}
+
+.po-sh-content-member {
+  background-color: rgb(255, 255, 255);
+  color: rgb(0, 0, 0);
+  border-radius: 0 0 5px 5px;
+  padding: 5%;
+}
+
+.po-sh-comment-member {
+  background-color: #D5B3DC;
+  border-radius: 5px;
+  display: flex;
+  align-items: center;
+  overflow: hidden;
+}
+
+.po-sh-comment-member > img  {
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+}
+
+.po-con-fit {
+  display: inline-block;
+  padding: 2%;
+  width: 79%;
+}
