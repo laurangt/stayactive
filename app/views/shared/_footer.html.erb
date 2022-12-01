@@ -2,33 +2,32 @@
   <div class="footer-links">
     <a href="#"><i class="fa-solid fa-gear"></i></a>
     <a href="#"><i class="fa-solid fa-comments"></i></a>
-    
-<!-- Button trigger modal -->
-<button type="button" class="btn btn-link btn-group text-white" data-bs-toggle="modal" data-bs-target="#groupModal">
-  <i class="fa-solid fa-user-group"></i>
-</button>
 
-<!-- Modal -->
-<div class="modal fade" id="groupModal" tabindex="-1" aria-labelledby="groupModalLabel" aria-hidden="true">
-  <div class="modal-dialog">
-    <div class="modal-content">
-      <div class="modal-header">
-        <h5 class="modal-title" id="groupModalLabel">Select a group:</h5>
-        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-      </div>
-      <div class="modal-body">
-        <button class="b-home-pop"><%= link_to "Sports groups", groups_path %></button>
-        <button class="b-home-pop"><%= link_to "Add a project", new_project_path %></button>
+    <!-- Button trigger modal -->
+    <button type="button" class="btn btn-link btn-group text-white" data-bs-toggle="modal" data-bs-target="#groupModal">
+      <i class="fa-solid fa-user-group"></i>
+    </button>
+
+    <!-- Modal -->
+    <div class="modal fade" id="groupModal" tabindex="-1" aria-labelledby="groupModalLabel" aria-hidden="true">
+      <div class="modal-dialog">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title" id="groupModalLabel">Select a group:</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+          </div>
+          <div class="modal-body">
+            <button class="b-foot-pop"><%= link_to "Sports groups", groups_path %></button>
+            <button class="b-foot-pop"><%= link_to "Add a project", new_project_path %></button>
+          </div>
+        </div>
       </div>
     </div>
-  </div>
-</div>
 
     <%= link_to root_path do %>
       <i class="fa-solid fa-circle-user"></i>
     <% end %>
   </div>
-
 </div>
 
 <%# <%= @memberships.groups.each do |group| %>
