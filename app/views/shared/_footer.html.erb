@@ -18,7 +18,9 @@
           </div>
           <div class="modal-body">
             <button class="b-footer-pop"><%= link_to "Sports groups", groups_path %></button>
-            <button class="b-footer-pop"><%= link_to "Add a project", new_project_path %></button>
+            <%# <%= @memberships.groups.each do |group| %>
+                <%# <button class="b-home-pop"><%= link_to group.name, group_path(group) </button> %>
+            <%# <% end %>
           </div>
         </div>
       </div>
@@ -30,8 +32,4 @@
   </div>
 </div>
 
-<%# <%= @memberships.groups.each do |group| %>
-          <%# <button class="b-home-pop"><%= link_to group.name, group_path(group) </button> %>
-        <%# <% end %>
-
-  <%# <i class="fa-solid fa-user-group"></i> %>
+<%# <i class="fa-solid fa-user-group"></i> %>
