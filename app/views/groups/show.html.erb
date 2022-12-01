@@ -3,11 +3,21 @@
     <%= link_to root_path do %>
       <i class="fa-solid fa-arrow-left fa-lg"></i>
     <% end %>
-
     <h1 class="g-show-name"><%= @group.name %></h1>
   </div>
-  <%= simple_form_for [@group, @membership] do |f| %>
-    <button type="button" class="btn btn-link btn-sm b-create-memb"><%= f.button :submit %></button>
+
+  <% groupsid = @user.groups.map do |group| %>
+    <% group.id %>
+  <% end %>
+
+  <% if !groupsid.include?(@group.id) %>
+    <%= simple_form_for [@group, @membership] do |f| %>
+      <button type="button" class="btn btn-link btn-sm b-create-memb"><%= f.submit 'Join' %></button>
+    <% end %>
+  <% end %>
+
+  <% if groupsid.include?(@group.id) %>
+      <%= link_to "Leave group", membership_path(@membership), data: {turbo_method: :delete, turbo_confirm: "Are you sure?"}, class: "text-light text-decoration-none" %>
   <% end %>
 
   <% @group.posts.each do |post| %>
@@ -20,7 +30,9 @@
         <div class="group-post-cont">
           <p><%= post.title %></p>
           <p><%= post.content %></p>
-
+          <% if post.photo.key.present? %>
+            <%= cl_image_tag post.photo.key, height: 50, width: 50, crop: :fill%>
+          <% end %>
           <div class="g-post-del">
             <div class="show-message">
               <%= link_to group_post_path(@group, post) do %>
@@ -38,7 +50,12 @@
     <% end %>
   <% end %>
 
-  <%= link_to new_group_post_path(@group) do%>
-    <i class="fa-solid fa-circle-plus"></i>
+  <% groupsid = @user.groups.map do |group| %>
+    <% group.id %>
+  <% end %>
+  <% if groupsid.include?(@group.id) %>
+    <%= link_to new_group_post_path(@group) do%>
+      <i class="fa-solid fa-circle-plus"></i>
+    <% end %>
   <% end %>
 </div>
