@@ -17,7 +17,7 @@
   <% end %>
 
   <% if groupsid.include?(@group.id) %>
-      <%= link_to "Leave group", membership_path(@membership), data: {turbo_method: :delete, turbo_confirm: "Are you sure?"}, class: "text-light text-decoration-none" %>
+      <button type="button" class="btn btn-danger btn-sm b-leave-gr"><%= link_to "Leave group", membership_path(@membership), data: {turbo_method: :delete, turbo_confirm: "Are you sure?"}, class: "text-light text-decoration-none" %></button>
   <% end %>
 
   <% @group.posts.each do |post| %>

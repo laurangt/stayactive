@@ -34,6 +34,7 @@
       </div>
     <% end %>
   </div>
+</div>
 
 
 
@@ -41,12 +42,12 @@
   <% group.id %>
 <% end %>
 <% if groupsid.include?(@group.id) %>
-
+<div class="posh-comment">
   <% if policy(@comment).create? %>
     <%= simple_form_for([@post, @comment]) do |f| %>
       <%= f.input :content, as: :text%>
       <%= f.submit value: "Create", class: 'btn btn-link b-create-comm' %>
     <% end %>
   <% end %>
-
+</div>
 <% end %>
