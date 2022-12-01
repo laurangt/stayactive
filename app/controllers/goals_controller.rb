@@ -30,8 +30,7 @@ class GoalsController < ApplicationController
 
   def update
     @goal = Goal.find(params[:id])
-    @goal.update goal_params
-    @goal.save
+    @goal.toggle_status
     redirect_to project_path
     authorize @goal
   end

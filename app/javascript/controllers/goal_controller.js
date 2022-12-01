@@ -1,6 +1,7 @@
 import { Controller } from "@hotwired/stimulus"
+import { patch } from '@rails/request.js'
 export default class extends Controller {
-  static targets = [ "completed" ]
+  static targets = [ "status" ]
   static values = { updateUrl: String }
 
   connect() {
@@ -8,9 +9,14 @@ export default class extends Controller {
     console.log( this.updateUrlValue)
   }
   toggle(event) {
-    let formData = new FormData()
-    formData.append("goal[completed]", this.completedTarget.checked);
-  }
+    patch("/goals/8", {})
+      // .then(response => response.json())
+      // .then((data) => {
+      //   console.log(data)
+      // })
+    // patch request (use fetch) to goal/id (update URL)
+    // goals controller update action, update status of goal/id
+
   // fetch(this.data.get("update-url"), {
   //   body: formData,
   //   method: 'PATCH',
@@ -20,4 +26,4 @@ export default class extends Controller {
   //     "X-CSRF-Token": getMetaValue("csrf-token")
   //   },
   // };
-}
+}}
