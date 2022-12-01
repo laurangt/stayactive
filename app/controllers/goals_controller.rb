@@ -30,6 +30,8 @@ class GoalsController < ApplicationController
 
   def update
     @goal = Goal.find(params[:id])
+    @goal.update goal_params
+    @goal.save
     redirect_to project_path
     authorize @goal
   end
@@ -46,5 +48,4 @@ class GoalsController < ApplicationController
   def goal_params
     params.require(:goal).permit(:title, :description, :end_date, :status)
   end
-
 end

@@ -1,5 +1,4 @@
 <div class="project_show">
-
   <div class="project-show-main">
     <%= link_to root_path do %>
       <i class="fa-solid fa-arrow-left fa-lg"></i>
@@ -10,22 +9,23 @@
     <p><%= @project.description %></p>
     <p class="p-show-desc-del"><%= link_to "Delete project", project_path(@project), data: {turbo_method: :delete, turbo_confirm: "Are you sure?"}, class: "text-danger" %></p>
   </div>
-
   <h2>Goals:</h2>
   <% @project.goals.each do |goal| %>
-    <input type="checkbox" <%= goal.status ? "checked" : "" %>/>
-    <p class="p-show-end-date"><%= goal.end_date %></p>
-    <%= link_to project_goal_path(@project, goal)	do %>
-      <div class="p-show-goals">
-        <div class="p-show-goal-box">
-          <p style="color: white;"><%= goal.title %></p>
-          <p style="color: white;"><%= goal.description %></p>
-          <p class="p-show-goal-del" style="color: white;"><%= link_to "Delete goal", goal_path(goal), data: {turbo_method: :delete, turbo_confirm: "Are you sure?"}, class: "text-dark text-decoration-none" %></p>
+    <div data-controller="goal" data-goal-update-url-value="<%= goal_path(goal) %>">
+      <input type="checkbox" data-action="click->goal#toggle" data-target="<%goal.status%>"
+      <%= goal.status ? "checked" : "" %>/>
+      <p class="p-show-end-date"><%= goal.end_date %></p>
+      <%= link_to project_goal_path(@project, goal)	do %>
+        <div class="p-show-goals">
+          <div class="p-show-goal-box">
+            <p style="color: white;"><%= goal.title %></p>
+            <p style="color: white;"><%= goal.description %></p>
+            <p class="p-show-goal-del" style="color: white;"><%= link_to "Delete goal", goal_path(goal), data: {turbo_method: :delete, turbo_confirm: "Are you sure?"}, class: "text-dark text-decoration-none" %></p>
+          </div>
         </div>
-      </div>
-    <% end %>
+      <% end %>
+    </div>
   <% end %>
-
   <!--MODAL CREATE-->
   <!-- Button trigger modal -->
   <button type="button" class="btn btn-link b-create-goal" data-toggle="modal" data-target="#exampleModalLong">
@@ -58,14 +58,9 @@
             </div>
           <% end %>
         </div>
-        <%# <div class="modal-footer">
-          <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-          <button type="button" class="btn btn-primary">Save</button>
-        </div> %>
       </div>
     </div>
   </div>
-
   <!-- MODAL EDIT -->
   <!-- Button trigger modal -->
   <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#editProject">
