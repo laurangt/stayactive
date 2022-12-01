@@ -12,6 +12,8 @@
       <p class="p-show-desc-del p-2"><%= link_to project_path(@project), data: {turbo_method: :delete, turbo_confirm: "Are you sure?"}, class: "text-dark" do %>
         <i class="fa-solid fa-trash"></i>
       <% end %></p>
+        <!-- MODAL EDIT -->
+  <!-- Button trigger modal -->
       <button type="button" class="btn btn-link text-dark" data-toggle="modal" data-target="#editProject">
         <i class="fa-solid fa-pen"></i>
       </button>
@@ -38,7 +40,7 @@
   <!--MODAL CREATE-->
   <!-- Button trigger modal -->
   <button type="button" class="btn btn-link b-create-goal" data-toggle="modal" data-target="#exampleModalLong">
-    Create Goals
+    Create Goal
   </button>
   <!-- Modal -->
   <div class="modal fade" id="exampleModalLong" tabindex="-1" role="dialog" aria-labelledby="exampleModalLongTitle" aria-hidden="true">
@@ -75,9 +77,6 @@
     </div>
   </div>
 
-
-  <!-- MODAL EDIT -->
-  <!-- Button trigger modal -->
 
   <!-- Modal -->
   <div class="modal fade" id="editProject" tabindex="-1" role="dialog" aria-labelledby="editProjectTitle" aria-hidden="true">

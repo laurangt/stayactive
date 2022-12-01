@@ -45,7 +45,7 @@
 <div class="posh-comment">
   <% if policy(@comment).create? %>
     <%= simple_form_for([@post, @comment]) do |f| %>
-      <%= f.input :content, as: :text%>
+      <%= f.input :content, as: :text, label: 'Comment' %>
       <%= f.submit value: "Create", class: 'btn btn-link b-create-comm' %>
     <% end %>
   <% end %>
