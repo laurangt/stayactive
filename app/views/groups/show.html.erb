@@ -20,11 +20,13 @@
       <button type="button" class="btn btn-danger btn-sm b-leave-gr"><%= link_to "Leave group", membership_path(@membership), data: {turbo_method: :delete, turbo_confirm: "Are you sure?"}, class: "text-light text-decoration-none" %></button>
   <% end %>
 
-  <% @group.posts.each do |post| %>
+  <% @group.posts.reverse.each do |post| %>
     <%= link_to group_post_path(@group, post) do %>
       <div class="g-post-all mb-4">
         <div class="group-post-head">
+        <% if post.membership.user.photo.key.present? %>
           <%= cl_image_tag post.membership.user.photo.key, height: 50, width: 50, crop: :fill, style: "object-fit: fill;"%>
+        <% end %>
           <%= post.membership.user.username %>
         </div>
         <div class="group-post-cont">
