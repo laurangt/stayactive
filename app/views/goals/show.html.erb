@@ -1,32 +1,38 @@
 <div class="goal_sh">
-  <%= link_to project_path(@project) do %>
-    <i class="fa-solid fa-arrow-left fa-lg"></i>
-  <% end %>
-  <h1><%= @goal.title %></h1>
-  <div class="border mt-0" id="description">
+  <div class="goal_sh_title">
+    <%= link_to project_path(@project) do %>
+      <i class="fa-solid fa-arrow-left fa-lg"></i>
+    <% end %>
+    <h1 class="goal-sh-title"><%= @goal.title %></h1>
+  </div>
+  <div class="goal-sh-desc" id="description">
     <p class='text'><%= @goal.description %></p>
   </div>
-  <div id="status" class="border mb-3 mt-0">
-    <p class='text'>Date of log to be added</p>
+  <% @goal.logs.reverse.each do |log| %>
+  <div id="status" class="gsh-dlog">
+    <p class='gsh-text'><%= log.created_at %></p>
     <%# <p class='text'><%= @goal.end_date %#></p>
   <p class='text'><%= @goal.status %#></p> %>
   </div>
-  <% @goal.logs.reverse.each do |log| %>
-    <div class="border mt-0" id="content">
+    <div class="gsh-content" id="content">
       <p class='text'><%= log.content %></p>
       <% if log.photo.key.present? %>
         <p><%= cl_image_tag log.photo.key, height: 50, width: 50, crop: :fill%></p>
       <% end %>
       <% if policy(log).destroy? %>
         <div class = "link">
-          <%= link_to "Delete log", log_path(log), data: {turbo_method: :delete, turbo_confirm: "Are you sure?"}%>
+          <p class="gsh-cont-del p-2"><%= link_to log_path(log), data: {turbo_method: :delete, turbo_confirm: "Are you sure?"} do %>
+            <i class="fa-solid fa-trash"></i>
+          <% end %></p>
         </div>
       <% end %>
     </div>
   <% end %>
+  </div>
 </div>
   <!-- Button trigger modal -->
-  <button id="round" class="fa-solid fa-circle-plus"data-toggle="modal" data-target="#exampleModalLong">
+  <button type="button" class="btn btn-link text-dark" data-toggle="modal" data-target="#exampleModalLong">
+    <i class="fa-solid fa-circle-plus"></i>
   </button>
   <!-- Modal -->
   <div class="modal fade" id="exampleModalLong" tabindex="-1" role="dialog" aria-labelledby="exampleModalLongTitle" aria-hidden="true">
@@ -38,14 +44,14 @@
             <span aria-hidden="true">&times;</span>
           </button>
         </div>
-        <div class="modal-body">
+        <div class="modal-body-create-g">
           <%= simple_form_for([@goal, @log]) do |f| %>
-            <div class="form-group-goal" style="width:400px;">
+            <div class="form-group-goal" style="width:310px;">
               <%= f.input :content %>
               <%= f.input :photo, as: :file %>
             </div>
             <div class="button-new">
-              <%= f.button :submit, value: "Create" %>
+              <button type="button" class="btn btn-link b-c-goal"><%= f.button :submit, value: "Create" %></button>
             </div>
           <% end %>
         </div>
