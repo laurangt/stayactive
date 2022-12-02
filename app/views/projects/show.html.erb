@@ -19,11 +19,12 @@
     </div>
   </div>
   <h2>Goals:</h2>
-  <% @project.goals.each do |goal| %>
-    <div data-controller="goal" data-goal-update-url-value="<%= goal_path(goal) %>">
-      <input type="checkbox" data-action="click->goal#toggle" data-goal-target="status"
-      <%= goal.status ? "checked" : "" %>/>
-      <p class="p-show-end-date"><%= goal.end_date %></p>
+      <% @project.goals.each do |goal| %>
+        <div class="ps-cbox" data-controller="goal" data-goal-update-url-value="<%= goal_path(goal) %>">
+          <input type="checkbox" data-action="click->goal#toggle" data-goal-target="status"
+          <%= goal.status ? "checked" : "" %>/>
+          <p class="p-show-end-date"><%= goal.end_date %></p>
+        </div>
       <%= link_to project_goal_path(@project, goal)	do %>
         <div class="p-show-goals">
           <div class="p-show-goal-box">
