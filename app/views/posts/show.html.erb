@@ -15,7 +15,11 @@
         <% end %>
         <%= @post.membership.user.username %>
       </div>
-      <p class="po-sh-content-member"><%= @post.content %></p>
+      <div class='po-sh-content-member'>
+        <p><%= @post.content %></p>
+        <%= cl_image_tag @post.photo.key, height: 300, width: 300, crop: :fill%>
+      </div>
+
     </div>
   </div>
   <div class="po-show-comment">

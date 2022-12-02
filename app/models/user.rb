@@ -10,7 +10,7 @@ class User < ApplicationRecord
   has_many :comments, through: :memberships
   has_many :projects, dependent: :destroy
   has_many :goals, through: :projects
-  has_many :likes, through: :memberships
+  has_many :hearts, through: :memberships
   has_one_attached :photo
 
   validates :email, presence: true, format: {
@@ -19,5 +19,4 @@ class User < ApplicationRecord
   validates :password, presence: true
   validates :username, presence: true, uniqueness: true
   validates :bio, presence: true
-  acts_as_liker
 end
