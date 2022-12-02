@@ -31,7 +31,7 @@ class ProjectsController < ApplicationController
     @project = Project.find(params[:id])
     @user = current_user
     @project.update(project_params)
-
+    
     redirect_to project_path(@project)
     authorize @project
   end

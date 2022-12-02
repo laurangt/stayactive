@@ -4,9 +4,9 @@ Rails.application.routes.draw do
   root to: "pages#home"
 
   resources :projects, only: [:new, :show, :create, :destroy] do
-    resources :goals,  only: [:create, :new, :show, :update]
+    resources :goals,  only: [:create, :new, :show]
   end
-  resources :goals, only: [:destroy]
+  resources :goals, only: [:destroy, :update]
 
   resources :goals, only: [] do
     resources :logs, only: [:create]
