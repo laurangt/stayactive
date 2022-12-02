@@ -107,9 +107,9 @@ group4 = Group.new(
 group4.photo.attach(io: file_group4, filename: "nes.png", content_type: "image/png")
 group4.save!
 
-file_group5 = URI.open("https://img.icons8.com/dusk/64/null/boxing.png")
+file_group5 = URI.open("https://img.icons8.com/dusk/64/null/tennis.png")
 group5 = Group.new(
-  name: "Boxing"
+  name: "Tennis"
 )
 group5.photo.attach(io: file_group5, filename: "nes.png", content_type: "image/png")
 group5.save!
@@ -131,31 +131,31 @@ group7.save!
 
 # Memberships
 membership1 = Membership.new(
-  group_id: group7.id,
+  group_id: group2.id,
   user_id: user2.id
 )
 membership1.save!
 
 membership2 = Membership.create(
-  group_id: group3.id,
+  group_id: group2.id,
   user_id: user1.id
 )
 membership2.save!
 
 membership3 = Membership.create(
-  group_id: group4.id,
+  group_id: group2.id,
   user_id: user3.id
 )
 membership3.save!
 
 membership4 = Membership.create(
-  group_id: group1.id,
+  group_id: group2.id,
   user_id: user4.id
 )
 membership4.save!
 
 membership5 = Membership.create(
-  group_id: group5.id,
+  group_id: group2.id,
   user_id: user5.id
 )
 membership5.save!
@@ -163,14 +163,14 @@ membership5.save!
 # Post
 Post.create(
   title: "Not an easy journey",
-  content: "Everything good in life is worth it!",
-  membership_id: membership1.id
+  content: "Everything worth doing in life is hard!",
+  membership_id: membership2.id
 )
 
 Post.create(
   title: "Triathlon, here I go",
   content: "Managed to finish the first week of triathlon training. What a great friday completing a 10km run!",
-  membership_id: membership1.id
+  membership_id: membership4.id
 )
 
 Post.create(
@@ -182,7 +182,7 @@ Post.create(
 Post.create(
   title: "Rain did not stop us",
   content: "The weather was not the best but my buddies made this training worth it",
-  membership_id: membership4.id
+  membership_id: membership2.id
 )
 
 Post.create(
@@ -194,26 +194,26 @@ Post.create(
 Post.create(
   title: "Cycling in Madrid Rio is such a good idea",
   content: "My group friends suggested going to Madrid Rio and I think it was a great idea. Such a beatiful place",
-  membership_id: membership1.id
+  membership_id: membership2.id
 )
 
 Post.create(
   title: "Running has changed my life and they warned me",
   content: "After trying a lot of different therapies to improve my health, I think I finally found what I neede. It is called running. Higly recomended.",
-  membership_id: membership3.id
+  membership_id: membership2.id
 )
 
 Post.create(
   title: "What a great training session",
   content: "Today, despite the cold weather conditions; I went for a 10k run",
-  membership_id: membership3.id
+  membership_id: membership2.id
 )
 
 
 Post.create(
   title: "Great podcast for runners",
   content: "Loved listening to the Mottiv podcast during my run, super good tips to avoid injuries and, if you happen to have any, how to overcome them",
-  membership_id: membership2.id
+  membership_id: membership3.id
 )
 
 Post.create(
@@ -223,14 +223,14 @@ Post.create(
 )
 
 Post.create(
-  title: "Back pain update",
-  content: "My back pain has gotten much better since I joined my swimming group. I also love the coffee after the trainning session!",
+  title: "Boxing makes me so hungry",
+  content: "I am back from the box session and I feel like I can eat a cow!",
   membership_id: membership5.id
 )
 
 Post.create(
-  title: "Swimming the best therapy",
-  content: "I have fallen in love with swimming",
+  title: "Need to recover from hangovererapy",
+  content: "Sorry guys, no box today. I will fight hangover first.",
   membership_id: membership5.id
 )
 
