@@ -1,28 +1,30 @@
-<%= link_to project_path(@project) do %>
-  <i class="fa-solid fa-arrow-left"></i>
-<% end %>
-<h1><%= @goal.title %></h1>
-<div class="border mt-0" id="description">
-  <p class='text'><%= @goal.description %></p>
-</div>
-<div id="status" class="border mb-3 mt-0">
-  <p class='text'>Date of log to be added</p>
-  <%# <p class='text'><%= @goal.end_date %#></p>
-<p class='text'><%= @goal.status %#></p> %>
-</div>
-<% @goal.logs.reverse.each do |log| %>
-  <div class="border mt-0" id="content">
-    <p class='text'><%= log.content %></p>
-    <% if log.photo.key.present? %>
-      <p><%= cl_image_tag log.photo.key, height: 50, width: 50, crop: :fill%></p>
-    <% end %>
-    <% if policy(log).destroy? %>
-      <div class = "link">
-        <%= link_to "Delete log", log_path(log), data: {turbo_method: :delete, turbo_confirm: "Are you sure?"}%>
-      </div>
-    <% end %>
+<div class="goal_sh">
+  <%= link_to project_path(@project) do %>
+    <i class="fa-solid fa-arrow-left fa-lg"></i>
+  <% end %>
+  <h1><%= @goal.title %></h1>
+  <div class="border mt-0" id="description">
+    <p class='text'><%= @goal.description %></p>
   </div>
-<% end %>
+  <div id="status" class="border mb-3 mt-0">
+    <p class='text'>Date of log to be added</p>
+    <%# <p class='text'><%= @goal.end_date %#></p>
+  <p class='text'><%= @goal.status %#></p> %>
+  </div>
+  <% @goal.logs.reverse.each do |log| %>
+    <div class="border mt-0" id="content">
+      <p class='text'><%= log.content %></p>
+      <% if log.photo.key.present? %>
+        <p><%= cl_image_tag log.photo.key, height: 50, width: 50, crop: :fill%></p>
+      <% end %>
+      <% if policy(log).destroy? %>
+        <div class = "link">
+          <%= link_to "Delete log", log_path(log), data: {turbo_method: :delete, turbo_confirm: "Are you sure?"}%>
+        </div>
+      <% end %>
+    </div>
+  <% end %>
+</div>
   <!-- Button trigger modal -->
   <button id="round" class="fa-solid fa-circle-plus"data-toggle="modal" data-target="#exampleModalLong">
   </button>
