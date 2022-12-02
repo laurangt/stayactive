@@ -57,7 +57,9 @@
   <% end %>
   <% if groupsid.include?(@group.id) %>
     <%= link_to new_group_post_path(@group) do%>
-      <i class="fa-solid fa-circle-plus"></i>
+      <div>
+        <i class="fa-solid fa-circle-plus" ></i>
+      </div>
     <% end %>
   <% end %>
 </div>
