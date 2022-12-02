@@ -15,12 +15,12 @@ Membership.destroy_all
 puts "All Membership Destroy"
 Post.destroy_all
 puts "All Post Destroy"
-# Comment.destroy_all
+Comment.destroy_all
 Project.destroy_all
 puts "All Projects Destroy"
 Goal.destroy_all
 puts "All Goal Destroy"
-# Log.destroy_all
+Log.destroy_all
 
 # Users
 
@@ -77,6 +77,15 @@ user5 = User.new(
 user5.photo.attach(io: file_user5, filename: "nes.png", content_type: "image/png")
 user5.save
 
+file_user6 = URI.open("https://res.cloudinary.com/dqpgsz5ed/image/upload/v1669993046/profile_pic_owc22f.jpg")
+user6 = User.new(
+  email: "laura@gmail.com",
+  password: "123123",
+  username: "laura",
+  bio: "Hi, I'm Laura. I like playing tennis and going to the gym. But would love to do a triathlon soon."
+)
+user6.photo.attach(io: file_user6, filename: "nes.png", content_type: "image/png")
+user6.save
 
 # Groups
 file_group1 = URI.open("https://img.icons8.com/dusk/64/D5B3DC/girl-running--v1.png")
