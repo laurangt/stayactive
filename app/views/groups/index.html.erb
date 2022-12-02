@@ -1,11 +1,13 @@
-<h1>Join a group</h1>
-<% @groups.each do |group| %>
-  <%= link_to group_path(group) do %>
-    <div class= "container d-flex justify-content-center" id="icons" style="border: 1px solid; color: #D5B3DC; background-color: #D5B3DC; justify-content:center; space-between; border-radius: 10px; display: flex; column-gap: 10px; justify-content: center; height: 60px; width: 60px; padding-top: 10px; padding-right: 10px; padding-left: 50px; padding-bottom:10px">
-      <%= cl_image_tag group.photo.key, height: 50, width:50 , crop: :fill %>
-      <div class= "container justify-content-right" id="sportname" style="color:white; align-items: right;">
-        <%= group.name %>
+<h1 class="m-4">Join a group</h1>
+<div class="gi-list">
+  <% @groups.each do |group| %>
+    <%= link_to group_path(group) do %>
+      <div class= "container d-flex justify-content-center" id="icons" style="border: 1px solid; color: #D5B3DC; background-color: #D5B3DC; justify-content:center; space-between; border-radius: 10px; display: flex; column-gap: 10px; justify-content: center; height: 60px; width: 60px; padding-top: 10px; padding-right: 10px; padding-left: 50px; padding-bottom:10px">
+        <%= cl_image_tag group.photo.key, height: 50, width:50 , crop: :fill %>
+        <div class= "container justify-content-right" id="sportname" style="color:white; align-items: right;">
+          <%= group.name %>
+        </div>
       </div>
-    </div>
+    <% end %>
   <% end %>
-<% end %>
+</div>

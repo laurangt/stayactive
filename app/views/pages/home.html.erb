@@ -23,7 +23,7 @@
       <%= link_to project_path(project) do %>
         <div class="project_box">
           <div class="project_title_box">
-            <p class="project_title"><%= project.title %></p>
+            <p class="ptb_title"><%= project.title %></p>
           </div>
             <p class="project_descr"><%= project.description %></p>
         </div>
@@ -31,7 +31,9 @@
     <% end %>
 
 <!-- Button trigger modal -->
-  <i class="fa-solid fa-circle-plus" data-bs-toggle="modal" data-bs-target="#homeModal"></i>
+<div class="btn-pluscir" data-bs-toggle="modal" data-bs-target="#homeModal">
+  <i class="fa-solid fa-circle-plus"></i>
+</div>
 
 <!-- Modal -->
 <div class="modal fade" id="homeModal" tabindex="-1" aria-labelledby="homeModalLabel" aria-hidden="true">
