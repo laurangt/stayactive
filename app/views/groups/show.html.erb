@@ -21,9 +21,9 @@
   <% end %>
 
   <% @group.posts.each do |post| %>
-    <%= link_to group_post_path(@group, post) do %>
       <div class="g-post-all mb-4">
         <div class="group-post-head">
+          <%= link_to  %>
           <%= cl_image_tag post.membership.user.photo.key, height: 50, width: 50, crop: :fill, style: "object-fit: fill;"%>
           <%= post.membership.user.username %>
         </div>
@@ -49,7 +49,6 @@
           </div>
         </div>
       </div>
-    <% end %>
   <% end %>
 
   <% groupsid = @user.groups.map do |group| %>
