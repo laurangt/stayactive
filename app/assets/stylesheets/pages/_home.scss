@@ -61,7 +61,7 @@
   color: #F7D30B;
   font-size: xx-large;
   display: inline-block;
-  width: 90%;
+  width: fit-content;
   text-align:center;
   position: fixed;
   bottom: 10%;
@@ -87,4 +87,9 @@
   font-weight: bold;
   color: rgb(255, 255, 255);
   text-decoration: none;
+}
+
+.btn-pluscir {
+  display: flex;
+  justify-content: center;
 }
