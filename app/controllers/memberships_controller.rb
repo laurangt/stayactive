@@ -5,7 +5,7 @@ class MembershipsController < ApplicationController
     @membership = Membership.new(user: @user, group: @group)
     authorize @membership
     if @membership.save
-      redirect_to root_path
+      redirect_to group_path(@group)
     end
   end
 
