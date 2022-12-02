@@ -29,6 +29,12 @@
   justify-content: end;
 }
 
+.ps-cbox {
+  display: flex;
+  align-items: baseline;
+  height: 26px;
+}
+
 .p-show-desc-del {
   text-align: right;
   margin-bottom: 0;
@@ -41,6 +47,7 @@
 .p-show-end-date {
   background-color: #0C2641;
   color: rgb(255, 255, 255);
+  margin-left: 8px;
 }
 
 .p-show-goal-box {
@@ -61,6 +68,7 @@
   color: rgb(0, 0, 0);
   text-decoration: none;
   font-weight: bold;
+  margin-right: 5%;
 }
 
 .modal-body-create-g {
