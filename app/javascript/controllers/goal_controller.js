@@ -1,5 +1,5 @@
 import { Controller } from "@hotwired/stimulus"
-import { patch } from '@rails/request.js'
+import { FetchRequest } from '@rails/request.js'
 export default class extends Controller {
   static targets = [ "status" ]
   static values = { updateUrl: String }
@@ -9,7 +9,8 @@ export default class extends Controller {
     console.log( this.updateUrlValue)
   }
   toggle(event) {
-    patch("/goals/8", {})
+    const request = new FetchRequest('patch', this.updateUrlValue)
+    request.perform()
       // .then(response => response.json())
       // .then((data) => {
       //   console.log(data)
