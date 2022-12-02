@@ -50,7 +50,13 @@
         </div>
       </div>
     <% end %>
+    <div data-controller="like">
+        <i class="fa-solid fa-thumbs-up" data-action="click->like#hello"></i>
+        <p data-like-target="count"><%= post.hearts.count %></p>
+    </div>
   <% end %>
+
+
 
   <% groupsid = @user.groups.map do |group| %>
     <% group.id %>

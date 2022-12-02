@@ -3,5 +3,6 @@ class Membership < ApplicationRecord
   belongs_to :user
   has_many :posts, dependent: :destroy
   has_many :comments, dependent: :destroy
+  has_many :likes, dependent: :destroy
   validates :user_id, uniqueness: { scope: :group_id }
 end
