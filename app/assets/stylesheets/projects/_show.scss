@@ -72,6 +72,7 @@
 
 .b-c-goal {
   background-color: #F7D30B;
+  border-radius: 10px;
 }
 .b-c-goal > input{
   font-weight: bold;
@@ -83,9 +84,14 @@
   padding: 5%;
   margin: 3%;
   border-radius: 5px;
+  text-align: left;
 }
 
 .btn-primary {
   font-weight: bold;
   color: rgb(255, 255, 255);
+}
+
+.psg-title {
+  border-bottom: 2px solid white;
 }

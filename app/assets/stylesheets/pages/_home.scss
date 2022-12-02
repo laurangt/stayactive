@@ -27,6 +27,7 @@
   font-weight: bold;
   text-decoration: none;
   color:rgb(0, 0, 0);
+  margin-bottom: 3%;
 }
 
 .project_box .project_title_box {
@@ -36,8 +37,14 @@
   margin-top: 5%;
 }
 
-.project_title {
+.ptb_title {
   margin: 7px;
+  color: rgb(255, 255, 255);
+  font-weight: bold;
+}
+
+.project_title {
+  margin: 0px;
   color: rgb(255, 255, 255);
 }
 
