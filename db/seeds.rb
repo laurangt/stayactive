@@ -24,12 +24,12 @@ puts "All Goal Destroy"
 
 # Users
 
-file_user1 = URI.open("https://res.cloudinary.com/dqpgsz5ed/image/upload/v1669661696/sam_sresnq.png")
+file_user1 = URI.open("https://res.cloudinary.com/dqpgsz5ed/image/upload/v1669661691/paul_sdp6tg.jpg")
 user1 = User.new(
-  email: "sam@gmail.com",
+  email: "jorrit@gmail.com",
   password: "123123",
-  username: "Sam",
-  bio: "I'm 28 used to play tennis, I am now training for a half-marathon"
+  username: "Jorrit",
+  bio: "I'm a Deutch 30 year old bycicle lover that wants to meet people to go out and sort out Madrid´s traffic while we have some fun. If I can find people who know something about coding, rain and futbol, it would be even better."
 )
 user1.photo.attach(io: file_user1, filename: "nes.png", content_type: "image/png")
 user1.save
@@ -40,39 +40,39 @@ user2 = User.new(
   email: "hanna@gmail.com",
   password: "123123",
   username: "Hanna",
-  bio: "I'm a 25 year old ex-gymnast. I'm currently preparing for a triathlon for next year and getting started with yoga!"
+  bio: "I'm a 22 year old sports science profesional that wants to start preparing to win any marathon during 2023"
 )
 user2.photo.attach(io: file_user2, filename: "nes.png", content_type: "image/png")
 user2.save
-puts "User 1 saved: #{user2}"
+puts "User 2 saved: #{user2}"
 
 file_user3 = URI.open("https://res.cloudinary.com/dqpgsz5ed/image/upload/v1669661691/paul_sdp6tg.jpg")
 user3 = User.new(
-  email: "paul@gmail.com",
+  email: "vito@gmail.com",
   password: "123123",
-  username: "Paul",
-  bio: "I'm Paul, 30 years old. Never been into working out, but need to start as I lvoe food too much and am gaining to much weight."
+  username: "Vitotalian",
+  bio: "I'm Vito, a Venezuelan and Italian 30 year old guy that has just moved to Madrid. I currently have a very stressing job, so I need to exercise and, at the same time, meet local people"
 )
 user3.photo.attach(io: file_user3, filename: "nes.png", content_type: "image/png")
 user3.save
+puts "User 3 saved: #{user3}"
 
-file_user4 = URI.open("https://res.cloudinary.com/dqpgsz5ed/image/upload/v1669661879/susi_nrlweo.jpg")
-#File.open from pictures_folder
+file_user4 = URI.open("https://res.cloudinary.com/dqpgsz5ed/image/upload/v1669661691/paul_sdp6tg.jpg")
 user4 = User.new(
-  email: "susi@gmail.com",
+  email: "alberto@gmail.com",
   password: "123123",
-  username: "Susi",
-  bio: "I'm Susi, 28 years old. Post pregnancy I need some inspiration and motivation to get back in shape"
+  username: "Mexiberto",
+  bio: "I´m Alberto. I love to exercise, even though; since I suffer from hipotiroidism,it is very difficult for me to be consistent on my workouts. I would really like to meet other people and go out running or trekking"
 )
 user4.photo.attach(io: file_user4, filename: "nes.png", content_type: "image/png")
 user4.save
 
-file_user5 = URI.open("https://res.cloudinary.com/dqpgsz5ed/image/upload/v1669661685/kate_cepg6n.jpg")
+file_user5 = URI.open("https://res.cloudinary.com/dqpgsz5ed/image/upload/v1669661691/paul_sdp6tg.jpg")
 user5 = User.new(
-  email: "kate@gmail.com",
+  email: "leo@gmail.com",
   password: "123123",
-  username: "Kate",
-  bio: "I'm Kate"
+  username: "Leotroiscents",
+  bio: "Hello world, I´m Leo. I love to food, front-end developing and my Greek romantic accent (as girls always point out). I like to find practice boxing"
 )
 user5.photo.attach(io: file_user5, filename: "nes.png", content_type: "image/png")
 user5.save
@@ -107,58 +107,137 @@ group4 = Group.new(
 group4.photo.attach(io: file_group4, filename: "nes.png", content_type: "image/png")
 group4.save!
 
-file_group5 = URI.open("https://img.icons8.com/dusk/64/D5B3DC/tennis.png")
+file_group5 = URI.open("https://img.icons8.com/dusk/64/null/boxing.png")
 group5 = Group.new(
-  name: "Padel"
+  name: "Boxing"
 )
 group5.photo.attach(io: file_group5, filename: "nes.png", content_type: "image/png")
 group5.save!
 
 file_group6 = URI.open("https://img.icons8.com/dusk/64/null/sleeping-mat.png")
-group5 = Group.new(
+group6 = Group.new(
   name: "Yoga"
 )
-group5.photo.attach(io: file_group6, filename: "nes.png", content_type: "image/png")
-group5.save!
+group6.photo.attach(io: file_group6, filename: "nes.png", content_type: "image/png")
+group6.save!
 
 file_group7 = URI.open("https://img.icons8.com/dusk/64/null/cycling-road.png")
-group5 = Group.new(
+group7 = Group.new(
   name: "Cycling"
 )
-group5.photo.attach(io: file_group7, filename: "nes.png", content_type: "image/png")
-group5.save!
+group7.photo.attach(io: file_group7, filename: "nes.png", content_type: "image/png")
+group7.save!
 
 
 # Memberships
 membership1 = Membership.new(
-  group_id: group2.id,
+  group_id: group7.id,
   user_id: user2.id
 )
 membership1.save!
 
 membership2 = Membership.create(
-  group_id: group1.id,
+  group_id: group3.id,
   user_id: user1.id
 )
+membership2.save!
+
+membership3 = Membership.create(
+  group_id: group4.id,
+  user_id: user3.id
+)
+membership3.save!
+
+membership4 = Membership.create(
+  group_id: group1.id,
+  user_id: user4.id
+)
+membership4.save!
+
+membership5 = Membership.create(
+  group_id: group5.id,
+  user_id: user5.id
+)
+membership5.save!
 
 # Post
 Post.create(
-  title: "Triathlon",
-  content: "Finished first week of triathlon training with a 10km run!",
+  title: "Not an easy journey",
+  content: "Everything good in life is worth it!",
   membership_id: membership1.id
 )
 
 Post.create(
-  title: "Triathlon",
-  content: "Felt so unmotivated today, but this community made me get out of bed and do a cycling sess",
+  title: "Triathlon, here I go",
+  content: "Managed to finish the first week of triathlon training. What a great friday completing a 10km run!",
   membership_id: membership1.id
 )
 
 Post.create(
-  title: "Great podcast for running",
-  content: "Loved listening to the Mottiv podcast during my run, super good tips",
+  title: "It was just a bad day, not a bad life",
+  content: "This was a very stressfull week. I wanted to stay home and rest, however; my running team motivated me to finish a great running session",
+  membership_id: membership4.id
+)
+
+Post.create(
+  title: "Rain did not stop us",
+  content: "The weather was not the best but my buddies made this training worth it",
+  membership_id: membership4.id
+)
+
+Post.create(
+  title: "Nada como salir a rodar un sabado por la mañana",
+  content: "Felt so unmotivated today, but this community made me get out of bed and do a running sess",
+  membership_id: membership1.id
+)
+
+Post.create(
+  title: "Cycling in Madrid Rio is such a good idea",
+  content: "My group friends suggested going to Madrid Rio and I think it was a great idea. Such a beatiful place",
+  membership_id: membership1.id
+)
+
+Post.create(
+  title: "Running has changed my life and they warned me",
+  content: "After trying a lot of different therapies to improve my health, I think I finally found what I neede. It is called running. Higly recomended.",
+  membership_id: membership3.id
+)
+
+Post.create(
+  title: "What a great training session",
+  content: "Today, despite the cold weather conditions; I went for a 10k run",
+  membership_id: membership3.id
+)
+
+
+Post.create(
+  title: "Great podcast for runners",
+  content: "Loved listening to the Mottiv podcast during my run, super good tips to avoid injuries and, if you happen to have any, how to overcome them",
   membership_id: membership2.id
 )
+
+Post.create(
+  title: "Another great podcast to run long distances",
+  content: "I recommend you guys Darknet Diaries, it is a great podcast about crime and technology",
+  membership_id: membership2.id
+)
+
+Post.create(
+  title: "Back pain update",
+  content: "My back pain has gotten much better since I joined my swimming group. I also love the coffee after the trainning session!",
+  membership_id: membership5.id
+)
+
+Post.create(
+  title: "Swimming the best therapy",
+  content: "I have fallen in love with swimming",
+  membership_id: membership5.id
+)
+
+
+
+
+
 
 #Comments
 # comment1 = Comment.new(
@@ -173,7 +252,7 @@ Post.create(
 project1 = Project.new(
   title: "Triathlon 2023",
   description: "Ironman Venice in May 2023",
-  user_id: user2.id
+  user_id: user1.id
 )
 project1.save
 
@@ -184,21 +263,79 @@ project2 = Project.new(
 )
 project2.save
 
+project3 = Project.new(
+  title: "Swimming",
+  description: "My doctor suggested swimming as an alternative to treat my back pain",
+  user_id: user2.id
+)
+project3.save
+
+project4 = Project.new(
+  title: "Running",
+  description: "Returning finally to the running world",
+  user_id: user2.id
+)
+project4.save
+
+project5 = Project.new(
+  title: "Cycling",
+  description: "Missing cycling so much that I cannot wait to go out as often as possible",
+  user_id: user2.id
+)
+project5.save
 
 #Goals
 goal1 = Goal.new(
-  title: "Yoga",
+  title: "Running",
   description: "Getting into yoga for the first time. Planning to do at least 2 sessions a week",
-  end_date: '2020-12-31',
+  end_date: '2023-10-11',
   status: true,
-  project_id: 2,
+  project_id: project4.id
+)
+goal1.save
+
+goal1 = Goal.new(
+  title: "Swimming",
+  description: "I need to go swimming, at least, twice a week",
+  end_date: '2023-12-31',
+  status: true,
+  project_id: project3.id
+)
+goal1.save
+
+goal1 = Goal.new(
+  title: "Cycling",
+  description: "I want to go cycling 20k twice a week",
+  end_date: '2023-09-10',
+  status: true,
+  project_id: project5.id
+)
+goal1.save
+
+goal1 = Goal.new(
+  title: "Yoga",
+  description: "I and doing yoga everyday",
+  end_date: '2023-01-01',
+  status: true,
+  project_id: project2.id
+)
+goal1.save
+
+goal1 = Goal.new(
+  title: "Triathlon 2023",
+  description: "Go for a 5 to 7k run every single day",
+  end_date: '2023-12-15',
+  status: true,
+  project_id: project1.id
 )
 goal1.save
 
 
+
+
 # Logs
-log1 = Log.new(
-  content: "New log",
-  goal_id: 2,
-)
-log1.save
+# log1 = Log.new(
+#   content: "New log",
+#   goal_id: 2,
+# )__
+# log1.save
