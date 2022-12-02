@@ -39,7 +39,7 @@
     <div class="modal-dialog" role="document">
       <div class="modal-content">
         <div class="modal-header">
-          <h5 class="modal-title" id="exampleModalLongTitle">Your Goals</h5>
+          <h5 class="modal-title" id="exampleModalLongTitle">Add A Log</h5>
           <button type="button" class="close" data-dismiss="modal" aria-label="Close">
             <span aria-hidden="true">&times;</span>
           </button>
@@ -47,7 +47,7 @@
         <div class="modal-body-create-g">
           <%= simple_form_for([@goal, @log]) do |f| %>
             <div class="form-group-goal" style="width:310px;">
-              <%= f.input :content %>
+              <%= f.input :content, label: "Comment", placeholder: "Write your log ..." %>
               <%= f.input :photo, as: :file %>
             </div>
             <div class="button-new">
