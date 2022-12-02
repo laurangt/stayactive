@@ -37,13 +37,13 @@ puts "User 1 saved: #{user1}"
 
 file_user2 = URI.open("https://res.cloudinary.com/dqpgsz5ed/image/upload/v1669661679/hanna_j3svhk.png")
 user2 = User.new(
-  email: "laura@gmail.com",
+  email: "hanna@gmail.com",
   password: "123123",
-  username: "Laura",
+  username: "Hanna",
   bio: "I'm a 22 year old sports science profesional that wants to start preparing to win any marathon during 2023"
 )
-user1.photo.attach(io: file_user2, filename: "nes.png", content_type: "image/png")
-user1.save
+user2.photo.attach(io: file_user2, filename: "nes.png", content_type: "image/png")
+user2.save
 puts "User 2 saved: #{user2}"
 
 file_user3 = URI.open("https://res.cloudinary.com/dqpgsz5ed/image/upload/v1669661691/paul_sdp6tg.jpg")
@@ -58,7 +58,6 @@ user3.save
 puts "User 3 saved: #{user3}"
 
 file_user4 = URI.open("https://res.cloudinary.com/dqpgsz5ed/image/upload/v1669661691/paul_sdp6tg.jpg")
-#File.open from pictures_folder
 user4 = User.new(
   email: "alberto@gmail.com",
   password: "123123",
@@ -116,23 +115,23 @@ group5.photo.attach(io: file_group5, filename: "nes.png", content_type: "image/p
 group5.save!
 
 file_group6 = URI.open("https://img.icons8.com/dusk/64/null/sleeping-mat.png")
-group5 = Group.new(
+group6 = Group.new(
   name: "Yoga"
 )
-group5.photo.attach(io: file_group6, filename: "nes.png", content_type: "image/png")
-group5.save!
+group6.photo.attach(io: file_group6, filename: "nes.png", content_type: "image/png")
+group6.save!
 
 file_group7 = URI.open("https://img.icons8.com/dusk/64/null/cycling-road.png")
-group5 = Group.new(
+group7 = Group.new(
   name: "Cycling"
 )
-group5.photo.attach(io: file_group7, filename: "nes.png", content_type: "image/png")
-group5.save!
+group7.photo.attach(io: file_group7, filename: "nes.png", content_type: "image/png")
+group7.save!
 
 
 # Memberships
 membership1 = Membership.new(
-  group_id: group2.id,
+  group_id: group7.id,
   user_id: user2.id
 )
 membership1.save!
@@ -141,44 +140,48 @@ membership2 = Membership.create(
   group_id: group3.id,
   user_id: user1.id
 )
+membership2.save!
 
 membership3 = Membership.create(
   group_id: group4.id,
   user_id: user3.id
 )
+membership3.save!
 
 membership4 = Membership.create(
   group_id: group1.id,
   user_id: user4.id
 )
+membership4.save!
 
 membership5 = Membership.create(
   group_id: group5.id,
   user_id: user5.id
 )
+membership5.save!
 
 # Post
 Post.create(
-  title: "Not an easy journey"
+  title: "Not an easy journey",
   content: "Everything good in life is worth it!",
   membership_id: membership1.id
 )
 
 Post.create(
-  title: "Triathlon, here I go"
+  title: "Triathlon, here I go",
   content: "Managed to finish the first week of triathlon training. What a great friday completing a 10km run!",
   membership_id: membership1.id
 )
 
 Post.create(
   title: "It was just a bad day, not a bad life",
-  content: "This was a very stressfull week. I wanted to stay home and rest, however; my running team motivated me to finish a great running session"
+  content: "This was a very stressfull week. I wanted to stay home and rest, however; my running team motivated me to finish a great running session",
   membership_id: membership4.id
 )
 
 Post.create(
   title: "Rain did not stop us",
-  content: "The weather was not the best but my buddies made this training worth it"
+  content: "The weather was not the best but my buddies made this training worth it",
   membership_id: membership4.id
 )
 
@@ -209,13 +212,13 @@ Post.create(
 
 Post.create(
   title: "Great podcast for runners",
-  content: "Loved listening to the Mottiv podcast during my run, super good tips to avoid injuries and, if you happen to have any, how to overcome them"
+  content: "Loved listening to the Mottiv podcast during my run, super good tips to avoid injuries and, if you happen to have any, how to overcome them",
   membership_id: membership2.id
 )
 
 Post.create(
   title: "Another great podcast to run long distances",
-  content: "I recommend you guys Darknet Diaries, it is a great podcast about crime and technology"
+  content: "I recommend you guys Darknet Diaries, it is a great podcast about crime and technology",
   membership_id: membership2.id
 )
 
@@ -281,15 +284,13 @@ project5 = Project.new(
 )
 project5.save
 
-
-
 #Goals
 goal1 = Goal.new(
   title: "Running",
   description: "Getting into yoga for the first time. Planning to do at least 2 sessions a week",
   end_date: '2023-10-11',
   status: true,
-  project_id: 4,
+  project_id: project4.id
 )
 goal1.save
 
@@ -298,7 +299,7 @@ goal1 = Goal.new(
   description: "I need to go swimming, at least, twice a week",
   end_date: '2023-12-31',
   status: true,
-  project_id: 3,
+  project_id: project3.id
 )
 goal1.save
 
@@ -307,7 +308,7 @@ goal1 = Goal.new(
   description: "I want to go cycling 20k twice a week",
   end_date: '2023-09-10',
   status: true,
-  project_id: 5,
+  project_id: project5.id
 )
 goal1.save
 
@@ -316,7 +317,7 @@ goal1 = Goal.new(
   description: "I and doing yoga everyday",
   end_date: '2023-01-01',
   status: true,
-  project_id: 2,
+  project_id: project2.id
 )
 goal1.save
 
@@ -325,7 +326,7 @@ goal1 = Goal.new(
   description: "Go for a 5 to 7k run every single day",
   end_date: '2023-12-15',
   status: true,
-  project_id: 1,
+  project_id: project1.id
 )
 goal1.save
 
