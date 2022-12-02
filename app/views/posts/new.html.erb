@@ -1,19 +1,23 @@
-<%= link_to group_path(@group) do =%>
-  <i class="fa-solid fa-arrow-left fa-1xl m-4" style="color:blue"></i>
-<% end %>
+<div class="new-post-b">
+  <%= link_to group_path(@group) do =%>
+    <i class="fa-solid fa-arrow-left fa-lg back-arrow"></i>
+  <% end %>
 
-<div class="container py-5">
-  <div class="post">
-    <div class="col-12 col-md-12 offset-lg-3">
-      <div class="bg-gray rounded p-3 shadow">
-        <h2>New Post</h2>
-          <%= simple_form_for [@group, @post] do |f| %>
-                <%= f.input :title %>
-                <%= f.input :content %>
-                <%= f.input :photo, as: :file %>
-                <%= f.button :submit %>
-           <% end %>
+  <div class="container-np">
+    <div class="post">
+      <div class="col-12 col-md-12 offset-lg-3">
+        <div class="np-form">
+          <h2>New Post</h2>
+            <%= simple_form_for [@group, @post] do |f| %>
+                  <%= f.input :title %>
+                  <%= f.input :content %>
+                  <%= f.input :photo, as: :file %>
+                  <div class="btn-cp">
+                    <button type="button" class="btn btn-link btn-np"><%= f.button :submit %></button>
+                  </div>
+            <% end %>
+        </div>
       </div>
     </div>
-  </div>
+  <div>
 <div>
