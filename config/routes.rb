@@ -20,7 +20,7 @@ Rails.application.routes.draw do
 
   resources :groups, only: [:index, :show, :destroy] do
     resources :memberships, only: [:create]
-    resources :posts, only: [:create, :new, :show]
+    resources :posts, only: [:create, :new, :show, :update]
     resources :hearts, only: [:create]
   end
   resources :memberships, only: [:destroy]

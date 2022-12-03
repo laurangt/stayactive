@@ -4,10 +4,14 @@
 
 import { application } from "./application"
 
+import GoalController from "./goal_controller"
+application.register("goal", GoalController)
+
 import HelloController from "./hello_controller"
 application.register("hello", HelloController)
 
 import LikeController from "./like_controller"
 application.register("like", LikeController)
-import GoalController from "./goal_controller"
-application.register("goal", GoalController)
+
+import RevealController from "./reveal_controller"
+application.register("reveal", RevealController)
