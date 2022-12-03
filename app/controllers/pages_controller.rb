@@ -5,4 +5,7 @@ class PagesController < ApplicationController
     @user = current_user
     @groups = @user.groups
   end
+
+  def settings
+  end
 end

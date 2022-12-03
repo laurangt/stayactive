@@ -3,6 +3,8 @@ Rails.application.routes.draw do
   devise_for :users
   root to: "pages#home"
 
+  get 'settings', to: 'pages#settings'
+
   resources :projects, only: [:new, :show, :create, :destroy, :update] do
     resources :goals,  only: [:create, :new, :show]
   end
