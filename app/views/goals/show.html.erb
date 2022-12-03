@@ -10,7 +10,7 @@
   </div>
   <% @goal.logs.reverse.each do |log| %>
   <div id="status" class="gsh-dlog">
-    <p class='gsh-text'><%= log.created_at %></p>
+    <p class='gsh-text'><%= log.created_at.strftime("%d/%m/%Y") %></p>
     <%# <p class='text'><%= @goal.end_date %#></p>
   <p class='text'><%= @goal.status %#></p> %>
   </div>
