@@ -416,7 +416,7 @@ post11.save!
 
 
 file_post12 = URI.open("https://res.cloudinary.com/dqpgsz5ed/image/upload/v1670087226/sunrise_qorztn.jpg")
-post12 = Post.create!(
+post12 = Post.new(
   title: "Sunrise run",
   content: "Morning run at Temple of Debod, so peaceful and beautiful views!",
   membership_id: membership10.id
@@ -473,7 +473,7 @@ post18 = Post.create!(
 )
 
 file_post19 = URI.open("https://res.cloudinary.com/dqpgsz5ed/image/upload/v1670087226/trekking_mountain_jogqnh.jpg")
-post19 = Post.create!(
+post19 = Post.new(
   title: "Peaceful weekend",
   content: "Fresh air in the mountains hits different. Feel fresh and ready to rock the week!",
   membership_id: membership19.id
