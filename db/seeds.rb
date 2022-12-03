@@ -405,17 +405,24 @@ post10 = Post.create!(
   membership_id: membership6.id
 )
 
-post11 = Post.create!(
+file_post11 = URI.open("https://res.cloudinary.com/dqpgsz5ed/image/upload/v1670087226/tennis_family_ezffte.jpg")
+post11 = Post.new(
   title: "Tennis with the family",
-  content: "Wonderful afternoon playing tennis with my wife and kid.",
+  content: "Wonderful afternoon playing tennis with my wife and kids.",
   membership_id: membership5.id
 )
+post11.photo.attach(io: file_post11, filename: "nes.png", content_type: "image/png")
+post11.save!
 
+
+file_post12 = URI.open("https://res.cloudinary.com/dqpgsz5ed/image/upload/v1670087226/sunrise_qorztn.jpg")
 post12 = Post.create!(
   title: "Sunrise run",
   content: "Morning run at Temple of Debod, so peaceful and beautiful views!",
   membership_id: membership10.id
 )
+post12.photo.attach(io: file_post12, filename: "nes.png", content_type: "image/png")
+post12.save!
 
 post13 = Post.create!(
   title: "2 months left",
@@ -465,11 +472,14 @@ post18 = Post.create!(
   membership_id: membership18.id
 )
 
+file_post19 = URI.open("https://res.cloudinary.com/dqpgsz5ed/image/upload/v1670087226/trekking_mountain_jogqnh.jpg")
 post19 = Post.create!(
   title: "Peaceful weekend",
   content: "Fresh air in the mountains hits different. Feel fresh and ready to rock the week!",
   membership_id: membership19.id
 )
+post19.photo.attach(io: file_post19, filename: "nes.png", content_type: "image/png")
+post19.save!
 
 post20 = Post.create!(
   title: "Swimming in Madrid",
