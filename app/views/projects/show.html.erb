@@ -23,7 +23,7 @@
         <div class="ps-cbox" data-controller="goal" data-goal-update-url-value="<%= goal_path(goal) %>">
           <input type="checkbox" data-action="click->goal#toggle" data-goal-target="status"
           <%= goal.status ? "checked" : "" %>/>
-          <p class="p-show-end-date"><%= goal.end_date %></p>
+          <p class="p-show-end-date">End date: <%= goal.end_date %></p>
         </div>
       <%= link_to project_goal_path(@project, goal)	do %>
         <div class="p-show-goals">
@@ -40,9 +40,10 @@
   <% end %>
   <!--MODAL CREATE to add a goal -->
   <!-- Button trigger modal -->
-  <button type="button" class="btn btn-link b-create-goal" data-toggle="modal" data-target="#exampleModalLong">
-    Create Goal
-  </button>
+
+  <div class="btn-pluscir" data-toggle="modal" data-target="#exampleModalLong">
+    <i class="fa-solid fa-circle-plus"></i>
+  </div>
   <!-- Modal -->
   <div class="modal fade" id="exampleModalLong" tabindex="-1" role="dialog" aria-labelledby="exampleModalLongTitle" aria-hidden="true">
     <div class="modal-dialog" role="document">

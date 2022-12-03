@@ -1,6 +1,6 @@
 <div class="g_show">
   <div class="g-show-title">
-    <%= link_to groups_path do %>
+    <%= link_to root_path do %>
       <i class="fa-solid fa-arrow-left fa-lg"></i>
     <% end %>
     <h1 class="g-show-name"><%= @group.name %></h1>
@@ -54,6 +54,7 @@
     <% end %>
     <div data-controller="like">
         <i class="fa-solid fa-thumbs-up" data-action="click->like#hello"></i>
+        <%# need to add value %>
         <p data-like-target="count"><%= post.hearts.count %></p>
     </div>
   <% end %>
