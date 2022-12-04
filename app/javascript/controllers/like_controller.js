@@ -4,16 +4,17 @@ import { end } from "@popperjs/core"
 // Connects to data-controller="like"
 export default class extends Controller {
   static targets = ["count"]
-  // static values = { Group:String }
+  static values = { group: Number, heart: Number }
 
   connect() {
-    console.log("Hello")
-    // console.log(this.GroupValue)
+    console.log(this.groupValue);
+    console.log(this.heartValue);
   }
 
-  hello() {
-    // .fetch(`/groups/${this.countTarget.}/hearts`)
-    // new FetchRequest('post', this.GroupValue)
+  add(event) {
+    event.preventDefault();
+    fetch(`/groups/${this.groupValue}/hearts`)
+    .then(value => Number(value))
     let value;
     if (this.countTarget.innerText === "0") {
       value = 0;
@@ -23,7 +24,18 @@ export default class extends Controller {
     value += 1;
     this.countTarget.innerText = value;
   }
-}
 
-// const request = new FetchRequest('patch', this.updateUrlValue)
-//     request.perform()
+  remove(event){
+    event.preventDefault();
+    fetch(`/groups/${this.groupValue}/hearts/${this.heartValue}`)
+    .then(value => Number(value))
+    let value;
+    if (this.countTarget.innerText === "0") {
+      value = 0;
+    } else {
+      value = parseInt(this.countTarget.innerText, 10);
+      value -= 1;
+    }
+    this.countTarget.innerText = value;
+  }
+}

@@ -53,7 +53,7 @@
       </div>
     <% end %>
     <div data-controller="like">
-      <i class="fa-solid fa-thumbs-up" data-action="click->like#hello"></i>
+      <i class="fa-solid fa-thumbs-up" data-action="click->like#add" data-like-group-value="<%= @group.id %> "></i>
       <%# need to add value %>
       <p data-like-target="count"><%= post.hearts.count %></p>
     </div>
