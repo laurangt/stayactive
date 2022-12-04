@@ -3,7 +3,10 @@
   <head>
     <title><%= meta_title %></title>
     <meta name="description" content="<%= meta_description %>">
-    <%= favicon_link_tag "logo.png", rel: "icon", type: "image/png" %>
+    <%= favicon_link_tag "logometa.jpg", rel: "icon", type: "image/png" %>
+    <%# <link rel="manifest" href="<%= asset_path 'manifest.json' %>
+    <%# "> %>
+    <%= render 'shared/ios_pwa_links' %>
 
     <!-- Facebook Open Graph data -->
     <meta property="og:title" content="<%= meta_title %>">
@@ -15,13 +18,14 @@
 
     <meta name="apple-mobile-web-app-capable" content="yes">
     <meta name="mobile-web-app-capable" content="yes">
-    
+
     <%# <title>Stayactive</title> %>
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
     <%= stylesheet_link_tag "application", "data-turbo-track": "reload" %>
     <%= javascript_include_tag "application", "data-turbo-track": "reload", defer: true %>
+
   </head>
   <body>
     <%= render "shared/navbar" %>
