@@ -24,7 +24,6 @@
 
 .button_groups .btn {
   background-color: #F7D30B;
-  font-weight: bold;
   text-decoration: none;
   color:rgb(0, 0, 0);
   margin-bottom: 3%;
@@ -32,6 +31,7 @@
   border-right: 2px solid black;
   border-top: 2px solid grey;
   border-left: 2px solid grey;
+  border-radius: 10px;
 }
 
 .project_box .project_title_box {
@@ -82,19 +82,15 @@
   text-align: center;
 }
 
-.modal-title {
-  font-weight: bold;
-}
-
 .b-home-pop {
   background-color: #F7D30B;
   width: 130px;
   height: 40px;
   margin: 5%;
+  border-radius: 10px;
 }
 
 .b-home-pop > a {
-  font-weight: bold;
   color: rgb(0, 0, 0);
   text-decoration: none;
 }
