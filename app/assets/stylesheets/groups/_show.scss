@@ -70,6 +70,7 @@
 .g-post-del {
   display: flex;
   justify-content: right;
+  height: 3vh;
 }
 
 .g-post-del .show-message {
@@ -82,7 +83,7 @@ a {
 }
 
 .likes {
-  width: 20%;
+  margin-left: 5%;
   display: flex;
   align-items: baseline;
   justify-content: center;
