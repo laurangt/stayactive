@@ -22,14 +22,14 @@
 
   <% @group.posts.reverse.each do |post| %>
     <div class="g-post-all mb-2">
-      <div class="group-post-head">
-        <%= link_to user_path(post.membership.user) do %>
+      <%= link_to user_path(post.membership.user) do %>
+        <div class="group-post-head">
           <% if post.membership.user.photo.key.present? %>
             <%= cl_image_tag post.membership.user.photo.key, height: 50, width: 50, crop: :fill, style: "object-fit: fill;"%>
           <% end %>
           <%= post.membership.user.username %>
-        <% end %>
-      </div>
+        </div>
+      <% end %>
       <div class="group-post-cont">
         <p><%= post.title %></p>
         <p><%= post.content %></p>
