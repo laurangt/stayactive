@@ -12,7 +12,7 @@
 
   <% if !groupsid.include?(@group.id) %>
     <%= simple_form_for [@group, @membership] do |f| %>
-      <button type="button" class="btn btn-link btn-sm b-create-memb"><%= f.submit 'Join group' %></button>
+      <button type="button" class="btn btn-link btn-sm b-create-memb"><%= f.submit 'JOIN' %></button>
     <% end %>
   <% end %>
 
@@ -22,7 +22,7 @@
 
   <% @group.posts.reverse.each do |post| %>
     <%= link_to group_post_path(@group, post) do %>
-      <div class="g-post-all mb-4">
+      <div class="g-post-all mb-2">
         <div class="group-post-head">
         <% if post.membership.user.photo.key.present? %>
           <%= cl_image_tag post.membership.user.photo.key, height: 50, width: 50, crop: :fill, style: "object-fit: fill;"%>
@@ -52,10 +52,10 @@
         </div>
       </div>
     <% end %>
-    <div data-controller="like">
-        <i class="fa-solid fa-thumbs-up" data-action="click->like#hello"></i>
-        <%# need to add value %>
+    <div class="likes" data-controller="like">
         <p data-like-target="count"><%= post.hearts.count %></p>
+        <%# need to add value %>
+        <i class="fa-solid fa-thumbs-up mx-2" data-action="click->like#hello"></i>
     </div>
   <% end %>
 

@@ -4,7 +4,7 @@
 
 .project-show-main {
   display: flex;
-  margin-bottom: 2%;
+  margin-bottom: 5%;
 }
 
 .fa-arrow-left{
@@ -74,14 +74,15 @@
 }
 
 .modal-body-create-g {
-  background-color: #D5B3DC;
+  background-color: #F7D78C;
   padding: 5%;
   margin: 3%;
   border-radius: 5px;
+  box-shadow: 0px 3px 3px grey;
 }
 
 .b-c-goal {
-  background-color: #F7D30B;
+  background-color: #AFC3A8;
   border-radius: 10px;
   border-bottom: 2px solid black;
   border-right: 2px solid black;

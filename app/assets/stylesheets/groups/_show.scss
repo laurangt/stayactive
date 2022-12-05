@@ -15,13 +15,17 @@
 
 .b-create-memb input {
   background-color: #F7D30B;
-  padding: 5%;
+  border-radius: 10px;
   font-weight: bold;
   margin-bottom: 2%;
   border-bottom: 2px solid black;
   border-right: 2px solid black;
   border-top: 2px solid grey;
-  border-left: 2px solid grey;}
+  border-left: 2px solid grey;
+  position: absolute;
+  left: 82%;
+  top: 10%;
+}
 
 .b-leave-gr {
   color: rgb(0, 0, 0);
@@ -32,6 +36,9 @@
   border-right: 2px solid black;
   border-top: 2px solid grey;
   border-left: 2px solid grey;
+  position: relative;
+  left: 70%;
+  height: 40px;
 }
 
 .group-post-head {
@@ -72,4 +79,11 @@
 a {
   text-decoration: none;
   color: black;
+}
+
+.likes {
+  width: 20%;
+  display: flex;
+  align-items: baseline;
+  justify-content: center;
 }
