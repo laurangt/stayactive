@@ -50,11 +50,10 @@
           </div>
         </div>
       </div>
-    </div>
-    <div data-controller="like">
-        <i class="fa-solid fa-thumbs-up" data-action="click->like#hello"></i>
-        <%# need to add value %>
-        <%# <p data-like-target="count"><%= post.hearts.count %></p>
+    <% end %>
+    <div data-controller="like" data-like-post-id-value="<%= post.id %>">
+      <i class="fa-solid fa-thumbs-up" data-action="click->like#add" ></i>
+      <p data-like-target="count"><%= post.hearts.count %></p>
     </div>
   <% end %>
 
