@@ -84,10 +84,12 @@
 .b-c-goal {
   background-color: #AFC3A8;
   border-radius: 10px;
-  border-bottom: 2px solid black;
-  border-right: 2px solid black;
-  border-top: 2px solid grey;
-  border-left: 2px solid grey;
+  border-bottom: 2px solid rgb(0, 0, 0);
+  border-right: 2px solid rgb(0, 0, 0);
+  border-top: 2px solid rgb(128, 128, 128);
+  border-left: 2px solid rgb(128, 128, 128);
+  color: rgb(0, 0, 0);
+  text-decoration: none;
 }
 .b-c-goal > input{
   color: rgb(0, 0, 0);
@@ -106,5 +108,5 @@
 }
 
 .psg-title {
-  border-bottom: 2px solid white;
+  border-bottom: 2px solid rgb(255, 255, 255);
 }
