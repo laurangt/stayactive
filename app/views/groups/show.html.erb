@@ -23,7 +23,7 @@
   <% @group.posts.each do |post| %>
       <div class="g-post-all mb-4">
         <div class="group-post-head">
-          <%= link_to  %>
+          <%# <%= link_to  %> %>
           <%= cl_image_tag post.membership.user.photo.key, height: 50, width: 50, crop: :fill, style: "object-fit: fill;"%>
           <%= post.membership.user.username %>
         </div>
