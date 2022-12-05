@@ -30,7 +30,7 @@
       <div class="ps-cbox" data-controller="goal" data-goal-update-url-value="<%= goal_path(goal) %>">
         <input type="checkbox" data-action="click->goal#toggle" data-goal-target="status"
         <%= goal.status ? "checked" : "" %>/>
-        <p class="p-show-end-date">End date: <%= goal.end_date %></p>
+        <p class="p-show-end-date">End date: <%= goal.end_date.strftime("%d/%m/%Y") %></p>
       </div>
       <%= link_to project_goal_path(@project, goal)	do %>
         <div class="p-show-goals">
