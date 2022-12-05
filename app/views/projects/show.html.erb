@@ -1,98 +1,110 @@
 <div class="project_show">
   <div class="project-show-main">
-    <%= link_to root_path do %>
+    <%= link_to url_for(:back) do %>
       <i class="fa-solid fa-arrow-left fa-lg text-dark"></i>
     <% end %>
+    <h1 class="project-show-title"><%= @project.title %></h1>
   </div>
   <div class="project-show-desc">
-    <h1 class="project-show-title"><%= @project.title %></h1>
     <p><%= @project.description %></p>
     <div class="ps-icon">
-      <%= link_to project_path(@project), data: {turbo_method: :delete, turbo_confirm: "Are you sure?"}, class: "text-black p-show-desc-del p-2" do %>
-        <i class="fa-solid fa-trash"></i>
+
+      <% if current_user.id == @project.user_id %>
+        <p class="p-show-desc-del p-2"><%= link_to project_path(@project), data: {turbo_method: :delete, turbo_confirm: "Are you sure?"}, class: "text-black p-show-desc-del p-2" do %>
+            <i class="fa-solid fa-trash"></i>
+          <% end %></p>
+
       <% end %>
       <!-- MODAL EDIT -->
       <!-- Button trigger modal -->
-      <button type="button" class="btn btn-link text-dark" data-toggle="modal" data-target="#editProject">
-        <i class="fa-solid fa-pen"></i>
-      </button>
+      <% if current_user.id == @project.user_id %>
+        <button type="button" class="btn btn-link text-dark" data-toggle="modal" data-target="#editProject">
+          <i class="fa-solid fa-pen"></i>
+        </button>
+      <% end %>
     </div>
   </div>
   <h2>Goals:</h2>
-  <% @project.goals.each do |goal| %>
-    <div class="ps-cbox" data-controller="goal" data-goal-update-url-value="<%= goal_path(goal) %>">
-      <input type="checkbox" data-action="click->goal#toggle" data-goal-target="status"
-      <%= goal.status ? "checked" : "" %>/>
-      <p class="p-show-end-date">End date: <%= goal.end_date %></p>
+  <div>
+    <% @project.goals.each do |goal| %>
+      <div class="ps-cbox" data-controller="goal" data-goal-update-url-value="<%= goal_path(goal) %>">
+        <input type="checkbox" data-action="click->goal#toggle" data-goal-target="status"
+        <%= goal.status ? "checked" : "" %>/>
+        <p class="p-show-end-date">End date: <%= goal.end_date %></p>
+      </div>
+      <%= link_to project_goal_path(@project, goal)	do %>
+        <div class="p-show-goals">
+          <div class="p-show-goal-box">
+            <p class="psg-title" style="color: white;"><%= goal.title %></p>
+            <p style="color: white;"><%= goal.description %></p>
+            <p class="p-show-goal-del" style="color: white;"><%= link_to goal_path(goal), data: {turbo_method: :delete, turbo_confirm: "Are you sure?"}, class: "text-dark text-decoration-none" do %>
+                <i class="fa-solid fa-trash"></i>
+              <% end %></p>
+          </div>
+        </div>
+      <% end %>
+    <% end %>
+  </div>
+  <!--MODAL CREATE to add a goal -->
+  <!-- Button trigger modal -->
+  <!--MODAL CREATE to add a goal -->
+  <!-- Button trigger modal -->
+  <% if current_user.id == @project.user_id %>
+    <div class="btn-pluscir" data-toggle="modal" data-target="#exampleModalLong">
+      <i class="fa-solid fa-circle-plus"></i>
     </div>
-    <%= link_to project_goal_path(@project, goal)	do %>
-      <div class="p-show-goals">
-        <div class="p-show-goal-box">
-          <p class="psg-title" style="color: white;"><%= goal.title %></p>
-          <p style="color: white;"><%= goal.description %></p>
-          <%= link_to goal_path(goal), data: {turbo_method: :delete, turbo_confirm: "Are you sure?"}, class: "text-white text-decoration-none p-show-goal-del" do %>
-            <i class="fa-solid fa-trash"></i>
-          <% end %>
+    <!-- Modal -->
+    <div class="modal fade" id="exampleModalLong" tabindex="-1" role="dialog" aria-labelledby="exampleModalLongTitle" aria-hidden="true">
+      <div class="modal-dialog" role="document">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title" id="exampleModalLongTitle">Create Goal</h5>
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+              <span aria-hidden="true">&times;</span>
+            </button>
+          </div>
+          <div class="modal-body-create-g" data-controller='flatpickr'>
+            <%= simple_form_for([@project, @goal]) do |f| %>
+              <%# <%= f.label :title, "Title" %>
+              <%= f.input :title %>
+              <%= f.input :description %>
+              <%= f.input :end_date, as: :string, input_html: { data: { flatpickr_target: "endTime" } } %>
+              <%= f.button :submit, value: "Create", class:"btn btn-link b-c-goal" %>
+            <% end %>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- MODAL EDIT (button at the top)-->
+    <!-- Modal -->
+    <% if current_user.id == @project.user_id %>
+      <div class="modal fade" id="editProject" tabindex="-1" role="dialog" aria-labelledby="editProjectTitle" aria-hidden="true">
+        <div class="modal-dialog" role="document">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h5 class="modal-title" id="editProjectTitle">Edit Project</h5>
+              <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+              </button>
+            </div>
+            <div class="modal-body-edit-p">
+              <%= simple_form_for([@project]) do |f| %>
+                <div class="form-edit-project" style="width:310px;">
+                  <%# <%= f.label :title, "Title" %>
+                  <%= f.input :title, placeholder: @project.title %>
+                </div>
+                <div class="form-edit-project" style="width:310px;">
+                  <%# <%= f.label :description, "Description" %>
+                  <%= f.input :description, placeholder: @project.description %>
+                </div>
+                <div class="button-new">
+                  <button type="button" class="btn btn-link b-c-goal"><%= f.button :submit, name: "subaction", value: "Update" %></button>
+                </div>
+              <% end %>
+            </div>
+          </div>
         </div>
       </div>
     <% end %>
   <% end %>
-
-
-  <!--MODAL CREATE to add a goal -->
-  <!-- Button trigger modal -->
-  <div class="btn-pluscir" data-toggle="modal" data-target="#exampleModalLong">
-    <i class="fa-solid fa-circle-plus"></i>
-  </div>
-  <!-- Modal -->
-  <div class="modal fade" id="exampleModalLong" tabindex="-1" role="dialog" aria-labelledby="exampleModalLongTitle" aria-hidden="true">
-    <div class="modal-dialog" role="document">
-      <div class="modal-content">
-        <div class="modal-header">
-          <h5 class="modal-title" id="exampleModalLongTitle">Create Goal</h5>
-          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-            <span aria-hidden="true">&times;</span>
-          </button>
-        </div>
-        <div class="modal-body-create-g" data-controller='flatpickr'>
-          <%= simple_form_for([@project, @goal]) do |f| %>
-            <%# <%= f.label :title, "Title" %>
-            <%= f.input :title %>
-            <%= f.input :description %>
-            <%= f.input :end_date, as: :string, input_html: { data: { flatpickr_target: "endTime" } } %>
-            <%= f.button :submit, value: "Create", class:"btn btn-link b-c-goal" %>
-          <% end %>
-        </div>
-      </div>
-    </div>
-  </div>
-  <!-- MODAL EDIT (button at the top)-->
-  <!-- Modal -->
-  <div class="modal fade" id="editProject" tabindex="-1" role="dialog" aria-labelledby="editProjectTitle" aria-hidden="true">
-    <div class="modal-dialog" role="document">
-      <div class="modal-content">
-        <div class="modal-header">
-          <h5 class="modal-title" id="editProjectTitle">Edit Project</h5>
-          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-            <span aria-hidden="true">&times;</span>
-          </button>
-        </div>
-        <div class="modal-body-edit-p">
-          <%= simple_form_for([@project]) do |f| %>
-            <div class="form-edit-project" style="width:310px;">
-              <%# <%= f.label :title, "Title" %>
-              <%= f.input :title, placeholder: @project.title %>
-            </div>
-            <div class="form-edit-project" style="width:310px;">
-              <%# <%= f.label :description, "Description" %>
-              <%= f.input :description, placeholder: @project.description %>
-            </div>
-            <div class="button-new">
-              <%= f.button :submit, name: "subaction", value: "Update", class:"btn btn-link b-c-goal" %>
-            </div>
-          <% end %>
-        </div>
-      </div>
-    </div>
-  </div>
 </div>

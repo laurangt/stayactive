@@ -11,7 +11,7 @@ class GoalPolicy < ApplicationPolicy
   end
 
   def create?
-    true
+    record.project.user == user
   end
 
   def update?

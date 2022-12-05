@@ -23,18 +23,19 @@
 
   <% @group.posts.reverse.each do |post| %>
     <div class="g-post-all mb-2">
-      <div class="group-post-head">
-        <%# <%= link_to  %>
-        <% if post.membership.user.photo.key.present? %>
-          <%= cl_image_tag post.membership.user.photo.key, height: 50, width: 50, crop: :fill, style: "object-fit: fill;"%>
-        <% end %>
-        <%= post.membership.user.username %>
-      </div>
+      <%= link_to user_path(post.membership.user) do %>
+        <div class="group-post-head">
+          <% if post.membership.user.photo.key.present? %>
+            <%= cl_image_tag post.membership.user.photo.key, height: 50, width: 50, crop: :fill, style: "object-fit: fill;"%>
+          <% end %>
+          <%= post.membership.user.username %>
+        </div>
+      <% end %>
       <div class="group-post-cont">
         <p><%= post.title %></p>
         <p><%= post.content %></p>
-        <% if post.photo.key.present? %>
-          <%= cl_image_tag post.photo.key, height: 50, width: 50, crop: :fill%>
+        <% if post.photo.attached? %>
+          <%= cl_image_tag post.photo.key, height: 200, crop: :fill%>
         <% end %>
         <div class="g-post-del">
           <% if policy(post).destroy? %>
@@ -49,12 +50,15 @@
               <% end %>
             <% end %>
           </div>
+
           <div class="likes" data-controller="like" data-like-post-id-value="<%= post.id %>">
             <p data-like-target="count"><%= post.hearts.count %></p>
             <i class="fa-solid fa-thumbs-up ms-1" data-action="click->like#add" ></i>
           </div>
+
         </div>
       </div>
+      <%= render partial: 'hearts/heart', locals: { post: post, user_liked: post.liked?(current_user), user: current_user } %>
     </div>
   <% end %>
 
