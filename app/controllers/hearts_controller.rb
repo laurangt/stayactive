@@ -9,6 +9,10 @@ class HeartsController < ApplicationController
     if @heart.save
       head :ok
     end
+    # respond_to do |format|
+    #   format.html { redirect_to group_path(@heart.membership.group) }
+    #   format.text { render partial: "hearts/heart", locals: { post: @post, user_liked: @post.liked?(current_user), user: current_user }, formats: [:html] }
+    # end
   end
 
   def destroy
@@ -16,6 +20,10 @@ class HeartsController < ApplicationController
     @heart.destroy
     @post = Post.find(params[:post_id])
     redirect_to post_path(@post)
+    # respond_to do |format|
+    #   format.html { redirect_to group_path(@heart.membership.group) }
+    #   format.text { render partial: "hearts/heart", locals: { post: @post, user_liked: @post.liked?(current_user), user: current_user }, formats: [:html] }
+    # end
   end
 
 end

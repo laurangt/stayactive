@@ -41,9 +41,13 @@ export default class extends Controller {
     event.preventDefault();
     fetch(`/hearts/${this.heartIdByCurrentUserValue}`, {
       method: 'DELETE',
-      // headers: {'Content-Type': 'application/json'},
+      headers: {"Accept": "text/plain"}
      })
     .then(value => Number(value))
+    // .then(response => response.json())
+    // .then((data) => {
+    //   this.countTarget.outerHTML = data
+    // })
     let value;
     if (this.countTarget.innerText === "0") {
       value = 0;
@@ -52,5 +56,6 @@ export default class extends Controller {
       value -= 1;
     }
     this.countTarget.innerText = value;
+
   }
 }
