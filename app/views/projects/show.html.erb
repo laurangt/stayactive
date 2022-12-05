@@ -8,39 +8,43 @@
   <div class="project-show-desc">
     <p><%= @project.description %></p>
     <div class="ps-icon">
-      <p class="p-show-desc-del p-2"><%= link_to project_path(@project), data: {turbo_method: :delete, turbo_confirm: "Are you sure?"}, class: "text-dark" do %>
+      <% if current_user.id == @project.user_id %>
+        <p class="p-show-desc-del p-2"><%= link_to project_path(@project), data: {turbo_method: :delete, turbo_confirm: "Are you sure?"}, class: "text-dark" do %>
           <i class="fa-solid fa-trash"></i>
         <% end %></p>
+      <% end %>
       <!-- MODAL EDIT -->
       <!-- Button trigger modal -->
-      <button type="button" class="btn btn-link text-dark" data-toggle="modal" data-target="#editProject">
-        <i class="fa-solid fa-pen"></i>
-      </button>
+      <% if current_user.id == @project.user_id %>
+        <button type="button" class="btn btn-link text-dark" data-toggle="modal" data-target="#editProject">
+          <i class="fa-solid fa-pen"></i>
+        </button>
+      <% end %>
     </div>
   </div>
   <h2>Goals:</h2>
-      <% @project.goals.each do |goal| %>
-        <div class="ps-cbox" data-controller="goal" data-goal-update-url-value="<%= goal_path(goal) %>">
-          <input type="checkbox" data-action="click->goal#toggle" data-goal-target="status"
-          <%= goal.status ? "checked" : "" %>/>
-          <p class="p-show-end-date">End date: <%= goal.end_date %></p>
-        </div>
-      <%= link_to project_goal_path(@project, goal)	do %>
-        <div class="p-show-goals">
-          <div class="p-show-goal-box">
-            <p class="psg-title" style="color: white;"><%= goal.title %></p>
-            <p style="color: white;"><%= goal.description %></p>
-            <p class="p-show-goal-del" style="color: white;"><%= link_to goal_path(goal), data: {turbo_method: :delete, turbo_confirm: "Are you sure?"}, class: "text-dark text-decoration-none" do %>
-                <i class="fa-solid fa-trash"></i>
-              <% end %></p>
-          </div>
-        </div>
-      <% end %>
+  <% @project.goals.each do |goal| %>
+    <div class="ps-cbox" data-controller="goal" data-goal-update-url-value="<%= goal_path(goal) %>">
+      <input type="checkbox" data-action="click->goal#toggle" data-goal-target="status"
+      <%= goal.status ? "checked" : "" %>/>
+      <p class="p-show-end-date">End date: <%= goal.end_date %></p>
     </div>
+    <%= link_to project_goal_path(@project, goal)	do %>
+      <div class="p-show-goals">
+        <div class="p-show-goal-box">
+          <p class="psg-title" style="color: white;"><%= goal.title %></p>
+          <p style="color: white;"><%= goal.description %></p>
+          <p class="p-show-goal-del" style="color: white;"><%= link_to goal_path(goal), data: {turbo_method: :delete, turbo_confirm: "Are you sure?"}, class: "text-dark text-decoration-none" do %>
+              <i class="fa-solid fa-trash"></i>
+          <% end %></p>
+        </div>
+      </div>
+    <% end %>
   <% end %>
-  <!--MODAL CREATE to add a goal -->
-  <!-- Button trigger modal -->
 
+<!--MODAL CREATE to add a goal -->
+<!-- Button trigger modal -->
+<% if current_user.id == @project.user_id %>
   <div class="btn-pluscir" data-toggle="modal" data-target="#exampleModalLong">
     <i class="fa-solid fa-circle-plus"></i>
   </div>
@@ -74,9 +78,10 @@
       </div>
     </div>
   </div>
-
+<% end %>
 <!-- MODAL EDIT (button at the top)-->
-  <!-- Modal -->
+<!-- Modal -->
+<% if current_user.id == @project.user_id %>
   <div class="modal fade" id="editProject" tabindex="-1" role="dialog" aria-labelledby="editProjectTitle" aria-hidden="true">
     <div class="modal-dialog" role="document">
       <div class="modal-content">
@@ -104,4 +109,5 @@
       </div>
     </div>
   </div>
+<% end %>
 </div>
