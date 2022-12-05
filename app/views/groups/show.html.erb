@@ -23,7 +23,6 @@
   <% @group.posts.reverse.each do |post| %>
     <div class="g-post-all mb-2">
       <div class="group-post-head">
-        <%# <%= link_to  %>
         <% if post.membership.user.photo.key.present? %>
           <%= cl_image_tag post.membership.user.photo.key, height: 50, width: 50, crop: :fill, style: "object-fit: fill;"%>
         <% end %>
@@ -50,10 +49,7 @@
           </div>
         </div>
       </div>
-    <div data-controller="like" data-like-post-id-value="<%= post.id %>">
-      <i class="fa-solid fa-thumbs-up" data-action="click->like#add" ></i>
-      <p data-like-target="count"><%= post.hearts.count %></p>
-    </div>
+    <%= render partial: 'hearts/heart', locals: { post: post, user_liked: post.liked?(current_user), user: current_user } %>
   <% end %>
 
 

@@ -40,6 +40,8 @@ class PostsController < ApplicationController
     authorize @post
   end
 
+
+  
   private
 
   def post_params
