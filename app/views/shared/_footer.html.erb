@@ -1,6 +1,8 @@
 <div class="footer">
   <div class="footer-links">
-    <a href="#"><i class="fa-solid fa-gear"></i></a>
+    <%= link_to settings_path do %>
+      <i class="fa-solid fa-gear"></i>
+    <% end %>
     <a href="#"><i class="fa-solid fa-comments"></i></a>
     <a href="#"><i class="fa-solid fa-user-group"></i></a>
     <%= link_to root_path do %>
