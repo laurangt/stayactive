@@ -19,15 +19,16 @@
     </div>
   </div>
   <h2>Goals:</h2>
-  <% @project.goals.each do |goal| %>
-    <div data-controller="goal" data-goal-update-url-value="<%= goal_path(goal) %>">
-      <input type="checkbox" data-action="click->goal#toggle" data-goal-target="status"
-      <%= goal.status ? "checked" : "" %>/>
-      <p class="p-show-end-date"><%= goal.end_date %></p>
+      <% @project.goals.each do |goal| %>
+        <div class="ps-cbox" data-controller="goal" data-goal-update-url-value="<%= goal_path(goal) %>">
+          <input type="checkbox" data-action="click->goal#toggle" data-goal-target="status"
+          <%= goal.status ? "checked" : "" %>/>
+          <p class="p-show-end-date">End date: <%= goal.end_date %></p>
+        </div>
       <%= link_to project_goal_path(@project, goal)	do %>
         <div class="p-show-goals">
           <div class="p-show-goal-box">
-            <p style="color: white;"><%= goal.title %></p>
+            <p class="psg-title" style="color: white;"><%= goal.title %></p>
             <p style="color: white;"><%= goal.description %></p>
             <p class="p-show-goal-del" style="color: white;"><%= link_to goal_path(goal), data: {turbo_method: :delete, turbo_confirm: "Are you sure?"}, class: "text-dark text-decoration-none" do %>
                 <i class="fa-solid fa-trash"></i>
@@ -39,9 +40,10 @@
   <% end %>
   <!--MODAL CREATE to add a goal -->
   <!-- Button trigger modal -->
-  <button type="button" class="btn btn-link b-create-goal" data-toggle="modal" data-target="#exampleModalLong">
-    Create Goal
-  </button>
+
+  <div class="btn-pluscir" data-toggle="modal" data-target="#exampleModalLong">
+    <i class="fa-solid fa-circle-plus"></i>
+  </div>
   <!-- Modal -->
   <div class="modal fade" id="exampleModalLong" tabindex="-1" role="dialog" aria-labelledby="exampleModalLongTitle" aria-hidden="true">
     <div class="modal-dialog" role="document">
@@ -72,11 +74,8 @@
       </div>
     </div>
   </div>
-  <!-- MODAL EDIT -->
-  <!-- Button trigger modal -->
-  <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#editProject">
-    Edit Project
-  </button>
+
+<!-- MODAL EDIT (button at the top)-->
   <!-- Modal -->
   <div class="modal fade" id="editProject" tabindex="-1" role="dialog" aria-labelledby="editProjectTitle" aria-hidden="true">
     <div class="modal-dialog" role="document">

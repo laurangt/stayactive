@@ -29,6 +29,12 @@
   justify-content: end;
 }
 
+.ps-cbox {
+  display: flex;
+  align-items: baseline;
+  height: 26px;
+}
+
 .p-show-desc-del {
   text-align: right;
   margin-bottom: 0;
@@ -41,6 +47,7 @@
 .p-show-end-date {
   background-color: #0C2641;
   color: rgb(255, 255, 255);
+  margin-left: 8px;
 }
 
 .p-show-goal-box {
@@ -61,6 +68,7 @@
   color: rgb(0, 0, 0);
   text-decoration: none;
   font-weight: bold;
+  margin-right: 5%;
 }
 
 .modal-body-create-g {
@@ -72,6 +80,7 @@
 
 .b-c-goal {
   background-color: #F7D30B;
+  border-radius: 10px;
 }
 .b-c-goal > input{
   font-weight: bold;
@@ -83,9 +92,14 @@
   padding: 5%;
   margin: 3%;
   border-radius: 5px;
+  text-align: left;
 }
 
 .btn-primary {
   font-weight: bold;
   color: rgb(255, 255, 255);
+}
+
+.psg-title {
+  border-bottom: 2px solid white;
 }

@@ -10,12 +10,18 @@
     </div>
     <div class="po-show-content">
       <div class="po-show-member">
-        <% if @post.photo.key.present? %>
+        <% if @post.membership.user.photo.key.present? %>
           <%= cl_image_tag @post.membership.user.photo.key, height: 50, width: 50, crop: :fill, style: "object-fit: fill;"%>
         <% end %>
         <%= @post.membership.user.username %>
       </div>
-      <p class="po-sh-content-member"><%= @post.content %></p>
+      <div class='po-sh-content-member'>
+        <p><%= @post.content %></p>
+        <% if @post.photo.key.present? %>
+          <%= cl_image_tag @post.photo.key, height: 300, width: 300, crop: :fill%>
+        <% end %>
+      </div>
+
     </div>
   </div>
   <div class="po-show-comment">

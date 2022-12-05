@@ -12,7 +12,7 @@
 
   <% if !groupsid.include?(@group.id) %>
     <%= simple_form_for [@group, @membership] do |f| %>
-      <button type="button" class="btn btn-link btn-sm b-create-memb"><%= f.submit 'Join' %></button>
+      <button type="button" class="btn btn-link btn-sm b-create-memb"><%= f.submit 'Join group' %></button>
     <% end %>
   <% end %>
 
@@ -58,12 +58,16 @@
     </div>
   <% end %>
 
+
+
   <% groupsid = @user.groups.map do |group| %>
     <% group.id %>
   <% end %>
   <% if groupsid.include?(@group.id) %>
     <%= link_to new_group_post_path(@group) do%>
-      <i class="fa-solid fa-circle-plus"></i>
+      <div class="btn-pluscir">
+        <i class="fa-solid fa-circle-plus" ></i>
+      </div>
     <% end %>
   <% end %>
 </div>

@@ -4,7 +4,9 @@ Rails.application.routes.draw do
   devise_for :users
   root to: "pages#home"
 
-  resources :projects, only: [:new, :show, :create, :update, :destroy] do
+  get 'settings', to: 'pages#settings'
+
+  resources :projects, only: [:new, :show, :create, :destroy, :update] do
     resources :goals,  only: [:create, :new, :show]
   end
   resources :goals, only: [:destroy, :update]
@@ -22,9 +24,10 @@ Rails.application.routes.draw do
   resources :groups, only: [:index, :show, :destroy] do
     resources :memberships, only: [:create]
     resources :posts, only: [:create, :new, :show]
+    resources :hearts, only: [:create]
   end
 
   resources :memberships, only: [:destroy]
-
   resources :users, only: [:show]
+  resources :hearts, only: [:destroy]
 end

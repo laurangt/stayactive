@@ -29,13 +29,14 @@ class PostsController < ApplicationController
   def destroy
     @post = Post.find(params[:id])
     @post.destroy
-    redirect_to group_path
+    @group = Group.find(params[:group_id])
+    redirect_to group_path(@group)
     authorize @post
   end
 
   private
 
   def post_params
-    params.require(:post).permit(:title, :content, :membership_id, :photo)
+    params.require(:post).permit(:title, :content, :membership_id, :photo, :like_count)
   end
 end
