@@ -1,7 +1,7 @@
 <div class="g_show">
   <div class="g-show-title">
     <%= link_to root_path do %>
-      <i class="fa-solid fa-arrow-left fa-lg"></i>
+      <i class="fa-solid fa-arrow-left fa-lg text-dark"></i>
     <% end %>
     <h1 class="g-show-name"><%= @group.name %></h1>
   </div>
@@ -12,7 +12,7 @@
 
   <% if !groupsid.include?(@group.id) %>
     <%= simple_form_for [@group, @membership] do |f| %>
-      <button type="button" class="btn btn-link btn-sm b-create-memb"><%= f.submit 'Join group' %></button>
+      <button type="button" class="btn btn-link btn-sm b-create-memb"><%= f.submit 'JOIN' %></button>
     <% end %>
   <% end %>
 
@@ -21,41 +21,38 @@
   <% end %>
 
   <% @group.posts.reverse.each do |post| %>
-    <%= link_to group_post_path(@group, post) do %>
-      <div class="g-post-all mb-4">
-        <div class="group-post-head">
+    <div class="g-post-all mb-2">
+      <div class="group-post-head">
+        <%# <%= link_to  %>
         <% if post.membership.user.photo.key.present? %>
           <%= cl_image_tag post.membership.user.photo.key, height: 50, width: 50, crop: :fill, style: "object-fit: fill;"%>
         <% end %>
-          <%= post.membership.user.username %>
-        </div>
-        <div class="group-post-cont">
-          <p><%= post.title %></p>
-          <p><%= post.content %></p>
-          <% if post.photo.key.present? %>
-            <%= cl_image_tag post.photo.key, height: 300, width: 300, crop: :fill%>
+        <%= post.membership.user.username %>
+      </div>
+      <div class="group-post-cont">
+        <p><%= post.title %></p>
+        <p><%= post.content %></p>
+        <% if post.photo.key.present? %>
+          <%= cl_image_tag post.photo.key, height: 50, width: 50, crop: :fill%>
+        <% end %>
+        <div class="g-post-del">
+          <% if policy(post).destroy? %>
+            <%= link_to post_path(post), data: {turbo_method: :delete, turbo_confirm: "Are you sure?"}, class: "text-dark text-decoration-none d-post" do %>
+              <i class="fa-solid fa-trash"></i>
+            <% end %>
           <% end %>
-          <div class="g-post-del">
-            <% if policy(post).destroy? %>
-              <%= link_to post_path(post), data: {turbo_method: :delete, turbo_confirm: "Are you sure?"}, class: "text-dark text-decoration-none d-post" do %>
-                <i class="fa-solid fa-trash"></i>
+          <div class="show-message">
+            <% if groupsid.include?(@group.id) %>
+              <%= link_to group_post_path(@group, post) do %>
+                <i class="fa-solid fa-message"></i>
               <% end %>
             <% end %>
-            <div class="show-message">
-              <% if groupsid.include?(@group.id) %>
-                <%= link_to group_post_path(@group, post) do %>
-                  <i class="fa-solid fa-message"></i>
-                <% end %>
-              <% end %>
-            </div>
           </div>
         </div>
       </div>
-    <% end %>
-    <div data-controller="like">
-        <i class="fa-solid fa-thumbs-up" data-action="click->like#hello"></i>
-        <%# need to add value %>
-        <p data-like-target="count"><%= post.hearts.count %></p>
+    <div data-controller="like" data-like-post-id-value="<%= post.id %>">
+      <i class="fa-solid fa-thumbs-up" data-action="click->like#add" ></i>
+      <p data-like-target="count"><%= post.hearts.count %></p>
     </div>
   <% end %>
 

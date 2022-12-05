@@ -1,6 +1,6 @@
 <div class="home_body">
   <div class="home_profile_body">
-    <h1 class="text-dark">@<%= @user.username %></h1>
+    <h1>@<%= @user.username %></h1>
     <div class="d-flex">
       <div class="photo_bio">
         <% if @user.photo.key.present? %>
@@ -23,32 +23,10 @@
       <%= link_to project_path(project) do %>
         <div class="project_box">
           <div class="project_title_box">
-            <p class="ptb_title"><%= project.title %></p>
+            <p class="project_title"><%= project.title %></p>
           </div>
             <p class="project_descr"><%= project.description %></p>
         </div>
       <% end %>
     <% end %>
-
-<!-- Button trigger modal -->
-<div class="btn-pluscir" data-bs-toggle="modal" data-bs-target="#homeModal">
-  <i class="fa-solid fa-circle-plus"></i>
-</div>
-
-<!-- Modal -->
-<div class="modal fade" id="homeModal" tabindex="-1" aria-labelledby="homeModalLabel" aria-hidden="true">
-  <div class="modal-dialog">
-    <div class="modal-content">
-      <div class="modal-header">
-        <h5 class="modal-title" id="homeModalLabel">Choose one:</h5>
-        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-      </div>
-      <div class="modal-body">
-        <button class="b-home-pop"><%= link_to "Sports groups", groups_path %></button>
-        <button class="b-home-pop"><%= link_to "Add a project", new_project_path %></button>
-      </div>
-    </div>
-  </div>
-</div>
-
 </div>
