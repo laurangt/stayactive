@@ -15,14 +15,14 @@ Rails.application.routes.draw do
 
   resources :posts, only: [:destroy] do
     resources :comments, only: [:create]
+    resources :hearts, only: [:create]
   end
   resources :comments, only: [:destroy]
+  resources :hearts, only: [:destroy]
 
   resources :groups, only: [:index, :show, :destroy] do
     resources :memberships, only: [:create]
     resources :posts, only: [:create, :new, :show, :update]
-    resources :hearts, only: [:create, :destroy]
   end
   resources :memberships, only: [:destroy]
-  resources :hearts, only: [:destroy]
 end
