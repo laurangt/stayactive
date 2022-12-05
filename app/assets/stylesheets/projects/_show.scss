@@ -11,7 +11,7 @@
   color: rgb(255, 255, 255);
 }
 .project-show-title {
-  margin: auto;
+  text-align: left;
 }
 
 .project-show-desc {
@@ -60,7 +60,8 @@
 }
 
 .p-show-goal-del {
-  text-align: right;
+  display: flex;
+  justify-content: end;
   margin-bottom: 0;
 }
 
@@ -69,7 +70,6 @@
   background-color: #F7D30B;
   color: rgb(0, 0, 0);
   text-decoration: none;
-  font-weight: bold;
   margin-right: 5%;
 }
 
@@ -84,13 +84,14 @@
 .b-c-goal {
   background-color: #AFC3A8;
   border-radius: 10px;
-  border-bottom: 2px solid black;
-  border-right: 2px solid black;
-  border-top: 2px solid grey;
-  border-left: 2px solid grey;
+  border-bottom: 2px solid rgb(0, 0, 0);
+  border-right: 2px solid rgb(0, 0, 0);
+  border-top: 2px solid rgb(128, 128, 128);
+  border-left: 2px solid rgb(128, 128, 128);
+  color: rgb(0, 0, 0);
+  text-decoration: none;
 }
 .b-c-goal > input{
-  font-weight: bold;
   color: rgb(0, 0, 0);
 }
 
@@ -103,10 +104,9 @@
 }
 
 .btn-primary {
-  font-weight: bold;
   color: rgb(255, 255, 255);
 }
 
 .psg-title {
-  border-bottom: 2px solid white;
+  border-bottom: 2px solid rgb(255, 255, 255);
 }
