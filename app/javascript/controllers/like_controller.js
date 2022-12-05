@@ -7,7 +7,7 @@ export default class extends Controller {
 
   connect() {
     console.log("hello")
-    console.log(this.postIdValue);
+    // console.log(this.postIdValue);
   }
 
   toggle(event){
@@ -26,15 +26,10 @@ export default class extends Controller {
        method: 'post' ,
        headers: {'Content-Type': 'application/json'},
       })
-    .then(value => Number(value))
-    let value;
-    if (this.countTarget.innerText === "0") {
-      value = 0;
-    } else {
-      value = parseInt(this.countTarget.innerText, 10);
-    }
-    value += 1;
-    this.countTarget.innerText = value;
+    .then(response => response.text())
+    .then((data) => {
+      this.countTarget.outerHTML = data
+    })
   }
 
   remove(event){
@@ -43,19 +38,9 @@ export default class extends Controller {
       method: 'DELETE',
       headers: {"Accept": "text/plain"}
      })
-    .then(value => Number(value))
-    // .then(response => response.json())
-    // .then((data) => {
-    //   this.countTarget.outerHTML = data
-    // })
-    let value;
-    if (this.countTarget.innerText === "0") {
-      value = 0;
-    } else {
-      value = parseInt(this.countTarget.innerText, 10);
-      value -= 1;
-    }
-    this.countTarget.innerText = value;
-
+    .then(response => response.text())
+    .then((data) => {
+      this.countTarget.outerHTML = data
+    })
   }
 }

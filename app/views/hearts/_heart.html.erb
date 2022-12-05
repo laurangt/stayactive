@@ -1,4 +1,4 @@
-<div data-controller="like" data-like-post-id-value="<%= post.id %>" data-like-heart-id-by-current-user-value="<%= post.heart_by_user(user).id if user_liked %>">
+<div data-controller="like" data-like-post-id-value="<%= post.id %>" class="<%= user_liked ? 'red' : '' %>" data-like-target="count" data-like-heart-id-by-current-user-value="<%= post.heart_by_user(user).id if user_liked %>">
   <i class="fa-solid fa-thumbs-up" data-action="click->like#toggle" ></i>
-  <p class="<%= user_liked ? 'red' : '' %>" data-like-target="count"><%= post.hearts.count %></p>
+  <p><%= post.hearts.count %></p>
 </div>
