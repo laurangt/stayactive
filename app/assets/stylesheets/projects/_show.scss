@@ -60,7 +60,8 @@
 }
 
 .p-show-goal-del {
-  text-align: right;
+  display: flex;
+  justify-content: end;
   margin-bottom: 0;
 }
 
