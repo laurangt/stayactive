@@ -23,9 +23,9 @@
 }
 
 .button_groups .btn {
-  background-color: #F7D30B;
+  background-color: #000000;
   text-decoration: none;
-  color:rgb(0, 0, 0);
+  color:rgb(255, 255, 255);
   margin-bottom: 3%;
   border-bottom: 2px solid black;
   border-right: 2px solid black;
@@ -36,19 +36,20 @@
 
 .project_box .project_title_box {
   border-radius: 5px 5px 0 0;
-  border: 1px solid #A6D3F2;
-  background-color: #A6D3F2;
+  border: 1px solid #000000;
+  background-color: #000000;
   margin-top: 5%;
+  color: white;
 }
 
 .ptb_title {
   margin: 7px;
-  color: rgb(0, 0, 0);
+  color: #FFFFFF;
 }
 
 .project_title {
   margin: 0px;
-  color: rgb(0, 0, 0);
+  color: rgb(255, 255, 255);
 }
 
 .project_descr {
@@ -62,7 +63,7 @@
 }
 
 .fa-circle-plus {
-  color: #F7D30B;
+  color: #DBF193;
   font-size: xx-large;
   display: inline-block;
   width: fit-content;
@@ -78,12 +79,12 @@
 }
 
 .modal-content {
-  background-color: #ffffff;
+  background-color: #F5F5F5;
   text-align: center;
 }
 
 .b-home-pop {
-  background-color: #F7D30B;
+  background-color: #DBF193;
   width: 130px;
   height: 40px;
   margin: 5%;

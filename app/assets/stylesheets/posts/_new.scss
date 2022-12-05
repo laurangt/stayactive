@@ -3,11 +3,12 @@
 }
 
 .container-np {
-  background-color: #F7D78C;
+  background-color: #000000;
   padding: 5%;
   margin: 3%;
   border-radius: 5px;
   box-shadow: 0px 3px 3px grey;
+  color: white;
 }
 
 .np-form h2 {
@@ -15,7 +16,7 @@
 }
 
 .btn-np {
-  background-color: #AFC3A8;
+  background-color: #DBF193;
   border-radius: 10px;
   border-bottom: 2px solid black;
   border-right: 2px solid black;
@@ -25,8 +26,4 @@
 
 .btn-cp {
   text-align: center;
-}
-
-.btn-np input {
-  font-weight: bold;
 }
