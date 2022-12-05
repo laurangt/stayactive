@@ -48,11 +48,12 @@
               <% end %>
             <% end %>
           </div>
+          <div class="likes" data-controller="like" data-like-post-id-value="<%= post.id %>">
+            <p data-like-target="count"><%= post.hearts.count %></p>
+            <i class="fa-solid fa-thumbs-up ms-1" data-action="click->like#add" ></i>
+          </div>
         </div>
       </div>
-    <div data-controller="like" data-like-post-id-value="<%= post.id %>">
-      <i class="fa-solid fa-thumbs-up" data-action="click->like#add" ></i>
-      <p data-like-target="count"><%= post.hearts.count %></p>
     </div>
   <% end %>
 

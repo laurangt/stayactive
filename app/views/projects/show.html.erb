@@ -3,9 +3,9 @@
     <%= link_to root_path do %>
       <i class="fa-solid fa-arrow-left fa-lg text-dark"></i>
     <% end %>
-    <h1 class="project-show-title"><%= @project.title %></h1>
   </div>
   <div class="project-show-desc">
+    <h1 class="project-show-title"><%= @project.title %></h1>
     <p><%= @project.description %></p>
     <div class="ps-icon">
       <% if current_user.id == @project.user_id %>
@@ -96,16 +96,12 @@
       </div>
     </div>
   </div>
-<<<<<<< HEAD
-<% end %>
 <!-- MODAL EDIT (button at the top)-->
 <!-- Modal -->
 <% if current_user.id == @project.user_id %>
-=======
 
   <!-- MODAL EDIT (button at the top)-->
   <!-- Modal -->
->>>>>>> master
   <div class="modal fade" id="editProject" tabindex="-1" role="dialog" aria-labelledby="editProjectTitle" aria-hidden="true">
     <div class="modal-dialog" role="document">
       <div class="modal-content">

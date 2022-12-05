@@ -11,7 +11,7 @@
   color: rgb(255, 255, 255);
 }
 .project-show-title {
-  margin: auto;
+  text-align: left;
 }
 
 .project-show-desc {
@@ -69,7 +69,6 @@
   background-color: #F7D30B;
   color: rgb(0, 0, 0);
   text-decoration: none;
-  font-weight: bold;
   margin-right: 5%;
 }
 
@@ -90,7 +89,6 @@
   border-left: 2px solid grey;
 }
 .b-c-goal > input{
-  font-weight: bold;
   color: rgb(0, 0, 0);
 }
 
@@ -103,7 +101,6 @@
 }
 
 .btn-primary {
-  font-weight: bold;
   color: rgb(255, 255, 255);
 }
 
