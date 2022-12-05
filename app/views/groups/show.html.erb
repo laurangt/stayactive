@@ -3,22 +3,23 @@
     <%= link_to root_path do %>
       <i class="fa-solid fa-arrow-left fa-lg text-dark"></i>
     <% end %>
-    <h1 class="g-show-name"><%= @group.name %></h1>
+
+      <h1 class="g-show-name"><%= @group.name %></h1>
   </div>
 
-    <% groupsid = @user.groups.map do |group| %>
-      <% group.id %>
-    <% end %>
-
-    <% if !groupsid.include?(@group.id) %>
-      <%= simple_form_for [@group, @membership] do |f| %>
-        <button type="button" class="btn btn-link btn-sm b-create-memb"><%= f.submit 'Join group' %></button>
+      <% groupsid = @user.groups.map do |group| %>
+        <% group.id %>
       <% end %>
-    <% end %>
 
-    <% if groupsid.include?(@group.id) %>
-        <button type="button" class="btn btn-danger btn-sm b-leave-gr"><%= link_to "Leave group", membership_path(@membership), data: {turbo_method: :delete, turbo_confirm: "Are you sure?"}, class: "text-light text-decoration-none" %></button>
-    <% end %>
+      <% if !groupsid.include?(@group.id) %>
+        <%= simple_form_for [@group, @membership] do |f| %>
+          <button type="button" class="btn btn-link btn-sm b-create-memb"><%= f.submit 'Join group' %></button>
+        <% end %>
+      <% end %>
+
+      <% if groupsid.include?(@group.id) %>
+          <button type="button" class="btn btn-danger btn-sm b-leave-gr"><%= link_to "Leave group", membership_path(@membership), data: {turbo_method: :delete, turbo_confirm: "Are you sure?"}, class: "text-light text-decoration-none" %></button>
+      <% end %>
 
   <% @group.posts.reverse.each do |post| %>
     <div class="g-post-all mb-2">
