@@ -28,6 +28,10 @@
   text-decoration: none;
   color:rgb(0, 0, 0);
   margin-bottom: 3%;
+  border-bottom: 2px solid black;
+  border-right: 2px solid black;
+  border-top: 2px solid grey;
+  border-left: 2px solid grey;
 }
 
 .project_box .project_title_box {
@@ -77,9 +81,9 @@
 }
 
 .b-home-pop {
-  background-color: #A6D3F2;
-  width: 100px;
-  height: 80px;
+  background-color: #F7D30B;
+  width: 130px;
+  height: 30px;
   margin: 5%;
 }
 
