@@ -1,14 +1,14 @@
 class HeartsController < ApplicationController
   skip_before_action :verify_authenticity_token
   def create
-    @post = Post.find(params[:post_id])
-    @heart = Heart.new
-    @heart.membership = Membership.find_by(user: current_user, group: @post.membership.group)
-    @heart.post = @post
-    authorize @heart
-    @heart.save
+    post = Post.find(params[:post_id])
+    heart = Heart.new
+    heart.membership = Membership.find_by(user: current_user, group: post.membership.group)
+    heart.post = post
+    authorize heart
+    heart.save
     respond_to do |format|
-      format.text { render partial: "hearts/heart", locals: { post: @post, user_liked: @post.liked?(current_user), user: current_user }, formats: [:html] }
+      format.text { render partial: "hearts/heart", locals: { post: post, user_liked: true, user: current_user }, formats: [:html] }
     end
   end
 
