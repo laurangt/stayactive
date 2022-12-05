@@ -1,7 +1,7 @@
 <div class="project_show">
   <div class="project-show-main">
     <%= link_to root_path do %>
-      <i class="fa-solid fa-arrow-left fa-lg"></i>
+      <i class="fa-solid fa-arrow-left fa-lg text-dark"></i>
     <% end %>
     <h1 class="project-show-title"><%= @project.title %></h1>
   </div>
@@ -23,11 +23,25 @@
     </div>
   </div>
   <h2>Goals:</h2>
-  <% @project.goals.each do |goal| %>
-    <div class="ps-cbox" data-controller="goal" data-goal-update-url-value="<%= goal_path(goal) %>">
-      <input type="checkbox" data-action="click->goal#toggle" data-goal-target="status"
-      <%= goal.status ? "checked" : "" %>/>
-      <p class="p-show-end-date">End date: <%= goal.end_date %></p>
+    <div>
+      <% @project.goals.each do |goal| %>
+        <div class="ps-cbox" data-controller="goal" data-goal-update-url-value="<%= goal_path(goal) %>">
+          <input type="checkbox" data-action="click->goal#toggle" data-goal-target="status"
+          <%= goal.status ? "checked" : "" %>/>
+          <p class="p-show-end-date">End date: <%= goal.end_date %></p>
+        </div>
+          <%= link_to project_goal_path(@project, goal)	do %>
+            <div class="p-show-goals">
+              <div class="p-show-goal-box">
+                <p class="psg-title" style="color: white;"><%= goal.title %></p>
+                <p style="color: white;"><%= goal.description %></p>
+                <p class="p-show-goal-del" style="color: white;"><%= link_to goal_path(goal), data: {turbo_method: :delete, turbo_confirm: "Are you sure?"}, class: "text-dark text-decoration-none" do %>
+                    <i class="fa-solid fa-trash"></i>
+                  <% end %></p>
+              </div>
+            </div>
+          <% end %>
+      <% end %>
     </div>
     <%= link_to project_goal_path(@project, goal)	do %>
       <div class="p-show-goals">
@@ -41,6 +55,10 @@
       </div>
     <% end %>
   <% end %>
+
+
+  <!--MODAL CREATE to add a goal -->
+  <!-- Button trigger modal -->
 
 <!--MODAL CREATE to add a goal -->
 <!-- Button trigger modal -->
@@ -78,10 +96,16 @@
       </div>
     </div>
   </div>
+<<<<<<< HEAD
 <% end %>
 <!-- MODAL EDIT (button at the top)-->
 <!-- Modal -->
 <% if current_user.id == @project.user_id %>
+=======
+
+  <!-- MODAL EDIT (button at the top)-->
+  <!-- Modal -->
+>>>>>>> master
   <div class="modal fade" id="editProject" tabindex="-1" role="dialog" aria-labelledby="editProjectTitle" aria-hidden="true">
     <div class="modal-dialog" role="document">
       <div class="modal-content">

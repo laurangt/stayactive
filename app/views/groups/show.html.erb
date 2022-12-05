@@ -1,7 +1,7 @@
 <div class="g_show">
   <div class="g-show-title">
     <%= link_to root_path do %>
-      <i class="fa-solid fa-arrow-left fa-lg"></i>
+      <i class="fa-solid fa-arrow-left fa-lg text-dark"></i>
     <% end %>
     <h1 class="g-show-name"><%= @group.name %></h1>
   </div>
@@ -12,7 +12,7 @@
 
   <% if !groupsid.include?(@group.id) %>
     <%= simple_form_for [@group, @membership] do |f| %>
-      <button type="button" class="btn btn-link btn-sm b-create-memb"><%= f.submit 'Join group' %></button>
+      <button type="button" class="btn btn-link btn-sm b-create-memb"><%= f.submit 'JOIN' %></button>
     <% end %>
   <% end %>
 
@@ -21,7 +21,7 @@
   <% end %>
 
   <% @group.posts.reverse.each do |post| %>
-    <div class="g-post-all mb-4">
+    <div class="g-post-all mb-2">
       <div class="group-post-head">
         <%# <%= link_to  %>
         <% if post.membership.user.photo.key.present? %>
@@ -50,11 +50,9 @@
           </div>
         </div>
       </div>
-    </div>
-    <div data-controller="like">
-        <i class="fa-solid fa-thumbs-up" data-action="click->like#hello"></i>
-        <%# need to add value %>
-        <%# <p data-like-target="count"><%= post.hearts.count %></p>
+    <div data-controller="like" data-like-post-id-value="<%= post.id %>">
+      <i class="fa-solid fa-thumbs-up" data-action="click->like#add" ></i>
+      <p data-like-target="count"><%= post.hearts.count %></p>
     </div>
   <% end %>
 

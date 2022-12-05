@@ -10,14 +10,21 @@
 
 .g-show-name {
   margin: auto;
+  color: rgb(0, 0, 0);
 }
 
 .b-create-memb input {
   background-color: #F7D30B;
-  margin-bottom: 4%;
-  padding: 12%;
-  font-weight: bold;
   border-radius: 10px;
+  font-weight: bold;
+  margin-bottom: 2%;
+  border-bottom: 2px solid black;
+  border-right: 2px solid black;
+  border-top: 2px solid grey;
+  border-left: 2px solid grey;
+  position: absolute;
+  left: 82%;
+  top: 10%;
 }
 
 .b-leave-gr {
@@ -25,8 +32,13 @@
   text-decoration: none;
   font-weight: bold;
   margin-bottom: 2%;
-  border-radius: 10px;
-  border-bottom: 4px solid #af1d1d;
+  border-bottom: 2px solid black;
+  border-right: 2px solid black;
+  border-top: 2px solid grey;
+  border-left: 2px solid grey;
+  position: relative;
+  left: 70%;
+  height: 40px;
 }
 
 .group-post-head {
@@ -39,7 +51,8 @@
 }
 
 .group-post-head {
-  background-color: #8D4D9A;
+  background-color: #A6D3F2;
+  color: black;
 }
 .group-post-head > img {
   width: 50px;
@@ -48,6 +61,7 @@
 }
 
 .group-post-cont {
+  box-shadow: 0px 3px 3px rgb(218, 218, 218);
   background-color: rgb(255, 255, 255);
   border-radius: 0px 0px 10px 10px;
   padding: 2%;
@@ -65,4 +79,11 @@
 a {
   text-decoration: none;
   color: black;
+}
+
+.likes {
+  width: 20%;
+  display: flex;
+  align-items: baseline;
+  justify-content: center;
 }

@@ -28,24 +28,27 @@
   text-decoration: none;
   color:rgb(0, 0, 0);
   margin-bottom: 3%;
+  border-bottom: 2px solid black;
+  border-right: 2px solid black;
+  border-top: 2px solid grey;
+  border-left: 2px solid grey;
 }
 
 .project_box .project_title_box {
   border-radius: 5px 5px 0 0;
-  border: 1px solid #8D4D9A;
-  background-color: #8D4D9A;
+  border: 1px solid #A6D3F2;
+  background-color: #A6D3F2;
   margin-top: 5%;
 }
 
 .ptb_title {
   margin: 7px;
-  color: rgb(255, 255, 255);
-  font-weight: bold;
+  color: rgb(0, 0, 0);
 }
 
 .project_title {
   margin: 0px;
-  color: rgb(255, 255, 255);
+  color: rgb(0, 0, 0);
 }
 
 .project_descr {
@@ -55,6 +58,7 @@
   background-color: rgb(255, 255, 255);
   color: rgb(0, 0, 0);
   padding: 3%;
+  box-shadow: 0px 3px 3px rgb(218, 218, 218);
 }
 
 .fa-circle-plus {
@@ -65,10 +69,16 @@
   text-align:center;
   position: fixed;
   bottom: 10%;
+  border-radius: 50%;
+  background-color: rgb(0, 0, 0);
+  border-bottom: 2px solid black;
+  border-right: 2px solid black;
+  border-top: 2px solid grey;
+  border-left: 2px solid grey;
 }
 
 .modal-content {
-  background-color: #0C2641;
+  background-color: #ffffff;
   text-align: center;
 }
 
@@ -77,15 +87,15 @@
 }
 
 .b-home-pop {
-  background-color: #8D4D9A;
-  width: 100px;
-  height: 80px;
+  background-color: #F7D30B;
+  width: 130px;
+  height: 40px;
   margin: 5%;
 }
 
 .b-home-pop > a {
   font-weight: bold;
-  color: rgb(255, 255, 255);
+  color: rgb(0, 0, 0);
   text-decoration: none;
 }
 
