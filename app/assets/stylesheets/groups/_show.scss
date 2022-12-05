@@ -16,7 +16,6 @@
 .b-create-memb input {
   background-color: #F7D30B;
   border-radius: 10px;
-  font-weight: bold;
   margin-bottom: 2%;
   border-bottom: 2px solid black;
   border-right: 2px solid black;
@@ -30,7 +29,6 @@
 .b-leave-gr {
   color: rgb(0, 0, 0);
   text-decoration: none;
-  font-weight: bold;
   margin-bottom: 2%;
   border-bottom: 2px solid black;
   border-right: 2px solid black;
@@ -39,6 +37,7 @@
   position: relative;
   left: 70%;
   height: 40px;
+  border-radius: 10px;
 }
 
 .group-post-head {
@@ -70,6 +69,7 @@
 .g-post-del {
   display: flex;
   justify-content: right;
+  height: 3vh;
 }
 
 .g-post-del .show-message {
@@ -82,7 +82,7 @@ a {
 }
 
 .likes {
-  width: 20%;
+  margin-left: 5%;
   display: flex;
   align-items: baseline;
   justify-content: center;
