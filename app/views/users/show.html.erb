@@ -1,0 +1,32 @@
+<div class="home_body">
+  <div class="home_profile_body">
+    <h1>@<%= @user.username %></h1>
+    <div class="d-flex">
+      <div class="photo_bio">
+        <% if @user.photo.key.present? %>
+          <%= cl_image_tag @user.photo.key, height: 100, width: 100, crop: :fill, style: "object-fit: fill; border-radius: 50%;"%>
+        <% end %>
+          <p class="user_bio"><%= @user.bio %></p>
+      </div>
+    </div>
+  </div>
+  <div class="button_groups">
+    <% @groups.each do |group| %>
+      <%= link_to group_path(group) do%>
+        <button type="button" class="btn btn-link rounded"><%= group.name %></button>
+      <% end %>
+    <% end %>
+  </div>
+
+  <h2>My Projects</h2>
+    <% @user.projects.each do |project| %>
+      <%= link_to project_path(project) do %>
+        <div class="project_box">
+          <div class="project_title_box">
+            <p class="project_title"><%= project.title %></p>
+          </div>
+            <p class="project_descr"><%= project.description %></p>
+        </div>
+      <% end %>
+    <% end %>
+</div>
