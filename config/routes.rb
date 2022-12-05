@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  get 'users/show'
 
   devise_for :users
   root to: "pages#home"
@@ -25,6 +26,8 @@ Rails.application.routes.draw do
     resources :posts, only: [:create, :new, :show]
     resources :hearts, only: [:create]
   end
+
   resources :memberships, only: [:destroy]
+  resources :users, only: [:show]
   resources :hearts, only: [:destroy]
 end
