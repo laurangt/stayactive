@@ -1,12 +1,12 @@
 class GroupsController < ApplicationController
   def index
-    @groups = Group.all
+    @groups = Group.includes(posts: { membership: :user}).all
     @groups = policy_scope(Group)
   end
 
   def show
     @user = current_user
-    @group = Group.find(params[:id])
+    @group = Group.includes(posts: { membership: :user}).find(params[:id])
     authorize @group
     authorize @group.posts
     if Membership.find_by(user: @user, group: @group)

@@ -11,7 +11,7 @@ export default class extends Controller {
   }
 
   toggle(event){
-    if (this.countTarget.classList.contains("red")){
+    if (this.countTarget.classList.contains('red')){
       this.remove(event)
       this.countTarget.classList.toggle('red')
     } else {

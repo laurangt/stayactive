@@ -32,8 +32,8 @@
       <div class="group-post-cont">
         <p><%= post.title %></p>
         <p><%= post.content %></p>
-        <% if post.photo.key.present? %>
-          <%= cl_image_tag post.photo.key, height: 50, width: 50, crop: :fill%>
+        <% if post.photo.attached? %>
+          <%= cl_image_tag post.photo.key, height: 200, crop: :fill%>
         <% end %>
         <div class="g-post-del">
           <% if policy(post).destroy? %>
@@ -48,10 +48,12 @@
               <% end %>
             <% end %>
           </div>
+
           <div class="likes" data-controller="like" data-like-post-id-value="<%= post.id %>">
             <p data-like-target="count"><%= post.hearts.count %></p>
             <i class="fa-solid fa-thumbs-up ms-1" data-action="click->like#add" ></i>
           </div>
+
         </div>
       </div>
       <%= render partial: 'hearts/heart', locals: { post: post, user_liked: post.liked?(current_user), user: current_user } %>
