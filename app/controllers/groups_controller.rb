@@ -6,7 +6,7 @@ class GroupsController < ApplicationController
 
   def show
     @user = current_user
-    @group = Group.includes(posts: { membership: :user}).find(params[:id])
+    @group = Group.includes(posts: { membership: :user }).find(params[:id])
     authorize @group
     authorize @group.posts
     if Membership.find_by(user: @user, group: @group)
