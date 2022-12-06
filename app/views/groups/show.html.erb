@@ -55,13 +55,13 @@
           </div>
 
           <div class="likes" data-controller="like" data-like-post-id-value="<%= post.id %>">
-            <p data-like-target="count"><%= post.hearts.count %></p>
-            <i class="fa-solid fa-thumbs-up ms-1" data-action="click->like#add" ></i>
+            <%= render partial: 'hearts/heart', locals: { post: post, user_liked: post.liked?(current_user), user: current_user } %>
+            <%# <p data-like-target="count"><%= post.hearts.count ></p> %>
+            <%# <i class="fa-solid fa-thumbs-up ms-1" data-action="click->like#add" ></i> %>
           </div>
 
         </div>
       </div>
-      <%= render partial: 'hearts/heart', locals: { post: post, user_liked: post.liked?(current_user), user: current_user } %>
     </div>
   <% end %>
 
