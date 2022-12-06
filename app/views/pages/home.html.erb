@@ -46,8 +46,8 @@
               <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
             <h2>New Post</h2>
-            <%= simple_form_for [@groups, @post] do |f| %>
-              <%= f.association :groups, as: :radio_buttons, :required => true %>
+            <%= simple_form_for [@post] do |f| %>
+              <%= f.input :group, collection: @user.groups, as: :radio_buttons %>
               <%= f.input :title, value: project.title%>
               <%= f.input :content, value: project.description %>
               <div class="btn-cp">

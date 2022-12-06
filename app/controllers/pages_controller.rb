@@ -4,6 +4,7 @@ class PagesController < ApplicationController
   def home
     @user = current_user
     @groups = @user.groups
+    @group = Group.first
     @projects = @user.projects
     @post = Post.new
   end

@@ -2,6 +2,8 @@ class Post < ApplicationRecord
   belongs_to :membership
   has_many :comments, dependent: :destroy
   has_many :hearts, dependent: :destroy
+  has_one :group, through: :membership
+  has_one :user, through: :membership
 
   validates :title, presence: true, length: { maximum: 50 }
   validates :content, presence: true, length: { maximum: 200 }
