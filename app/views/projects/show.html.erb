@@ -16,7 +16,7 @@
     <div class="ps-icon">
 
       <% if current_user.id == @project.user_id %>
-        <p class="p-show-desc-del p-2"><%= link_to project_path(@project), data: {turbo_method: :delete, turbo_confirm: "Are you sure?"}, class: "text-black p-show-desc-del p-2" do %>
+        <p class="p-show-desc-del"><%= link_to project_path(@project), data: {turbo_method: :delete, turbo_confirm: "Are you sure?"}, class: "text-black p-show-desc-del p-2" do %>
             <i class="fa-solid fa-trash"></i>
           <% end %></p>
 
