@@ -1,4 +1,8 @@
 <div class="home_body">
+  <%#= link_to group_path(@group) do %>
+      <%= link_to url_for(:back) do %>
+    <i class="fa-solid fa-arrow-left fa-lg text-dark"></i>
+  <% end %>
   <div class="home_profile_body">
     <h1>@<%= @user.username %></h1>
     <div class="d-flex">
