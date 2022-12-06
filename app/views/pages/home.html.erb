@@ -1,10 +1,5 @@
 <div class="home_body">
 
-  <% if home.user != current_user %>
-    <%= link_to group_path(@group) do %>
-      <i class="fa-solid fa-arrow-left fa-lg text-dark"></i>
-    <% end %>
-  <% end %>
 
   <div class="home_profile_body">
     <h1 class="text-dark">@<%= @user.username %></h1>
