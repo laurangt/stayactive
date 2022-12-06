@@ -40,11 +40,23 @@ class PostsController < ApplicationController
     authorize @post
   end
 
-
+  def share
+    share_params = post_params
+    group = Group.find(share_params[:group])
+    share_params[:group] = group
+    post = Post.new(share_params)
+    post.membership = Membership.find_by(user: current_user, group: group)
+    authorize post
+    if post.save
+      redirect_to group_path(group)
+    else
+      render :new, status: :unprocessable_entity
+    end
+  end
 
   private
 
   def post_params
-    params.require(:post).permit(:title, :content, :membership_id, :photo, :like_count)
+    params.require(:post).permit(:group, :title, :content, :membership_id, :photo, :like_count)
   end
 end
