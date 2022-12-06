@@ -18,3 +18,6 @@ application.register("like", LikeController)
 
 import RevealController from "./reveal_controller"
 application.register("reveal", RevealController)
+
+import TooltipController from "./tooltip_controller"
+application.register("tooltip", TooltipController)

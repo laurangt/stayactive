@@ -27,7 +27,7 @@
       <% end %>
             <div class="ptb-trophy-like">
               <% if project.done? %>
-                <i class="fa-sharp fa-solid fa-trophy"></i>
+                <i data-controller="tooltip" data-bs-toggle="tooltip" data-bs-placement="top" title="Congrats for completing your project!" class="fa-sharp fa-solid fa-trophy"></i>
               <% end %>
               <button type="button" class="btn btn-link text-white" data-bs-toggle="modal" data-bs-target="#exampleModal">
                 <i class="fa-solid fa-share-nodes"></i>
