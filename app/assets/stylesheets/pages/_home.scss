@@ -11,13 +11,17 @@
   margin-bottom: 0;
 }
 
+.hpb-name {
+  font-size: 3vh;
+}
+
 .photo_bio {
   display: flex;
   width: 100%;
   justify-content: space-between;
   // margin-bottom: 15px;
   align-items: center;
-  height: 17vh;
+  height: 18vh;
 }
 
 .user_bio {
