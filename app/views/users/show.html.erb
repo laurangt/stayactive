@@ -4,7 +4,7 @@
     <i class="fa-solid fa-arrow-left fa-lg text-dark"></i>
   <% end %>
   <div class="home_profile_body">
-    <h1>@<%= @user.username %></h1>
+    <h1 class="text-dark hpb-name">@<%= @user.username %></h1>
     <div class="d-flex">
       <div class="photo_bio">
         <% if @user.photo.key.present? %>
@@ -17,7 +17,7 @@
   <div class="button_groups">
     <% @groups.each do |group| %>
       <%= link_to group_path(group) do%>
-        <button type="button" class="btn btn-link rounded"><%= group.name %></button>
+        <button type="button" class="btn btn-link button-grad"><%= group.name %></button>
       <% end %>
     <% end %>
   </div>
