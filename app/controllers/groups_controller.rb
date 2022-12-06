@@ -8,6 +8,7 @@ class GroupsController < ApplicationController
     @markdown = Redcarpet::Markdown.new(Redcarpet::Render::HTML, autolink: true, tables: true) #enable all other than link
     @user = current_user
     @group = Group.includes(posts: { membership: :user }).find(params[:id])
+    @post = Post.new
     authorize @group
     authorize @group.posts
     if Membership.find_by(user: @user, group: @group)

@@ -67,14 +67,36 @@
 
 
 
+
+
   <% groupsid = @user.groups.map do |group| %>
     <% group.id %>
   <% end %>
-  <% if groupsid.include?(@group.id) %>
-    <%= link_to new_group_post_path(@group) do%>
-      <div class="btn-pluscir">
-        <i class="fa-solid fa-circle-plus" ></i>
+    <% if groupsid.include?(@group.id) %>
+      <!-- Button trigger modal -->
+      <div class="btn-pluscir" data-bs-toggle="modal" data-bs-target="#homeModal">
+        <i class="fa-solid fa-circle-plus"></i>
+      </div>
+
+      <!-- Modal -->
+      <div class="modal fade" id="homeModal" tabindex="-1" aria-labelledby="homeModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h5 class="modal-title" id="homeModalLabel">New post</h5>
+              <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body b-home-body">
+                <%= simple_form_for [@group, @post], html: { autocomplete: 'off' } do |f| %>
+              <%= f.input :title %>
+              <%= f.input :content %>
+              <%= f.input :photo, as: :file %>
+              <div class="btn-cp">
+                <button type="button" class="btn btn-link btn-np"><%= f.button :submit %></button>
+              </div>
+            <% end %>
+            </div>
+          </div>
+        </div>
       </div>
     <% end %>
-  <% end %>
-</div>
