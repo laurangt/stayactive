@@ -239,8 +239,8 @@ file_group8 = URI.open("https://img.icons8.com/wired/64/null/bowling.png")
 group8 = Group.new(
   name: "Bowling"
 )
-group7.photo.attach(io: file_group7, filename: "nes.png", content_type: "image/png")
-group7.save!
+group8.photo.attach(io: file_group8, filename: "nes.png", content_type: "image/png")
+group8.save!
 
 
 # Memberships
@@ -494,6 +494,23 @@ post20 = Post.create!(
   membership_id: membership20.id
 )
 
+post21 = Post.create!(
+  title: "Yoga rules!",
+  content: "Yoga in the Retiro park is so enjoyable.",
+  membership_id: membership21.id
+)
+
+post21 = Post.create!(
+  title: "Listen to your body",
+  content: "Now that I am into Yoga I have realized how important it is to listen to your body.",
+  membership_id: membership21.id
+)
+
+post22 = Post.create!(
+  title: "Mi mind is more focused than ever",
+  content: "Maintaining focus when your body is under stress has enormous value in the real world.",
+  membership_id: membership17.id
+)
 
 #Comments
 Comment.create!(
@@ -507,7 +524,6 @@ Comment.create!(
   membership_id: membership15.id,
   post_id: post5.id
 )
-
 
 #Projects
 project1 = Project.new(
