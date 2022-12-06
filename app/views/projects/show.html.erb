@@ -1,7 +1,13 @@
 <div class="project_show">
   <div class="project-show-main">
-    <%= link_to url_for(:back) do %>
-      <i class="fa-solid fa-arrow-left fa-lg text-dark"></i>
+    <% if @project.user == current_user %>
+      <%= link_to root_path do %>
+        <i class="fa-solid fa-arrow-left fa-lg text-dark"></i>
+      <% end %>
+    <% else %>
+      <%= link_to url_for(:back) do %>
+        <i class="fa-solid fa-arrow-left fa-lg text-dark"></i>
+      <% end %>
     <% end %>
   </div>
   <div class="project-show-desc">
