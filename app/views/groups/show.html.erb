@@ -16,7 +16,7 @@
       <% end %>
 
       <% if groupsid.include?(@group.id) %>
-        <button type="button" class="btn btn-danger btn-sm b-leave-gr"><%= link_to membership_path(@membership), data: {turbo_method: :delete, turbo_confirm: "Are you sure?"}, class: "text-light text-decoration-none" do %>
+        <button type="button" class="btn btn-dark btn-sm b-leave-gr"><%= link_to membership_path(@membership), data: {turbo_method: :delete, turbo_confirm: "Are you sure?"}, class: "text-light text-decoration-none" do %>
           <i class="fa-solid fa-user-minus"></i></button>
         <% end %>
       <% end %>
