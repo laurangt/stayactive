@@ -2,7 +2,7 @@
   <div class="po_show_main">
     <div class="po_show_title-arrow">
       <%= link_to group_path(@group) do %>
-        <i class="fa-solid fa-arrow-left fa-lg"></i>
+        <i class="fa-solid fa-arrow-left fa-lg text-dark"></i>
       <% end %>
 
 
@@ -30,11 +30,11 @@
         <%= cl_image_tag comment.membership.user.photo.key, height: 50, width: 50, crop: :fill, style: "object-fit: fill;"%>
         <div class="po-con-fit">
           <span class="pcf-user">@<%= comment.membership.user.username %></span>
-          <p class="text-dark"><%= comment.content %></p>
+          <p class="text-white"><%= comment.content %></p>
         </div>
         <% if policy(comment).destroy? %>
           <%= link_to comment_path(comment), data: {turbo_method: :delete, turbo_confirm: "Are you sure?"}, class: "text-dark text-decoration-none" do %>
-            <i class="fa-solid fa-trash"></i>
+            <i class="fa-solid fa-trash text-white"></i>
           <% end %>
         <% end %>
       </div>

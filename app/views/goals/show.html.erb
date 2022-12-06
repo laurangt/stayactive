@@ -17,7 +17,7 @@
       <div class="gsh-content" id="content">
         <p class='text'><%= log.content %></p>
         <% if log.photo.key.present? %>
-          <p><%= cl_image_tag log.photo.key, height: 50, width: 50, crop: :fill%></p>
+          <p><%= cl_image_tag log.photo.key, height: 329, width: 329, crop: :fill%></p>
         <% end %>
         <% if policy(log).destroy? %>
           <div class = "link">
