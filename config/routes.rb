@@ -3,9 +3,9 @@ Rails.application.routes.draw do
   root to: "pages#home"
 
   get 'settings', to: 'pages#settings'
-  post 'posts', to: 'posts#share'
 
   resources :projects, only: [:new, :show, :create, :destroy, :update] do
+    post 'posts', to: 'posts#share'
     resources :goals,  only: [:create, :new, :show]
   end
   resources :goals, only: [:destroy, :update]

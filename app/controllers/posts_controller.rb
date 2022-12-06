@@ -43,7 +43,9 @@ class PostsController < ApplicationController
   def share
     share_params = post_params
     group = Group.find(share_params[:group])
+    project = Project.find(params[:project_id])
     share_params[:group] = group
+    share_params[:content] += "[Check out my project: ](#{project_path(project)})"
     post = Post.new(share_params)
     post.membership = Membership.find_by(user: current_user, group: group)
     authorize post

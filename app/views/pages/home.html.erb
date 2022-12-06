@@ -46,10 +46,10 @@
               <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
             <h2>Share your project</h2>
-            <%= simple_form_for [@post] do |f| %>
+            <%= simple_form_for [project, @post] do |f| %>
               <%= f.input :group, collection: @user.groups, as: :radio_buttons, label: "Select group"%>
               <%= f.input :title, input_html: { value: project.title } %>
-              <%= f.input :content, input_html: { value: project_path(project) } %>
+              <%= f.input :content %>
               <div class="btn-cp">
                 <button type="button" class="btn btn-link btn-np"><%= f.button :submit %></button>
               </div>

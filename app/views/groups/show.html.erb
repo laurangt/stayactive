@@ -36,8 +36,8 @@
       <% end %>
       <div class="group-post-cont">
         <p><%= post.title %></p>
+        <%= @markdown.render(post.content).html_safe %>
 
-        <p><%= post.content %></p>
         <% if post.photo.attached? %>
           <%= cl_image_tag post.photo.key, height: 200, crop: :fill%>
         <% end %>
