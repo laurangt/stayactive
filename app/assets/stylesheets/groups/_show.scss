@@ -97,6 +97,7 @@ a {
 
 .likes > div {
   display: flex;
+  align-items: baseline;
   flex-direction: row-reverse;
 }
 
