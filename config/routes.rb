@@ -5,6 +5,7 @@ Rails.application.routes.draw do
   get 'settings', to: 'pages#settings'
 
   resources :projects, only: [:new, :show, :create, :destroy, :update] do
+    post 'posts', to: 'posts#share'
     resources :goals,  only: [:create, :new, :show]
   end
   resources :goals, only: [:destroy, :update]
@@ -28,4 +29,6 @@ Rails.application.routes.draw do
 
   resources :memberships, only: [:destroy]
   resources :users, only: [:show]
+
+
 end

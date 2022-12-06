@@ -494,18 +494,6 @@ post20 = Post.create!(
   membership_id: membership20.id
 )
 
-# Post.create!(
-#   title: "Boxing makes me so hungry",
-#   content: "I am back from the box session and I feel like I can eat a cow!",
-#   membership_id: membership7.id
-# )
-
-# Post.create!(
-#   title: "Need to recover from hangovererapy",
-#   content: "Sorry guys, no box today. I will fight hangover first.",
-#   membership_id: membership7.id
-# )
-
 
 #Comments
 Comment.create!(
@@ -519,7 +507,6 @@ Comment.create!(
   membership_id: membership15.id,
   post_id: post5.id
 )
-
 
 
 #Projects
@@ -544,25 +531,25 @@ project3 = Project.new(
 )
 project3.save!
 
-# project4 = Project.new(
-#   title: "Running",
-#   description: "Returning finally to the running world",
-#   user_id: user2.id
-# )
-# project4.save!
+project4 = Project.new(
+  title: "Running",
+  description: "Returning finally to the running world",
+  user_id: user4.id
+)
+project4.save!
 
-# project5 = Project.new(
-#   title: "Cycling",
-#   description: "Missing cycling so much that I cannot wait to go out as often as possible",
-#   user_id: user2.id
-# )
-# project5.save!
+project5 = Project.new(
+  title: "Running",
+  description: "Getting as fit as i used to be",
+  user_id: user5.id
+)
+project5.save!
 
 #Goals
 goal1 = Goal.new(
   title: "Yoga training",
   description: "Planning to do at least 2 sessions a week",
-  end_date: '2023-1-31',
+  end_date: '31-1-2023',
   project_id: project2.id
 )
 goal1.save!
@@ -570,19 +557,18 @@ goal1.save!
 goal2 = Goal.new(
   title: "Swimming",
   description: "Swimming at least twice a week",
-  end_date: '2023-3-1',
+  end_date: '1-3-2023',
   project_id: project3.id
 )
 goal2.save!
 
-# goal3 = Goal.new(
-#   title: "Cycling",
-#   description: "I want to go cycling 20k twice a week",
-#   end_date: '2023-09-10',
-#   status: true,
-#   project_id: project5.id
-# )
-# goal3.save!
+goal3 = Goal.new(
+  title: "Training",
+  description: "min 2x week at least 10km",
+  end_date: '01-04-2023',
+  project_id: project5.id
+)
+goal3.save!
 
 # goal4 = Goal.new(
 #   title: "Running",

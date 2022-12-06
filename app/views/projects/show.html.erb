@@ -1,7 +1,13 @@
 <div class="project_show">
   <div class="project-show-main">
-    <%= link_to url_for(:back) do %>
-      <i class="fa-solid fa-arrow-left fa-lg text-dark"></i>
+    <% if @project.user == current_user %>
+      <%= link_to root_path do %>
+        <i class="fa-solid fa-arrow-left fa-lg text-dark"></i>
+      <% end %>
+    <% else %>
+      <%= link_to url_for(:back) do %>
+        <i class="fa-solid fa-arrow-left fa-lg text-dark"></i>
+      <% end %>
     <% end %>
   </div>
   <div class="project-show-desc">
@@ -10,7 +16,7 @@
     <div class="ps-icon">
 
       <% if current_user.id == @project.user_id %>
-        <p class="p-show-desc-del p-2"><%= link_to project_path(@project), data: {turbo_method: :delete, turbo_confirm: "Are you sure?"}, class: "text-black p-show-desc-del p-2" do %>
+        <p class="p-show-desc-del"><%= link_to project_path(@project), data: {turbo_method: :delete, turbo_confirm: "Are you sure?"}, class: "text-black p-show-desc-del p-2" do %>
             <i class="fa-solid fa-trash"></i>
           <% end %></p>
 

@@ -21,4 +21,8 @@ class PostPolicy < ApplicationPolicy
   def destroy?
     record.membership.user == user
   end
+
+  def share?
+    record.user == user
+  end
 end

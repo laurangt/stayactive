@@ -6,16 +6,29 @@
 .home_body > a {
   text-decoration: none;}
 
+.home_profile_body > h1 {
+  text-align: left;
+  margin-bottom: 0;
+}
+
+.hpb-name {
+  font-size: 3vh;
+}
+
 .photo_bio {
   display: flex;
   width: 100%;
   justify-content: space-between;
-  margin-bottom: 10px;
+  // margin-bottom: 15px;
+  align-items: center;
+  height: 18vh;
 }
 
 .user_bio {
-  width: 62%;
-  height: 100%;
+  width: 65%;
+  height: fit-content;
+  font-size: small;
+  padding: 1vh 0;
 }
 
 .button_groups {
@@ -55,6 +68,13 @@
   background-color: #000000;
   margin-top: 5%;
   color: white;
+  display: flex;
+  justify-content: space-between;
+}
+
+.ptb-trophy-like {
+  display: flex;
+  align-items: baseline;
 }
 
 .ptb_title {
@@ -63,14 +83,14 @@
 }
 
 .project_title {
-  margin: 0px;
+  margin: 5px;
   color: rgb(255, 255, 255);
 }
 
 .project_descr {
   border-radius: 0 0 5px 5px;
   border: 1px solid rgb(255, 255, 255);
-  height: 90px;
+  height: auto;
   background-color: rgb(255, 255, 255);
   color: rgb(0, 0, 0);
   padding: 3%;
@@ -101,7 +121,7 @@
 .b-home-pop {
   background-color: #DBF193;
   width: 130px;
-  height: 40px;
+  height: 7vh;
   margin: 5%;
   border-radius: 10px;
 }
@@ -109,6 +129,10 @@
 .b-home-pop > a {
   color: rgb(0, 0, 0);
   text-decoration: none;
+}
+
+.b-home-body {
+  display: flex;
 }
 
 .btn-pluscir {
