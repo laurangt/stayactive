@@ -183,7 +183,7 @@ user15.save!
 
 
 # Groups
-file_group1 = URI.open("https://img.icons8.com/dusk/64/D5B3DC/girl-running--v1.png")
+file_group1 = URI.open("https://img.icons8.com/wired/64/null/girl-running.png")
 group1 = Group.new(
   name: "Running"
 )
@@ -192,7 +192,7 @@ group1.save!
 
 puts "Group1 saved: #{group1}"
 
-file_group2 = URI.open("https://img.icons8.com/dusk/64/null/leaderboard.png")
+file_group2 = URI.open("https://img.icons8.com/wired/64/null/leaderboard.png")
 group2 = Group.new(
   name: "Triathlon"
 )
@@ -200,42 +200,42 @@ group2.photo.attach(io: file_group2, filename: "nes.png", content_type: "image/p
 group2.save!
 puts "Group2 saved: #{group2}"
 
-file_group3 = URI.open("https://img.icons8.com/dusk/64/D5B3DC/swimming.png")
+file_group3 = URI.open("https://img.icons8.com/wired/64/null/swimming.png")
 group3 = Group.new(
   name: "Swimming"
 )
 group3.photo.attach(io: file_group3, filename: "nes.png", content_type: "image/png")
 group3.save!
 
-file_group4 = URI.open("https://img.icons8.com/dusk/64/D5B3DC/trekking.png")
+file_group4 = URI.open("https://img.icons8.com/wired/64/null/trekking.png")
 group4 = Group.new(
   name: "Trekking"
 )
 group4.photo.attach(io: file_group4, filename: "nes.png", content_type: "image/png")
 group4.save!
 
-file_group5 = URI.open("https://img.icons8.com/dusk/64/null/tennis.png")
+file_group5 = URI.open("https://img.icons8.com/wired/64/null/tennis.png")
 group5 = Group.new(
   name: "Tennis"
 )
 group5.photo.attach(io: file_group5, filename: "nes.png", content_type: "image/png")
 group5.save!
 
-file_group6 = URI.open("https://img.icons8.com/dusk/64/null/sleeping-mat.png")
+file_group6 = URI.open("https://img.icons8.com/wired/64/null/sleeping-mat.png")
 group6 = Group.new(
   name: "Yoga"
 )
 group6.photo.attach(io: file_group6, filename: "nes.png", content_type: "image/png")
 group6.save!
 
-file_group7 = URI.open("https://img.icons8.com/dusk/64/null/cycling-road.png")
+file_group7 = URI.open("https://img.icons8.com/wired/64/null/cycling-road.png")
 group7 = Group.new(
   name: "Cycling"
 )
 group7.photo.attach(io: file_group7, filename: "nes.png", content_type: "image/png")
 group7.save!
 
-file_group8 = URI.open("https://img.icons8.com/dusk/64/null/bowling.png")
+file_group8 = URI.open("https://img.icons8.com/wired/64/null/bowling.png")
 group8 = Group.new(
   name: "Bowling"
 )
