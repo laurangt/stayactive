@@ -12,8 +12,7 @@
 
       <% if !groupsid.include?(@group.id) %>
         <%= simple_form_for [@group, @membership] do |f| %>
-          <button type="button" class="btn btn-link btn-sm b-create-memb"><%= f.submit 'Join group' %>
-            <i class="fa-solid fa-user-plus"></i></button>
+          <button class="btn btn-link btn-sm b-create-memb" type="submit"><i class="fa-solid fa-user-plus"></i></button>
         <% end %>
       <% end %>
 
