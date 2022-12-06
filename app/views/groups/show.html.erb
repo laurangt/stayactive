@@ -53,13 +53,14 @@
               <% end %>
             <% end %>
           </div>
-
-          <div class="likes" data-controller="like" data-like-post-id-value="<%= post.id %>">
-            <%= render partial: 'hearts/heart', locals: { post: post, user_liked: post.liked?(current_user), user: current_user } %>
-            <%# <p data-like-target="count"><%= post.hearts.count ></p> %>
-            <%# <i class="fa-solid fa-thumbs-up ms-1" data-action="click->like#add" ></i> %>
-          </div>
-
+            <% if groupsid.include?(@group.id) %>
+              <%= render partial: 'hearts/heart', locals: { post: post, user_liked: post.liked?(current_user), user: current_user } %>
+            <% else %>
+              <div class="likes">
+                <p><%= post.hearts.count %></p>
+                <i class="fa-solid fa-thumbs-up"></i>
+              </div>
+            <% end %>
         </div>
       </div>
     </div>
