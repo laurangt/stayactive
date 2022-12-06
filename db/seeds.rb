@@ -235,6 +235,13 @@ group7 = Group.new(
 group7.photo.attach(io: file_group7, filename: "nes.png", content_type: "image/png")
 group7.save!
 
+file_group8 = URI.open("https://img.icons8.com/dusk/64/null/bowling.png")
+group8 = Group.new(
+  name: "Bowling"
+)
+group7.photo.attach(io: file_group7, filename: "nes.png", content_type: "image/png")
+group7.save!
+
 
 # Memberships
 membership1 = Membership.create!(
