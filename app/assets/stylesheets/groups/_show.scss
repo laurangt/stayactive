@@ -71,10 +71,17 @@
   padding: 2%;
 }
 
+.group-post-cont > img {
+  display: flex;
+  margin: auto;
+  margin-bottom: 5px;
+}
+
 .g-post-del {
   display: flex;
   justify-content: right;
   height: 3vh;
+  width: 39vh;
 }
 
 .g-post-del .show-message {
@@ -91,4 +98,13 @@ a {
   display: flex;
   align-items: baseline;
   justify-content: center;
+}
+
+.likes > div {
+  display: flex;
+  flex-direction: row-reverse;
+}
+
+.likes > div > p {
+  margin-right: 5px;
 }

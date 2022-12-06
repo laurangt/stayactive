@@ -6,16 +6,25 @@
 .home_body > a {
   text-decoration: none;}
 
+.home_profile_body > h1 {
+  text-align: left;
+  margin-bottom: 0;
+}
+
 .photo_bio {
   display: flex;
   width: 100%;
   justify-content: space-between;
-  margin-bottom: 10px;
+  // margin-bottom: 15px;
+  align-items: center;
+  height: 17vh;
 }
 
 .user_bio {
-  width: 62%;
-  height: 100%;
+  width: 65%;
+  height: fit-content;
+  font-size: small;
+  padding: 40px 0;
 }
 
 .button_groups {
@@ -63,7 +72,7 @@
 }
 
 .project_title {
-  margin: 0px;
+  margin: 5px;
   color: rgb(255, 255, 255);
 }
 
