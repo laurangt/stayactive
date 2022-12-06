@@ -31,6 +31,34 @@
             <p class="project_descr"><%= project.description %></p>
         </div>
       <% end %>
+
+      <!-- Button trigger modal -->
+      <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal">
+        <i class="fa-solid fa-share-nodes"></i>
+      </button>
+
+      <!-- Modal -->
+      <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h5 class="modal-title" id="exampleModalLabel">Share project</h5>
+              <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <h2>New Post</h2>
+            <%= simple_form_for [@groups, @post] do |f| %>
+              <%= f.association :groups, as: :radio_buttons, :required => true %>
+              <%= f.input :title, value: project.title%>
+              <%= f.input :content, value: project.description %>
+              <div class="btn-cp">
+                <button type="button" class="btn btn-link btn-np"><%= f.button :submit %></button>
+              </div>
+            <% end %>
+          </div>
+        </div>
+      </div>
+
+
     <% end %>
 
 <!-- Button trigger modal -->
@@ -47,7 +75,7 @@
         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
       </div>
       <div class="modal-body">
-        <button class="b-home-pop"><%= link_to "Sports groups", groups_path %></button>
+        <button class="b-home-pop"><%= link_to "Browse sports groups", groups_path %></button>
         <button class="b-home-pop"><%= link_to "Add a project", new_project_path %></button>
       </div>
     </div>

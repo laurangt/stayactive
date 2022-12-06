@@ -5,8 +5,10 @@ class PagesController < ApplicationController
     @user = current_user
     @groups = @user.groups
     @projects = @user.projects
+    @post = Post.new
   end
 
   def settings
   end
+
 end
