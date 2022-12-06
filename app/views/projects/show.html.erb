@@ -3,9 +3,9 @@
     <%= link_to url_for(:back) do %>
       <i class="fa-solid fa-arrow-left fa-lg text-dark"></i>
     <% end %>
-    <h1 class="project-show-title"><%= @project.title %></h1>
   </div>
   <div class="project-show-desc">
+    <h1 class="project-show-title"><%= @project.title %></h1>
     <p><%= @project.description %></p>
     <div class="ps-icon">
 
@@ -30,14 +30,14 @@
       <div class="ps-cbox" data-controller="goal" data-goal-update-url-value="<%= goal_path(goal) %>">
         <input type="checkbox" data-action="click->goal#toggle" data-goal-target="status"
         <%= goal.status ? "checked" : "" %>/>
-        <p class="p-show-end-date">End date: <%= goal.end_date %></p>
+        <p class="p-show-end-date">End date: <%= goal.end_date.strftime("%d/%m/%Y") %></p>
       </div>
       <%= link_to project_goal_path(@project, goal)	do %>
         <div class="p-show-goals">
           <div class="p-show-goal-box">
             <p class="psg-title" style="color: white;"><%= goal.title %></p>
             <p style="color: white;"><%= goal.description %></p>
-            <p class="p-show-goal-del" style="color: white;"><%= link_to goal_path(goal), data: {turbo_method: :delete, turbo_confirm: "Are you sure?"}, class: "text-dark text-decoration-none" do %>
+            <p class="p-show-goal-del" style="color: white;"><%= link_to goal_path(goal), data: {turbo_method: :delete, turbo_confirm: "Are you sure?"}, class: "text-white text-decoration-none" do %>
                 <i class="fa-solid fa-trash"></i>
               <% end %></p>
           </div>

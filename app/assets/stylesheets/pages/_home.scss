@@ -26,12 +26,27 @@
   background-color: #000000;
   text-decoration: none;
   color:rgb(255, 255, 255);
-  margin-bottom: 3%;
-  border-bottom: 2px solid black;
-  border-right: 2px solid black;
-  border-top: 2px solid grey;
-  border-left: 2px solid grey;
+  margin-bottom: 5%;
+  // border-bottom: 2px solid black;
+  // border-right: 2px solid black;
+  // border-top: 2px solid grey;
+  // border-left: 2px solid grey;
   border-radius: 10px;
+  position: relative;
+  margin-right: 7px;
+}
+
+.button_groups .btn::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  z-index: -1;
+  margin: -5px;
+  border-radius: inherit;
+  background-image: linear-gradient(#DBF193, rgb(248, 158, 248));
 }
 
 .project_box .project_title_box {

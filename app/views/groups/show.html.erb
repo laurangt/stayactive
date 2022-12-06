@@ -3,9 +3,8 @@
     <%= link_to root_path do %>
       <i class="fa-solid fa-arrow-left fa-lg text-dark"></i>
     <% end %>
-
+    <div class="gs-title-icon">
       <h1 class="g-show-name"><%= @group.name %></h1>
-  </div>
 
       <% groupsid = @user.groups.map do |group| %>
         <% group.id %>
@@ -13,13 +12,17 @@
 
       <% if !groupsid.include?(@group.id) %>
         <%= simple_form_for [@group, @membership] do |f| %>
-          <button type="button" class="btn btn-link btn-sm b-create-memb"><%= f.submit 'Join group' %></button>
+          <button class="btn btn-link btn-sm b-create-memb" type="submit"><i class="fa-solid fa-user-plus"></i></button>
         <% end %>
       <% end %>
 
       <% if groupsid.include?(@group.id) %>
-          <button type="button" class="btn btn-danger btn-sm b-leave-gr"><%= link_to "Leave group", membership_path(@membership), data: {turbo_method: :delete, turbo_confirm: "Are you sure?"}, class: "text-light text-decoration-none" %></button>
+        <button type="button" class="btn btn-danger btn-sm b-leave-gr"><%= link_to membership_path(@membership), data: {turbo_method: :delete, turbo_confirm: "Are you sure?"}, class: "text-light text-decoration-none" do %>
+          <i class="fa-solid fa-user-minus"></i></button>
+        <% end %>
       <% end %>
+    </div>
+  </div>
 
   <% @group.posts.reverse.each do |post| %>
     <div class="g-post-all mb-2">
