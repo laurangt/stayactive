@@ -48,7 +48,7 @@
             <h2>Share your project</h2>
             <%= simple_form_for [project, @post] do |f| %>
               <%= f.input :group, collection: @user.groups, as: :radio_buttons, label: "Select group"%>
-              <%= f.input :title, input_html: { value: project.title } %>
+              <%= f.input :title, input_html: { value: 'Check out my project' } %>
               <%= f.input :content %>
               <div class="btn-cp">
                 <button type="button" class="btn btn-link btn-np"><%= f.button :submit %></button>

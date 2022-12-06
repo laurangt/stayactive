@@ -16,7 +16,7 @@
         <%= @post.membership.user.username %>
       </div>
       <div class='po-sh-content-member'>
-        <p><%= @post.content %></p>
+        <%= @markdown.render(@post.content).html_safe %>
         <% if @post.photo.key.present? %>
           <%= cl_image_tag @post.photo.key, height: 200, crop: :fill%>
         <% end %>
