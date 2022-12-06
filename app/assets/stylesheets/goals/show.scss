@@ -8,7 +8,7 @@
 }
 
 .goal-sh-title {
-  margin: auto;
+  text-align: left;
 }
 
 .goal-sh-desc {
@@ -17,16 +17,19 @@
   color: black;
   padding: 3%;
   border-radius: 5px;
+  border: 1px solid #e7e7e7;
+  box-shadow: 0px 3px 3px rgb(218, 218, 218);
 }
 
 .gsh-dlog {
-  background-color: #8D4D9A;
+  background-color: #000000;
   border-radius: 5px 5px 0 0;
 }
 
 .gsh-text {
   margin-bottom: 0;
   padding: 2%;
+  color: rgb(255, 255, 255);
 }
 
 .gsh-content {
@@ -35,6 +38,8 @@
   color: black;
   padding: 3%;
   border-radius: 0 0 5px 5px;
+  border: 1px solid rgb(218, 218, 218)black;
+  box-shadow: 0px 3px 3px rgb(218, 218, 218);
 }
 
 .gsh-cont-del {
@@ -48,7 +53,10 @@
 }
 
 button.close {
-  background-color: #D5B3DC;
+  background: none;
+  border: 0;
+  font-size: xx-large;
+  color: grey;
 }
 
 // h1 {

@@ -1,61 +1,67 @@
 <div class="g_show">
   <div class="g-show-title">
     <%= link_to root_path do %>
-      <i class="fa-solid fa-arrow-left fa-lg"></i>
+      <i class="fa-solid fa-arrow-left fa-lg text-dark"></i>
     <% end %>
-    <h1 class="g-show-name"><%= @group.name %></h1>
+    <div class="gs-title-icon">
+      <h1 class="g-show-name"><%= @group.name %></h1>
+
+      <% groupsid = @user.groups.map do |group| %>
+        <% group.id %>
+      <% end %>
+
+      <% if !groupsid.include?(@group.id) %>
+        <%= simple_form_for [@group, @membership] do |f| %>
+          <button class="btn btn-link btn-sm b-create-memb" type="submit"><i class="fa-solid fa-user-plus"></i></button>
+        <% end %>
+      <% end %>
+
+      <% if groupsid.include?(@group.id) %>
+        <button type="button" class="btn btn-danger btn-sm b-leave-gr"><%= link_to membership_path(@membership), data: {turbo_method: :delete, turbo_confirm: "Are you sure?"}, class: "text-light text-decoration-none" do %>
+          <i class="fa-solid fa-user-minus"></i></button>
+        <% end %>
+      <% end %>
+    </div>
   </div>
 
-  <% groupsid = @user.groups.map do |group| %>
-    <% group.id %>
-  <% end %>
-
-  <% if !groupsid.include?(@group.id) %>
-    <%= simple_form_for [@group, @membership] do |f| %>
-      <button type="button" class="btn btn-link btn-sm b-create-memb"><%= f.submit 'Join group' %></button>
-    <% end %>
-  <% end %>
-
-  <% if groupsid.include?(@group.id) %>
-      <button type="button" class="btn btn-danger btn-sm b-leave-gr"><%= link_to "Leave group", membership_path(@membership), data: {turbo_method: :delete, turbo_confirm: "Are you sure?"}, class: "text-light text-decoration-none" %></button>
-  <% end %>
-
   <% @group.posts.reverse.each do |post| %>
-    <%= link_to group_post_path(@group, post) do %>
-      <div class="g-post-all mb-4">
+    <div class="g-post-all mb-2">
+      <%= link_to user_path(post.membership.user) do %>
         <div class="group-post-head">
-        <% if post.membership.user.photo.key.present? %>
-          <%= cl_image_tag post.membership.user.photo.key, height: 50, width: 50, crop: :fill, style: "object-fit: fill;"%>
-        <% end %>
+          <% if post.membership.user.photo.key.present? %>
+            <%= cl_image_tag post.membership.user.photo.key, height: 50, width: 50, crop: :fill, style: "object-fit: fill;"%>
+          <% end %>
           <%= post.membership.user.username %>
         </div>
-        <div class="group-post-cont">
-          <p><%= post.title %></p>
-          <p><%= post.content %></p>
-          <% if post.photo.key.present? %>
-            <%= cl_image_tag post.photo.key, height: 300, width: 300, crop: :fill%>
+      <% end %>
+      <div class="group-post-cont">
+        <p><%= post.title %></p>
+        <p><%= post.content %></p>
+        <% if post.photo.attached? %>
+          <%= cl_image_tag post.photo.key, height: 200, crop: :fill%>
+        <% end %>
+        <div class="g-post-del">
+          <% if policy(post).destroy? %>
+            <%= link_to post_path(post), data: {turbo_method: :delete, turbo_confirm: "Are you sure?"}, class: "text-dark text-decoration-none d-post" do %>
+              <i class="fa-solid fa-trash"></i>
+            <% end %>
           <% end %>
-          <div class="g-post-del">
-            <% if policy(post).destroy? %>
-              <%= link_to post_path(post), data: {turbo_method: :delete, turbo_confirm: "Are you sure?"}, class: "text-dark text-decoration-none d-post" do %>
-                <i class="fa-solid fa-trash"></i>
+          <div class="show-message">
+            <% if groupsid.include?(@group.id) %>
+              <%= link_to group_post_path(@group, post) do %>
+                <i class="fa-solid fa-message"></i>
               <% end %>
             <% end %>
-            <div class="show-message">
-              <% if groupsid.include?(@group.id) %>
-                <%= link_to group_post_path(@group, post) do %>
-                  <i class="fa-solid fa-message"></i>
-                <% end %>
-              <% end %>
-            </div>
           </div>
+
+          <div class="likes" data-controller="like" data-like-post-id-value="<%= post.id %>">
+            <%= render partial: 'hearts/heart', locals: { post: post, user_liked: post.liked?(current_user), user: current_user } %>
+            <%# <p data-like-target="count"><%= post.hearts.count ></p> %>
+            <%# <i class="fa-solid fa-thumbs-up ms-1" data-action="click->like#add" ></i> %>
+          </div>
+
         </div>
       </div>
-    <% end %>
-    <div data-controller="like">
-        <i class="fa-solid fa-thumbs-up" data-action="click->like#hello"></i>
-        <%# need to add value %>
-        <p data-like-target="count"><%= post.hearts.count %></p>
     </div>
   <% end %>
 

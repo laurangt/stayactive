@@ -9,22 +9,24 @@
 }
 
 .project-new-body {
-  background-color: #D5B3DC;
+  background-color: #000000;
   padding: 5%;
   margin: 3%;
   border-radius: 5px;
+  box-shadow: 0px 3px 3px grey;
+  color: rgb(255, 255, 255);
 }
 
 .btn_create_p {
-  background-color: #F7D30B;
+  background-color: #DBF193;
   text-decoration: none;
   border-radius: 10px;
+  border-bottom: 2px solid black;
+  border-right: 2px solid black;
+  border-top: 2px solid grey;
+  border-left: 2px solid grey;
 }
 
 .button-new {
   text-align: center;
-}
-
-.button-new input{
-  font-weight: bold;
 }

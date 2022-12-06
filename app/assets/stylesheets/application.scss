@@ -9,6 +9,7 @@
 
 // Your CSS partials
 @import "components/index";
+@import "devise/sessions/new";
 @import "groups/show";
 @import "groups/index";
 @import "goals/show";
@@ -17,10 +18,12 @@
 @import "posts/show";
 @import "projects/new";
 @import "projects/show";
+@import "flatpickr/dist/flatpickr.css";
+@import "flatpickr/dist/themes/airbnb";
 
 body {
-  background-color: #0C2641;
-  color: rgb(255, 255, 255);
+  background-color: #F5F5F5;
+  color: rgb(0, 0, 0);
 }
 
 #body{

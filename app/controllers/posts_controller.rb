@@ -26,6 +26,12 @@ class PostsController < ApplicationController
     end
   end
 
+  # def update
+  #   @post = Post.find(params[:id])
+  #   @post.like_count += 1
+  #   @post.save
+  # end
+
   def destroy
     @post = Post.find(params[:id])
     @post.destroy
@@ -33,6 +39,8 @@ class PostsController < ApplicationController
     redirect_to group_path(@group)
     authorize @post
   end
+
+
 
   private
 
