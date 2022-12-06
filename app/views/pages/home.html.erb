@@ -20,10 +20,11 @@
 
   <h2>My Projects</h2>
     <% @projects.each do |project| %>
-      <%= link_to project_path(project) do %>
         <div class="project_box">
           <div class="project_title_box">
+      <%= link_to project_path(project) do %>
             <p class="ptb_title"><%= project.title %></p>
+      <% end %>
             <div class="ptb-trophy-like">
               <% if project.done? %>
                 <i class="fa-sharp fa-solid fa-trophy"></i>
@@ -33,9 +34,10 @@
               </button>
             </div>
           </div>
+          <%= link_to project_path(project) do %>
             <p class="project_descr"><%= project.description %></p>
+          <% end %>
         </div>
-      <% end %>
 
       <!-- Button trigger modal -->
 
