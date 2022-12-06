@@ -1,6 +1,6 @@
 <div class="home_body">
   <div class="home_profile_body">
-    <h1 class="text-dark">@<%= @user.username %></h1>
+    <h1 class="text-dark hpb-name">@<%= @user.username %></h1>
     <div class="d-flex">
       <div class="photo_bio">
         <% if @user.photo.key.present? %>
@@ -24,18 +24,20 @@
         <div class="project_box">
           <div class="project_title_box">
             <p class="ptb_title"><%= project.title %></p>
-            <% if project.done? %>
-              <i class="fa-sharp fa-solid fa-trophy"></i>
-            <% end %>
+            <div class="ptb-trophy-like">
+              <% if project.done? %>
+                <i class="fa-sharp fa-solid fa-trophy"></i>
+              <% end %>
+              <button type="button" class="btn btn-link text-white" data-bs-toggle="modal" data-bs-target="#exampleModal">
+                <i class="fa-solid fa-share-nodes"></i>
+              </button>
+            </div>
           </div>
             <p class="project_descr"><%= project.description %></p>
         </div>
       <% end %>
 
       <!-- Button trigger modal -->
-      <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal">
-        <i class="fa-solid fa-share-nodes"></i>
-      </button>
 
       <!-- Modal -->
       <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
@@ -72,7 +74,7 @@
           <h5 class="modal-title" id="homeModalLabel">Choose one:</h5>
           <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
         </div>
-        <div class="modal-body">
+        <div class="modal-body b-home-body">
           <button class="b-home-pop"><%= link_to "Browse sports groups", groups_path %></button>
           <button class="b-home-pop"><%= link_to "Add a project", new_project_path %></button>
         </div>

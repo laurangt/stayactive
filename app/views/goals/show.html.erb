@@ -17,7 +17,7 @@
       <div class="gsh-content" id="content">
         <p class='text'><%= log.content %></p>
         <% if log.photo.key.present? %>
-          <p><%= cl_image_tag log.photo.key, height: 329, width: 329, crop: :fill%></p>
+          <p class="gsh-content-image"><%= cl_image_tag log.photo.key, height: 200, crop: :fill %></p>
         <% end %>
         <% if policy(log).destroy? %>
           <div class = "link">
@@ -45,7 +45,7 @@
           </button>
         </div>
         <div class="modal-body-create-g">
-          <%= simple_form_for([@goal, @log]), html: { autocomplete: 'off' }  do |f| %>
+          <%= simple_form_for([@goal, @log])  do |f| %>
             <div class="form-group-goal" style="width:310px;">
               <%= f.input :content, label: "Comment", placeholder: "Write your log ..." %>
               <%= f.input :photo, as: :file %>
