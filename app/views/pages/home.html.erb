@@ -24,18 +24,20 @@
         <div class="project_box">
           <div class="project_title_box">
             <p class="ptb_title"><%= project.title %></p>
-            <% if project.done? %>
-              <i class="fa-sharp fa-solid fa-trophy"></i>
-            <% end %>
+            <div class="ptb-trophy-like">
+              <% if project.done? %>
+                <i class="fa-sharp fa-solid fa-trophy"></i>
+              <% end %>
+              <button type="button" class="btn btn-link text-white" data-bs-toggle="modal" data-bs-target="#exampleModal">
+                <i class="fa-solid fa-share-nodes"></i>
+              </button>
+            </div>
           </div>
             <p class="project_descr"><%= project.description %></p>
         </div>
       <% end %>
 
       <!-- Button trigger modal -->
-      <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal">
-        <i class="fa-solid fa-share-nodes"></i>
-      </button>
 
       <!-- Modal -->
       <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">

@@ -68,6 +68,13 @@
   background-color: #000000;
   margin-top: 5%;
   color: white;
+  display: flex;
+  justify-content: space-between;
+}
+
+.ptb-trophy-like {
+  display: flex;
+  align-items: baseline;
 }
 
 .ptb_title {
