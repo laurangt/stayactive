@@ -28,6 +28,9 @@
         <div class="project_box">
           <div class="project_title_box">
             <p class="project_title"><%= project.title %></p>
+            <% if project.done? %>
+              <i class="fa-sharp fa-solid fa-trophy"></i>
+            <% end %>
           </div>
             <p class="project_descr"><%= project.description %></p>
         </div>

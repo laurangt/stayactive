@@ -4,6 +4,7 @@ class PagesController < ApplicationController
   def home
     @user = current_user
     @groups = @user.groups
+    @projects = @user.projects
   end
 
   def settings
