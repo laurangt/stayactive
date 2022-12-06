@@ -21,11 +21,15 @@
   </div>
 
   <h2>My Projects</h2>
-    <% @user.projects.each do |project| %>
+    <% @projects.each do |project| %>
       <%= link_to project_path(project) do %>
         <div class="project_box">
           <div class="project_title_box">
             <p class="ptb_title"><%= project.title %></p>
+            <% if project.done? %>
+              <i class="fa-solid fa-shield-check text-primary"></i>
+              <%# <p>done</p> %>
+            <% end %>
           </div>
             <p class="project_descr"><%= project.description %></p>
         </div>

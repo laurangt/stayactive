@@ -5,4 +5,11 @@ class Project < ApplicationRecord
 
   validates :title, presence: true
   validates :description, presence: true
+
+  def done?
+    return false if goals.empty?
+    return true if goals.all?(&:status)
+
+    return false
+  end
 end
