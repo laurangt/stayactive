@@ -116,3 +116,37 @@
 .psg-title {
   border-bottom: 2px solid rgb(255, 255, 255);
 }
+
+// timeline
+
+.timeline__event {
+  color: black;
+  border: 1px solid;
+  border-color: black;
+  display: flex;
+  align-self: center;
+  margin-top: 15px;
+}
+
+.timeline__event:nth-child(2n+1) {
+  display: flex;
+  flex-direction: row-reverse;
+}
+
+.timeline__event__icon {
+  border: 1px solid;
+  border-color: black;
+  width: 15vw;
+}
+
+.timeline__event__date {
+  border: 1px solid;
+  border-color: black;
+  width: 35vw;
+}
+
+.timeline__event__content {
+  border: 1px solid;
+  border-color: black;
+  width: 50vw;
+}
