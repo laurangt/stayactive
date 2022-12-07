@@ -121,7 +121,7 @@
 
 .b-home-pop {
   background-color: #DBF193;
-  width: 130px;
+  width: auto;
   height: 7vh;
   margin: 5%;
   border-radius: 10px;
@@ -157,20 +157,23 @@
   justify-content: center;
 }
 
-.sp-cont {
-  padding: 5%;
-}
-
 .sp-group {
   display: flex;
-  justify-content: center;
+  justify-content: left;
 }
+
 
 .sp-group legend {
   font-size: large;
+  width: 300%;
 }
 
-.sp-group label {
+.sp-box label {
   display: flex;
   justify-content: flex-start;
+}
+
+.sp-box {
+  box-shadow: 0px 3px 3px rgb(218, 218, 218);
+  padding: 5%;
 }
