@@ -121,7 +121,7 @@ ActiveRecord::Schema[7.0].define(version: 2022_12_02_135433) do
     t.datetime "reset_password_sent_at"
     t.datetime "remember_created_at"
     t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.datetime "updated_at", null: falseb
     t.string "username"
     t.string "bio"
     t.index ["email"], name: "index_users_on_email", unique: true
