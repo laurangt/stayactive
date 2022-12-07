@@ -5,7 +5,7 @@
         <i class="fa-solid fa-arrow-left fa-lg text-dark"></i>
       <% end %>
     <% else %>
-      <%= link_to url_for(:back) do %>
+      <%= link_to user_path(@project.user) do %>
         <i class="fa-solid fa-arrow-left fa-lg text-dark"></i>
       <% end %>
     <% end %>

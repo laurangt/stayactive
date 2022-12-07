@@ -3,22 +3,24 @@ import ProgressBar from 'progressbar.js'
 
 // Connects to data-controller="progressbar"
 export default class extends Controller {
-  static targets=["progressbar"]
+  static targets = ["progressbar"]
+  static values = { percentage: Number }
 
   connect() {
-    console.log(this.ele)
+    console.log(this.percentageValue)
     const line = new ProgressBar.Line(this.progressbarTarget, {
       color: '#DBF193',
-      trailColor: '#000',
+      trailColor: '#eaa8ee',
       strokeWidth: 3,
       duration: 3000,
       easing: 'easeInOut',
-      style: {
-        position: 'absolute',
-        bottom: 0
-      }
+      svgStyle: {
+        display: 'block',
+        width: '100%' // ${this.percentageValue} to be % of goals doe if goal.status = true
+    },
+
   });
 
-  line.animate(1);
+  line.animate(this.percentageValue);
   }
 }
