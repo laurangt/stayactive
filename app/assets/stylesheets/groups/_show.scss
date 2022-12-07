@@ -17,26 +17,54 @@
   background-color: #DBF193;
   border-radius: 10px;
   margin-bottom: 2%;
-  border-bottom: 2px solid rgb(0, 0, 0);
-  border-right: 2px solid rgb(0, 0, 0);
-  border-top: 2px solid rgb(128, 128, 128);
-  border-left: 2px solid rgb(128, 128, 128);
+  // border-bottom: 2px solid rgb(0, 0, 0);
+  // border-right: 2px solid rgb(0, 0, 0);
+  // border-top: 2px solid rgb(128, 128, 128);
+  // border-left: 2px solid rgb(128, 128, 128);
   height: 40px;
   color: rgb(0, 0, 0);
+  position: relative;
+  border: 1px solid #c1baba;
+}
+
+.b-create-memb::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  z-index: -1;
+  margin: -5px;
+  border-radius: inherit;
+  background-image: linear-gradient(#DBF193, rgb(248, 158, 248));
 }
 
 .b-leave-gr {
   color: rgb(0, 0, 0);
   text-decoration: none;
   margin-bottom: 2%;
-  border-bottom: 2px solid black;
-  border-right: 2px solid black;
-  border-top: 2px solid grey;
-  border-left: 2px solid grey;
+  // border-bottom: 2px solid black;
+  // border-right: 2px solid black;
+  // border-top: 2px solid grey;
+  // border-left: 2px solid grey;
   position: relative;
   // left: 70%;
   height: 40px;
   border-radius: 10px;
+}
+
+.b-leave-gr::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  z-index: -1;
+  margin: -5px;
+  border-radius: inherit;
+  background-image: linear-gradient(#DBF193, rgb(248, 158, 248));
 }
 
 .group-post-head {
@@ -76,7 +104,7 @@
   display: flex;
   justify-content: right;
   height: 3vh;
-  width: 39vh;
+  // width: 39vh;
 }
 
 .g-post-del .show-message {
