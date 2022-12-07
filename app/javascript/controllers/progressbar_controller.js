@@ -10,7 +10,7 @@ export default class extends Controller {
     console.log(this.percentageValue)
     const line = new ProgressBar.Line(this.progressbarTarget, {
       color: '#DBF193',
-      trailColor: '#eaa8ee',
+      trailColor: '#FFD2FF',
       strokeWidth: 2,
       duration: 3000,
       easing: 'easeInOut',
