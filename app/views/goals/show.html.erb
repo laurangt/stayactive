@@ -1,8 +1,8 @@
 <div class="goal_sh">
-  <div class="goal_sh_title">
-    <%= link_to project_path(@project) do %>
-      <i class="fa-solid fa-arrow-left fa-lg text-dark"></i>
-    <% end %>
+  <div class="goal_sh_title" data-controller="history-back">
+
+  <i data-history-back-target="backarrow" data-action="click->history-back#back" class="fa-solid fa-arrow-left fa-lg text-dark"></i>
+
   </div>
   <div class="goal-sh-desc" id="description">
     <h1 class="goal-sh-title"><%= @goal.title %></h1>

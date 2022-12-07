@@ -183,7 +183,7 @@ user15.save!
 
 
 # Groups
-file_group1 = URI.open("https://icons8.com/icon/47826/running")
+file_group1 = URI.open("https://res.cloudinary.com/dqpgsz5ed/image/upload/v1670430537/running_black_meh1bo.png")
 group1 = Group.new(
   name: "Running"
 )
