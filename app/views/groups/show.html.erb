@@ -16,7 +16,7 @@
       <% end %>
 
       <% if groupsid.include?(@group.id) %>
-        <button type="button" class="btn btn-danger btn-sm b-leave-gr"><%= link_to membership_path(@membership), data: {turbo_method: :delete, turbo_confirm: "Are you sure?"}, class: "text-light text-decoration-none" do %>
+        <button type="button" class="btn btn-dark btn-sm b-leave-gr"><%= link_to membership_path(@membership), data: {turbo_method: :delete, turbo_confirm: "Are you sure?"}, class: "text-light text-decoration-none" do %>
           <i class="fa-solid fa-user-minus"></i></button>
         <% end %>
       <% end %>
@@ -56,8 +56,8 @@
               <%= render partial: 'hearts/heart', locals: { post: post, user_liked: post.liked?(current_user), user: current_user } %>
             <% else %>
               <div class="likes">
-                <p><%= post.hearts.count %></p>
                 <i class="fa-solid fa-thumbs-up"></i>
+                <p><%= post.hearts.count %></p>
               </div>
             <% end %>
         </div>
