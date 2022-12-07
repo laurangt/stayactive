@@ -145,8 +145,10 @@
 }
 
 .b-home-body {
-  display: flex;
+  // display: flex;
   position: static;
+  flex-direction: column;
+  margin: auto;
 }
 
 .btn-pluscir {
