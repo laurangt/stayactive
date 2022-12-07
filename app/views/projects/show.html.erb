@@ -50,14 +50,19 @@
           <p class="p-show-end-date"><%= goal.end_date.strftime("%d/%m/%Y") %></p>
         </div>
 
-        <div class="timeline__event__content">
-          <div class="timeline__event__title">
-            <%= goal.title %></p>
+        <%= link_to project_goal_path(@project, goal)	do %>
+          <div class="timeline__event__content">
+            <div class="timeline__event__title">
+              <%= goal.title %></p>
+            </div>
+            <div class="timeline__event__description">
+              <%= goal.description %></p>
+            </div>
+            <p class="p-show-goal-del" style="color: white;"><%= link_to goal_path(goal), data: {turbo_method: :delete, turbo_confirm: "Are you sure?"}, class: "text-white text-decoration-none" do %>
+              <i class="fa-solid fa-trash"></i>
+            <% end %></p>
           </div>
-          <div class="timeline__event__description">
-            <%= goal.description %></p>
-          </div>
-        </div>
+        <% end %>
 
       </div>
     <% end %>
