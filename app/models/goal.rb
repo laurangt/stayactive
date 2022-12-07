@@ -1,6 +1,7 @@
 class Goal < ApplicationRecord
   belongs_to :project
   has_many :logs, dependent: :destroy
+  has_one :user, through: :project
 
   validates :description, presence: true
   validates :end_date, presence: true
