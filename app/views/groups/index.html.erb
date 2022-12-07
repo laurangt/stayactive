@@ -9,13 +9,16 @@
   <div class="gi-list">
     <% @groups.each do |group| %>
       <%= link_to group_path(group) do %>
-        <div class= "container d-flex justify-content-center" id="icons" style="border: 1px solid; color: #D5B3DC; background-color: #D5B3DC; justify-content:center; space-between; border-radius: 10px; display: flex; column-gap: 10px; justify-content: center; height: 60px; width: 60px; padding-top: 10px; padding-right: 10px; padding-left: 50px; padding-bottom:10px">
-          <%= cl_image_tag group.photo.key, height: 50, width:50 , crop: :fill %>
-          <div class= "container justify-content-left text-dark gi-text" id="sportname" style="color:white; align-items: right;">
-            <%= group.name %>
-          </div>
+        <div  id="icons">
+          <button class="ms-3"><%= cl_image_tag group.photo.key, height: 40, width:40 , crop: :fill %></button>
+            <p class="ms-3"><%= group.name %></p>
+          <%# <div class= "container justify-content-left text-dark gi-text" id="sportname" style="color:white; align-items: right;"> %>
+          <%# </div> %>
         </div>
       <% end %>
     <% end %>
   </div>
 </div>
+
+<%# class= "container d-flex justify-content-center" %>
+<%# style="border: 1px solid; color: #DBF193; background-color: #DBF193; justify-content:center; space-between; border-radius: 10px; display: flex; column-gap: 10px; justify-content: center; height: 60px; width: 60px; padding-top: 10px; padding-right: 13px; padding-left: 50px; padding-bottom:10px" %>
