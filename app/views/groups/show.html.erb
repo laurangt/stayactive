@@ -56,8 +56,8 @@
               <%= render partial: 'hearts/heart', locals: { post: post, user_liked: post.liked?(current_user), user: current_user } %>
             <% else %>
               <div class="likes">
-                <p><%= post.hearts.count %></p>
                 <i class="fa-solid fa-thumbs-up"></i>
+                <p><%= post.hearts.count %></p>
               </div>
             <% end %>
         </div>
