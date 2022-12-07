@@ -3,7 +3,7 @@
     <div class="d-flex">
       <div class="photo_bio">
         <% if @user.photo.key.present? %>
-          <%= cl_image_tag @user.photo.key, height: 100, width: 100, crop: :fill, style: "object-fit: fill; border-radius: 50%;"%>
+          <%= cl_image_tag @user.photo.key, height: 100, width: 100, crop: :fill, style: "object-fit: fill;border-radius: 50%;"%>
         <% end %>
           <div class="hpb-cont">
             <h1 class="text-dark hpb-name">@<%= @user.username %></h1>
