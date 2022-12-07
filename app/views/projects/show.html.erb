@@ -14,13 +14,12 @@
     <h1 class="project-show-title"><%= @project.title %></h1>
     <p><%= @project.description %></p>
     <div class="ps-icon">
-
       <% if current_user.id == @project.user_id %>
-        <p class="p-show-desc-del"><%= link_to project_path(@project), data: {turbo_method: :delete, turbo_confirm: "Are you sure?"}, class: "text-black p-show-desc-del p-2" do %>
-            <i class="fa-solid fa-trash"></i>
-          <% end %></p>
-
+        <p class="p-show-desc-del p-2"><%= link_to project_path(@project), data: {turbo_method: :delete, turbo_confirm: "Are you sure?"}, class: "text-black p-show-desc-del p-2" do %>
+          <i class="fa-solid fa-trash"></i>
+        <% end %></p>
       <% end %>
+
       <!-- MODAL EDIT -->
       <!-- Button trigger modal -->
       <% if current_user.id == @project.user_id %>
@@ -30,31 +29,46 @@
       <% end %>
     </div>
   </div>
-  <h2>Goals:</h2>
-  <div>
+
+<%# timeline %>
+  <%# <div class="timeline"> %>
     <% @project.goals.each do |goal| %>
-      <div class="ps-cbox" data-controller="goal" data-goal-update-url-value="<%= goal_path(goal) %>">
-      <% if policy(goal).update? %>
-        <input type="checkbox" data-action="click->goal#toggle" data-goal-target="status"
-        <%= goal.status ? "checked" : "" %>/>
-      <% end %>
-        <p class="p-show-end-date">End date: <%= goal.end_date.strftime("%d/%m/%Y") %></p>
-      </div>
-      <%= link_to project_goal_path(@project, goal)	do %>
-        <div class="p-show-goals">
-          <div class="p-show-goal-box">
-            <p class="psg-title" style="color: white;"><%= goal.title %></p>
-            <p style="color: white;"><%= goal.description %></p>
-            <p class="p-show-goal-del" style="color: white;"><%= link_to goal_path(goal), data: {turbo_method: :delete, turbo_confirm: "Are you sure?"}, class: "text-white text-decoration-none" do %>
-                <i class="fa-solid fa-trash"></i>
-              <% end %></p>
-          </div>
+
+      <div class="timeline__event">
+
+        <div class="timeline__event__icon" data-controller="goal" data-goal-update-url-value="<%= goal_path(goal) %>">
+          <input class="checkbox_icon" type="checkbox" data-action="click->goal#toggle" data-goal-target="status"
+          <%= goal.status ? "checked" : "" %>/>
+          <% if goal.status == "checked" %>
+            <i class="fa-solid fa-check"></i>
+          <% end %>
         </div>
-      <% end %>
+
+        <div class="horizontal_line"></div>
+
+        <div class="timeline__event__date">
+          <p class="p-show-end-date"><%= goal.end_date.strftime("%d/%m/%Y") %></p>
+        </div>
+
+        <%= link_to project_goal_path(@project, goal)	do %>
+          <div class="timeline__event__content">
+            <div class="timeline__event__title">
+              <%= goal.title %></p>
+            </div>
+            <div class="timeline__event__description">
+              <%= goal.description %></p>
+            </div>
+            <p class="p-show-goal-del" style="color: white;"><%= link_to goal_path(goal), data: {turbo_method: :delete, turbo_confirm: "Are you sure?"}, class: "text-white text-decoration-none" do %>
+              <i class="fa-solid fa-trash"></i>
+            <% end %></p>
+          </div>
+        <% end %>
+
+      </div>
     <% end %>
-  </div>
-  <!--MODAL CREATE to add a goal -->
-  <!-- Button trigger modal -->
+  <%# </div> %>
+
+
   <!--MODAL CREATE to add a goal -->
   <!-- Button trigger modal -->
   <% if current_user.id == @project.user_id %>
