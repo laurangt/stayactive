@@ -5,7 +5,7 @@
 
 .g-show-title {
   display: flex;
-  margin-bottom: 2%;
+  margin-bottom: 10%;
 }
 
 .g-show-name {
@@ -140,4 +140,10 @@ a {
 
 .likes > p {
   margin-left: 5px;
+}
+
+
+.b-home-body label {
+  display: flex;
+  justify-content: left;
 }
