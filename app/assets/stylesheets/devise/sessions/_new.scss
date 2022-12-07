@@ -3,24 +3,32 @@
 }
 
 .btn-login {
-  background-color: #1B1C1E;
+  background-color: #DBF193;
   text-decoration: none;
   border-radius: 10px;
   position: relative;
+  border-bottom: 2px solid black;
+  border-right: 2px solid black;
+  border-top: 2px solid grey;
+  border-left: 2px solid grey;
 }
 
-.btn-login::after {
-  content: "";
-  position: absolute;
-  top: 0;
-  right: 0;
-  bottom: 0;
-  left: 0;
-  z-index: -1;
-  margin: -5px;
-  border-radius: inherit;
-  background-image: linear-gradient(#DBF193, #ffd2ff);
+.btn-login .btn {
+  color: #1B1C1E;
 }
+
+// .btn-login::after {
+//   content: "";
+//   position: absolute;
+//   top: 0;
+//   right: 0;
+//   bottom: 0;
+//   left: 0;
+//   z-index: -1;
+//   margin: -5px;
+//   border-radius: inherit;
+//   background-image: linear-gradient(#DBF193, #ffd2ff);
+// }
 
 .btn-login > input {
   color: rgb(255, 255, 255);

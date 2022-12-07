@@ -4,13 +4,15 @@
     <i class="fa-solid fa-arrow-left fa-lg text-dark"></i>
   <% end %>
   <div class="home_profile_body">
-    <h1 class="text-dark hpb-name">@<%= @user.username %></h1>
     <div class="d-flex">
       <div class="photo_bio">
         <% if @user.photo.key.present? %>
           <%= cl_image_tag @user.photo.key, height: 100, width: 100, crop: :fill, style: "object-fit: fill; border-radius: 50%;"%>
         <% end %>
+        <div class="hpb-cont">
+          <h1 class="text-dark hpb-name">@<%= @user.username %></h1>
           <p class="user_bio"><%= @user.bio %></p>
+        </div>
       </div>
     </div>
   </div>
