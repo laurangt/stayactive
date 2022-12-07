@@ -37,10 +37,10 @@
         <div class="modal-dialog" role="document">
           <div class="modal-content p-3">
             <div class="sp-box">
-              <div class="modal-body">
-              <h3 class="modal-title pb-2" id="sharealogTitle">Share your log</h3>
+              <%# <div class="modal-body"> %>
+              <h2 class="modal-title pb-2" id="sharealogTitle">Share your log</h2>
                 <%= simple_form_for [log, @post] do |f| %>
-                  <div class="sp-group">
+                  <div class="sp-group gs-pop">
                     <%= f.input :group, collection: log.goal.project.user.groups, as: :radio_buttons, label: "Select group" %>
                   </div>
                   <%#= f.input :title, input_html: { value: @project.title }%>
@@ -49,7 +49,7 @@
                     <button type="button" class="btn btn-link btn-np"><%= f.button :submit %></button>
                   </div>
                 <% end %>
-              </div>
+              <%# </div> %>
             </div>
           </div>
         </div>
