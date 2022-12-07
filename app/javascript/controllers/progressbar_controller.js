@@ -8,7 +8,9 @@ export default class extends Controller {
   connect() {
     console.log(this.ele)
     const line = new ProgressBar.Line(this.progressbarTarget, {
-      color: '#FCB03C',
+      color: '#DBF193',
+      strokeWidth: 4,
+      trailWidth: 1,
       duration: 3000,
       easing: 'easeInOut'
   });
