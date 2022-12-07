@@ -25,4 +25,8 @@ class PostPolicy < ApplicationPolicy
   def share?
     record.user == user
   end
+
+  def sharelog?
+    record.user == user
+  end
 end

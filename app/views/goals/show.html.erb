@@ -41,7 +41,7 @@
              <h2>Share your log</h2>
               <%= simple_form_for [log, @post] do |f| %>
                 <%= f.input :group, collection: log.goal.project.user.groups, as: :radio_buttons, label: "Select group" %>
-                <%= f.input :title, input_html: { value: @project.title }%>
+                <%#= f.input :title, input_html: { value: @project.title }%>
                 <%= f.input :content, input_html: { value: log.content } %>
                 <div class="btn-cp">
                   <button type="button" class="btn btn-link btn-np"><%= f.button :submit %></button>

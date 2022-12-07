@@ -60,11 +60,10 @@ class PostsController < ApplicationController
   def sharelog
     sharelog_params = post_params
     group = Group.find(sharelog_params[:group])
-    project = Project.find(params[:project_id])
-    # goal = Goal.find(params[:goal_id])
-    # log = Log.find(params[:log_id])
+    log = Log.find(params[:log_id])
+    project = log.project
     sharelog_params[:group] = group
-    sharelog_params[:title] += "\n\n [#{project.title}](#{project_path(project)})"
+    sharelog_params[:title] = "[#{project.title}](#{project_path(project)})"
     post = Post.new(sharelog_params)
     post.membership = Membership.find_by(user: current_user, group: group)
     authorize post

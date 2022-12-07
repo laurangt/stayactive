@@ -33,7 +33,7 @@
         </div>
       <% end %>
       <div class="group-post-cont">
-        
+
         <%= @markdown.render(post.title).html_safe %>
         <%= @markdown.render(post.content).html_safe %>
 
@@ -65,9 +65,6 @@
       </div>
     </div>
   <% end %>
-
-
-
 
 
   <% groupsid = @user.groups.map do |group| %>
