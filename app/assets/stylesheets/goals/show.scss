@@ -24,6 +24,8 @@
 .gsh-dlog {
   background-color: #000000;
   border-radius: 5px 5px 0 0;
+  display: flex;
+  justify-content: space-between;
 }
 
 .gsh-text {
@@ -53,6 +55,7 @@
   justify-content: end;
   margin-bottom: -1vh;
   width: 40vh;
+  font-size: medium;
 }
 
 .form-group-goal {
