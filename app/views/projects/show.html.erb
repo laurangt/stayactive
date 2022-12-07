@@ -77,7 +77,7 @@
               <%= f.input :title %>
               <%= f.input :description %>
               <%= f.input :end_date, as: :string, input_html: { data: { flatpickr_target: "endTime" } } %>
-              <%= f.button :submit, value: "Create", class:"btn btn-link b-c-goal" %>
+              <button type="button" class="btn btn-link b-c-goal"><%= f.button :submit, value: "Create" %></button>
             <% end %>
           </div>
         </div>
