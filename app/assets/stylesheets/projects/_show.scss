@@ -136,24 +136,39 @@
 .timeline__event__icon {
   border: 1px solid;
   border-color: black;
-  width: 10vw;
+  width: 25px;
+  position: relative;
+
+  &:before {
+    content: "";
+    width: 2px;
+    height: 100%;
+    background: black;
+    transform: translateY(100%) translateX(4px);
+    z-index: -1;
+    right: auto;
+    position: absolute;
+    top: 0;
+  }
 }
 
 .horizontal_line {
   border-top: 2px solid black;
-  width: 5vw;
+  width: 20px;
   display: flex;
   align-self: center;
+  flex-shrink: 0;
 }
 
 .timeline__event__date {
   border: 1px solid;
   border-color: black;
-  width: 30vw;
+  // width: 30vw;
 }
 
 .timeline__event__content {
   border: 1px solid;
   border-color: black;
-  width: 60vw;
+  // width: 60vw;
+  flex-grow: 1;
 }
