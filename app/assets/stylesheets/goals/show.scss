@@ -16,7 +16,7 @@
   margin-bottom: 10%;
   color: black;
   padding: 3%;
-  border-radius: 5px;
+  border-radius: 10px;
   border: 1px solid #e7e7e7;
   box-shadow: 0px 3px 3px rgb(218, 218, 218);
 }
@@ -53,8 +53,8 @@
 .gsh-cont-del {
   display: flex;
   justify-content: end;
-  margin-bottom: -1vh;
-  width: 40vh;
+  margin-bottom: 0%;
+  // width: 40vh;
   font-size: medium;
 }
 
@@ -79,7 +79,7 @@ button.close {
   z-index: -1;
   margin: -5px;
   border-radius: inherit;
-  background-image: linear-gradient(#DBF193, rgb(248, 158, 248));
+  background-image: linear-gradient(#DBF193, #ffd2ff);
 }
 
 // h1 {
