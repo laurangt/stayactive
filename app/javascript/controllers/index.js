@@ -16,6 +16,9 @@ application.register("hello", HelloController)
 import LikeController from "./like_controller"
 application.register("like", LikeController)
 
+import ProgressbarController from "./progressbar_controller"
+application.register("progressbar", ProgressbarController)
+
 import RevealController from "./reveal_controller"
 application.register("reveal", RevealController)
 
