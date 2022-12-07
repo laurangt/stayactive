@@ -80,10 +80,7 @@
       <div class="modal fade" id="homeModal" tabindex="-1" aria-labelledby="homeModalLabel" aria-hidden="true">
         <div class="modal-dialog">
           <div class="modal-content">
-            <div class="modal-header">
-              <h5 class="modal-title" id="homeModalLabel">New post</h5>
-              <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-            </div>
+            <h3 class="modal-title pt-3" id="homeModalLabel">New post</h3>
             <div class="modal-body b-home-body">
                 <%= simple_form_for [@group, @post], html: { autocomplete: 'off' } do |f| %>
               <%= f.input :title %>

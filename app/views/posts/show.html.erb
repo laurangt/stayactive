@@ -6,7 +6,7 @@
       <% end %>
 
 
-      <h1 class="po-show-title"><%= @post.title %></h1>
+      <h1 class="po-show-title"><%= @markdown.render(@post.title).html_safe %></h1>
     </div>
     <div class="po-show-content">
       <div class="po-show-member">
