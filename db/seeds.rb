@@ -64,7 +64,7 @@ user4 = User.new(
   email: "alberto@gmail.com",
   password: "123123",
   username: "Mexiberto",
-  bio: "I'm Alberto. I love to exercise, but it is very difficult for me to be consistent at working out. I would really like to meet other people and go out running or trekking"
+  bio: "I'm Alberto. I love to exercise, but it is very difficult for me to be consistent at working out."
 )
 user4.photo.attach(io: file_user4, filename: "nes.png", content_type: "image/png")
 user4.save!

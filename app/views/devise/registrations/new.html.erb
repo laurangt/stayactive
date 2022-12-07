@@ -20,7 +20,7 @@
       <%= f.input :password_confirmation,
                   required: true,
                   input_html: { autocomplete: "new-password" } %>
-      <%= f.input :bio, :input_html => {:style=> 'width: 351px'} %>
+      <%= f.input :bio, :input_html => {length: { maximum: 120 } :style=> 'width: 351px'} %>
       <%= f.input :photo, as: :file %>
     </div>
 
