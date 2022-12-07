@@ -20,11 +20,14 @@
 
   <h2>My Projects</h2>
     <% @projects.each do |project| %>
-        <div class="project_box">
+        <div class="project_box" data-controller="progressbar">
           <div class="project_title_box">
-      <%= link_to project_path(project) do %>
-            <p class="text-white m-2"><%= project.title %></p>
-      <% end %>
+            <%= link_to project_path(project) do %>
+              <p class="text-white m-2"><%= project.title %></p>
+            <% end %>
+            <div data-progressbar-target="progressbar">
+            <%# add value %>
+            </div>
             <div class="ptb-trophy-like">
               <% if project.done? %>
                 <i data-controller="tooltip" data-bs-toggle="tooltip" data-bs-placement="top" title="Congrats for completing your project!" class="fa-sharp fa-solid fa-trophy"></i>
