@@ -155,3 +155,21 @@
   display: flex;
   justify-content: center;
 }
+
+.sp-cont {
+  padding: 5%;
+}
+
+.sp-group {
+  display: flex;
+  justify-content: center;
+}
+
+.sp-group legend {
+  font-size: large;
+}
+
+.sp-group label {
+  display: flex;
+  justify-content: flex-start;
+}
