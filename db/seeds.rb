@@ -473,7 +473,13 @@ post17 = Post.create!(
   membership_id: membership17.id
 )
 
-post18 = Post.create!(
+post17 = Post.create!(
+  title: "Always fear regret, not failure",
+  content: "Almost a year since I started this wonderful journey. My knee pain is finally gone and I have learned how to breath better.",
+  membership_id: membership16.id
+)
+
+post17 = Post.create!(
   title: "Wonderful week in the mountains",
   content: "Had a wonderful holiday mountain trekking with my wife.",
   membership_id: membership18.id
@@ -495,8 +501,11 @@ post20 = Post.create!(
 )
 
 post21 = Post.create!(
-  title: "Yoga rules!",
-  content: "Yoga in the Retiro park is so enjoyable.",
+  title: "5 things I wish I knew before I started Yoga",
+  content: "
+  - It is not just about flexibility
+  - The physical benefits are only the beginning
+  - I would be hooked",
   membership_id: membership21.id
 )
 
@@ -507,7 +516,7 @@ post21 = Post.create!(
 )
 
 post22 = Post.create!(
-  title: "Mi mind is more focused than ever",
+  title: "My mind is more focused than ever",
   content: "Maintaining focus when your body is under stress has enormous value in the real world.",
   membership_id: membership17.id
 )
