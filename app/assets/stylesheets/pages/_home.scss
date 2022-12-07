@@ -157,20 +157,18 @@
   justify-content: center;
 }
 
-.sp-cont {
-  padding: 5%;
-}
-
 .sp-group {
   display: flex;
-  justify-content: center;
+  justify-content: left;
 }
+
 
 .sp-group legend {
   font-size: large;
+  width: 300%;
 }
 
-.sp-group label {
+.sp-box label {
   display: flex;
   justify-content: flex-start;
 }
