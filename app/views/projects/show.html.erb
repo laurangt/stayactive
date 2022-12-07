@@ -34,7 +34,6 @@
 
   <%# timeline %>
   <% @project.goals.each do |goal| %>
-
     <div class="timeline__event">
 
       <div class="timeline__event__icon" data-controller="goal" data-goal-update-url-value="<%= goal_path(goal) %>">
