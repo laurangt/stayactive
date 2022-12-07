@@ -44,7 +44,8 @@
       <!-- Modal -->
       <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
         <div class="modal-dialog">
-          <div class="modal-content p-3 sp-box">
+          <div class="modal-content p-3 ">
+          <div class="sp-box">
             <h2 class="modal-title pb-2" style="text-align: center;">Share your project</h2>
             <%= simple_form_for [project, @post] do |f| %>
             <div class="sp-group">
@@ -56,6 +57,7 @@
                 <button type="button" class="btn btn-link btn-np"><%= f.button :submit %></button>
               </div>
             <% end %>
+          </div>
           </div>
         </div>
       </div>
