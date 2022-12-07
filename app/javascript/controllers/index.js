@@ -13,6 +13,9 @@ application.register("goal", GoalController)
 import HelloController from "./hello_controller"
 application.register("hello", HelloController)
 
+import HistoryBackController from "./history_back_controller"
+application.register("history-back", HistoryBackController)
+
 import LikeController from "./like_controller"
 application.register("like", LikeController)
 

@@ -1,8 +1,7 @@
-<div class="home_body">
-  <%#= link_to group_path(@group) do %>
-  <%= link_to url_for(:back) do %>
-    <i class="fa-solid fa-arrow-left fa-lg text-dark"></i>
-  <% end %>
+<div class="home_body" >
+
+  <i data-history-back-target="backarrow" data-action="click->history-back#back" class="fa-solid fa-arrow-left fa-lg text-dark"></i>
+
   <div class="home_profile_body">
     <h1 class="text-dark hpb-name">@<%= @user.username %></h1>
     <div class="d-flex">
