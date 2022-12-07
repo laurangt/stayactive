@@ -6,7 +6,7 @@ Rails.application.routes.draw do
 
   resources :projects, only: [:new, :show, :create, :destroy, :update] do
     post 'posts', to: 'posts#share'
-    resources :goals,  only: [:create, :new, :show]
+    resources :goals, only: [:create, :new, :show]
   end
   resources :goals, only: [:destroy, :update]
 
@@ -14,6 +14,10 @@ Rails.application.routes.draw do
     resources :logs, only: [:create]
   end
   resources :logs, only: [:destroy]
+
+  resources :logs, only:[] do
+    post 'posts', to: 'posts#sharelog'
+  end
 
   resources :posts, only: [:destroy] do
     resources :comments, only: [:create]

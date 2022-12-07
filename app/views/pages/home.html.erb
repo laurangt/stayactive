@@ -44,24 +44,16 @@
       <!-- Modal -->
       <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
         <div class="modal-dialog">
-          <div class="modal-content">
-            <div class="modal-header">
-              <h5 class="modal-title-sharep" id="exampleModalLabel">Share your project</h5>
-              <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-            </div>
-            <%# <h2>Share your project</h2> %>
-            <div class="sp-cont">
-              <%= simple_form_for [project, @post] do |f| %>
-                <div class="sp-group">
-                  <%= f.input :group, collection: @user.groups, as: :radio_buttons, label: "Select group"%>
-                </div>
-                <%= f.input :title, input_html: { value: 'Check out my project' } %>
-                <%= f.input :content %>
-                <div class="btn-cp">
-                  <button type="button" class="btn btn-link btn-np"><%= f.button :submit %></button>
-                </div>
-              <% end %>
-            </div>
+          <div class="modal-content p-3">
+            <h2>Share your project</h2>
+            <%= simple_form_for [project, @post] do |f| %>
+              <%= f.input :group, collection: @user.groups, as: :radio_buttons, label: "Select group"%>
+              <%= f.input :title, input_html: { value: 'Check out my project' } %>
+              <%= f.input :content %>
+              <div class="btn-cp">
+                <button type="button" class="btn btn-link btn-np"><%= f.button :submit %></button>
+              </div>
+            <% end %>
           </div>
         </div>
       </div>

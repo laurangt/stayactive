@@ -57,6 +57,23 @@ class PostsController < ApplicationController
     end
   end
 
+  def sharelog
+    sharelog_params = post_params
+    group = Group.find(sharelog_params[:group])
+    log = Log.find(params[:log_id])
+    project = log.project
+    sharelog_params[:group] = group
+    sharelog_params[:title] = "[#{project.title}](#{project_path(project)})"
+    post = Post.new(sharelog_params)
+    post.membership = Membership.find_by(user: current_user, group: group)
+    authorize post
+    if post.save
+      redirect_to group_path(group)
+    else
+      render :new, status: :unprocessable_entity
+    end
+  end
+
   private
 
   def post_params

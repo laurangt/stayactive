@@ -3,6 +3,7 @@ class GoalsController < ApplicationController
     @project = Project.find(params[:project_id])
     @goal = Goal.find(params[:id])
     @log = Log.new
+    @post = Post.new
     authorize @goal
   end
 
