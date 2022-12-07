@@ -11,7 +11,7 @@ export default class extends Controller {
     const line = new ProgressBar.Line(this.progressbarTarget, {
       color: '#DBF193',
       trailColor: '#eaa8ee',
-      strokeWidth: 3,
+      strokeWidth: 2,
       duration: 3000,
       easing: 'easeInOut',
       svgStyle: {
