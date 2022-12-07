@@ -45,7 +45,7 @@
       <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
         <div class="modal-dialog">
           <div class="modal-content p-3">
-            <h2>Share your project</h2>
+            <h2 class="modal-title pb-2" style="text-align: center;">Share your project</h2>
             <%= simple_form_for [project, @post] do |f| %>
               <%= f.input :group, collection: @user.groups, as: :radio_buttons, label: "Select group"%>
               <%= f.input :title, input_html: { value: 'Check out my project' } %>

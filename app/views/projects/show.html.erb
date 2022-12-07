@@ -65,8 +65,8 @@
     <div class="modal fade" id="exampleModalLong" tabindex="-1" role="dialog" aria-labelledby="exampleModalLongTitle" aria-hidden="true">
       <div class="modal-dialog" role="document">
         <div class="modal-content pt-3">
-          <h3 class="modal-title" id="exampleModalLongTitle">Create Goal</h3>
           <div class="modal-body-create-g" data-controller='flatpickr'>
+          <h3 class="modal-title pb-2" style="text-align: center;" id="exampleModalLongTitle">Create Goal</h3>
             <%= simple_form_for([@project, @goal]) do |f| %>
               <%# <%= f.label :title, "Title" %>
               <%= f.input :title %>
@@ -84,8 +84,8 @@
       <div class="modal fade" id="editProject" tabindex="-1" role="dialog" aria-labelledby="editProjectTitle" aria-hidden="true">
         <div class="modal-dialog" role="document">
           <div class="modal-content">
-            <h3 class="modal-title pt-3" id="editProjectTitle">Edit Project</h3>
             <div class="modal-body-edit-p">
+            <h3 class="modal-title pb-2" style="text-align: center;" id="editProjectTitle">Edit Project</h3>
               <%= simple_form_for([@project]) do |f| %>
                 <div class="form-edit-project" style="width:310px;">
                   <%# <%= f.label :title, "Title" %>
