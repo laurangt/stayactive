@@ -12,40 +12,66 @@
     <div id="status" class="gsh-dlog">
       <p class='gsh-text'><%= log.created_at.strftime("%d/%m/%Y") %></p>
       <%# <p class='text'><%= @goal.end_date %#></p>
-    <p class='text'><%= @goal.status %#></p> %>
+      <p class='text'><%= @goal.status %#></p> %>
+      <button type="button" class="btn btn-link text-white" data-toggle="modal" data-target="#exampleModalLong">
+        <i class="fa-solid fa-share-nodes"></i>
+      </button>
     </div>
-      <div class="gsh-content" id="content">
-        <p class='text'><%= log.content %></p>
-        <% if log.photo.key.present? %>
-          <p><%= cl_image_tag log.photo.key, height: 50, width: 50, crop: :fill%></p>
-        <% end %>
-        <% if policy(log).destroy? %>
-          <div class = "link">
-            <p class="gsh-cont-del p-2"><%= link_to log_path(log), data: {turbo_method: :delete, turbo_confirm: "Are you sure?"} do %>
-              <i class="fa-solid fa-trash"></i>
-            <% end %></p>
+    <div class="gsh-content" id="content">
+      <p class='text'><%= log.content %></p>
+      <% if log.photo.key.present? %>
+        <p class="gsh-content-image"><%= cl_image_tag log.photo.key, height: 200, crop: :fill %></p>
+      <% end %>
+      <% if policy(log).destroy? %>
+        <div class = "link">
+          <p class="gsh-cont-del"><%= link_to log_path(log), data: {turbo_method: :delete, turbo_confirm: "Are you sure?"} do %>
+            <i class="fa-solid fa-trash"></i>
+          <% end %></p>
+        </div>
+      <% end %>
+
+
+      <!-- Button trigger modal (inside class="gsh-dlog") -->
+      <!-- Modal -->
+      <div class="modal fade" id="exampleModalLong" tabindex="-1" role="dialog" aria-labelledby="exampleModalLongTitle" aria-hidden="true">
+        <div class="modal-dialog" role="document">
+          <div class="modal-content p-3">
+            <div class="sp-box">
+              <%# <div class="modal-body"> %>
+              <h2 class="modal-title pb-2" id="sharealogTitle">Share your log</h2>
+                <%= simple_form_for [log, @post] do |f| %>
+                  <div class="sp-group gs-pop">
+                    <%= f.input :group, collection: log.goal.project.user.groups, as: :radio_buttons, label: "Select group" %>
+                  </div>
+                  <%#= f.input :title, input_html: { value: @project.title }%>
+                  <%= f.input :content, input_html: { value: log.content } %>
+                  <div class="btn-cp">
+                    <button type="button" class="btn btn-link btn-np"><%= f.button :submit %></button>
+                  </div>
+                <% end %>
+              <%# </div> %>
+            </div>
           </div>
-        <% end %>
+        </div>
       </div>
-    <% end %>
+
+
+
     </div>
+    <% end %>
+  </div>
 </div>
   <!-- Button trigger modal -->
-  <div class="btn-pluscir" data-toggle="modal" data-target="#exampleModalLong">
+  <div class="btn-pluscir" data-toggle="modal" data-target="#addalog">
     <i class="fa-solid fa-circle-plus"></i>
   </div>
   <!-- Modal -->
-  <div class="modal fade" id="exampleModalLong" tabindex="-1" role="dialog" aria-labelledby="exampleModalLongTitle" aria-hidden="true">
+  <div class="modal fade" id="addalog" tabindex="-1" role="dialog" aria-labelledby="addalogTitle" aria-hidden="true">
     <div class="modal-dialog" role="document">
       <div class="modal-content">
-        <div class="modal-header">
-          <h5 class="modal-title" id="exampleModalLongTitle">Add A Log</h5>
-          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-            <span aria-hidden="true">&times;</span>
-          </button>
-        </div>
         <div class="modal-body-create-g">
-          <%= simple_form_for([@goal, @log]) do |f| %>
+        <h3 class="modal-title pb-2" style="text-align: center;" id="addalogTitle">Add A Log</h3>
+          <%= simple_form_for([@goal, @log])  do |f| %>
             <div class="form-group-goal" style="width:310px;">
               <%= f.input :content, label: "Comment", placeholder: "Write your log ..." %>
               <%= f.input :photo, as: :file %>

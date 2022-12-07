@@ -11,20 +11,24 @@
   margin-bottom: 0;
 }
 
+.hpb-name {
+  font-size: 3vh;
+}
+
 .photo_bio {
   display: flex;
   width: 100%;
   justify-content: space-between;
   // margin-bottom: 15px;
   align-items: center;
-  height: 17vh;
+  height: 18vh;
 }
 
 .user_bio {
   width: 65%;
   height: fit-content;
   font-size: small;
-  padding: 40px 0;
+  padding: 1vh 0;
 }
 
 .button_groups {
@@ -32,7 +36,7 @@
 }
 
 .button_groups .btn {
-  background-color: #000000;
+  background-color: #1B1C1E;
   text-decoration: none;
   color:rgb(255, 255, 255);
   margin-bottom: 5%;
@@ -55,7 +59,7 @@
   z-index: -1;
   margin: -5px;
   border-radius: inherit;
-  background-image: linear-gradient(#DBF193, rgb(248, 158, 248));
+  background-image: linear-gradient(#DBF193,#ffd2ff);
 }
 
 .project_box .project_title_box {
@@ -64,26 +68,34 @@
   background-color: #000000;
   margin-top: 5%;
   color: white;
+  display: flex;
+  justify-content: space-between;
 }
 
-.ptb_title {
+.project_title_box .ptb_title {
   margin: 7px;
   color: #FFFFFF;
 }
 
-.project_title {
-  margin: 5px;
-  color: rgb(255, 255, 255);
+.ptb-trophy-like {
+  display: flex;
+  align-items: baseline;
 }
+
+// .project_title {
+//   margin: 5px;
+//   color: rgb(255, 255, 255);
+// }
 
 .project_descr {
   border-radius: 0 0 5px 5px;
   border: 1px solid rgb(255, 255, 255);
-  height: 90px;
+  height: 13vh;
   background-color: rgb(255, 255, 255);
   color: rgb(0, 0, 0);
   padding: 3%;
   box-shadow: 0px 3px 3px rgb(218, 218, 218);
+  font-size: small;
 }
 
 .fa-circle-plus {
@@ -109,10 +121,23 @@
 
 .b-home-pop {
   background-color: #DBF193;
-  width: 130px;
-  height: 40px;
+  width: 60%;
+  height: 7vh;
   margin: 5%;
   border-radius: 10px;
+}
+
+.b-home-pop::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  z-index: -1;
+  margin: -5px;
+  border-radius: inherit;
+  background-image: linear-gradient(#DBF193, #ffd2ff);
 }
 
 .b-home-pop > a {
@@ -120,7 +145,35 @@
   text-decoration: none;
 }
 
+.b-home-body {
+  // display: flex;
+  position: static;
+  flex-direction: column;
+  margin: auto;
+}
+
 .btn-pluscir {
   display: flex;
   justify-content: center;
+}
+
+.sp-group {
+  display: flex;
+  justify-content: left;
+}
+
+
+.sp-group legend {
+  font-size: large;
+  width: 260%;
+}
+
+.sp-box label {
+  display: flex;
+  justify-content: flex-start;
+}
+
+.sp-box {
+  box-shadow: 0px 3px 3px rgb(218, 218, 218);
+  padding: 5%;
 }

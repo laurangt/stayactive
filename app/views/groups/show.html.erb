@@ -3,7 +3,6 @@
     <%= link_to root_path do %>
       <i class="fa-solid fa-arrow-left fa-lg text-dark"></i>
     <% end %>
-    <div class="gs-title-icon">
       <h1 class="g-show-name"><%= @group.name %></h1>
 
       <% groupsid = @user.groups.map do |group| %>
@@ -17,15 +16,14 @@
       <% end %>
 
       <% if groupsid.include?(@group.id) %>
-        <button type="button" class="btn btn-danger btn-sm b-leave-gr"><%= link_to membership_path(@membership), data: {turbo_method: :delete, turbo_confirm: "Are you sure?"}, class: "text-light text-decoration-none" do %>
+        <button type="button" class="btn btn-dark btn-sm b-leave-gr"><%= link_to membership_path(@membership), data: {turbo_method: :delete, turbo_confirm: "Are you sure?"}, class: "text-light text-decoration-none" do %>
           <i class="fa-solid fa-user-minus"></i></button>
         <% end %>
       <% end %>
-    </div>
   </div>
 
   <% @group.posts.reverse.each do |post| %>
-    <div class="g-post-all mb-2">
+    <div class="g-post-all mb-3">
       <%= link_to user_path(post.membership.user) do %>
         <div class="group-post-head">
           <% if post.membership.user.photo.key.present? %>
@@ -35,8 +33,10 @@
         </div>
       <% end %>
       <div class="group-post-cont">
-        <p><%= post.title %></p>
-        <p><%= post.content %></p>
+
+        <%= @markdown.render(post.title).html_safe %>
+        <%= @markdown.render(post.content).html_safe %>
+
         <% if post.photo.attached? %>
           <%= cl_image_tag post.photo.key, height: 200, crop: :fill%>
         <% end %>
@@ -57,8 +57,8 @@
               <%= render partial: 'hearts/heart', locals: { post: post, user_liked: post.liked?(current_user), user: current_user } %>
             <% else %>
               <div class="likes">
-                <p><%= post.hearts.count %></p>
                 <i class="fa-solid fa-thumbs-up"></i>
+                <p><%= post.hearts.count %></p>
               </div>
             <% end %>
         </div>
@@ -67,15 +67,31 @@
   <% end %>
 
 
-
   <% groupsid = @user.groups.map do |group| %>
     <% group.id %>
   <% end %>
-  <% if groupsid.include?(@group.id) %>
-    <%= link_to new_group_post_path(@group) do%>
-      <div class="btn-pluscir">
-        <i class="fa-solid fa-circle-plus" ></i>
+    <% if groupsid.include?(@group.id) %>
+      <!-- Button trigger modal -->
+      <div class="btn-pluscir" data-bs-toggle="modal" data-bs-target="#homeModal">
+        <i class="fa-solid fa-circle-plus"></i>
+      </div>
+
+      <!-- Modal -->
+      <div class="modal fade" id="homeModal" tabindex="-1" aria-labelledby="homeModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+          <div class="modal-content">
+            <h3 class="modal-title pt-3" id="homeModalLabel">New post</h3>
+            <div class="modal-body b-home-body">
+                <%= simple_form_for [@group, @post], html: { autocomplete: 'off' } do |f| %>
+              <%= f.input :title %>
+              <%= f.input :content %>
+              <%= f.input :photo, as: :file %>
+              <div class="btn-cp">
+                <button type="button" class="btn btn-link btn-np"><%= f.button :submit %></button>
+              </div>
+            <% end %>
+            </div>
+          </div>
+        </div>
       </div>
     <% end %>
-  <% end %>
-</div>

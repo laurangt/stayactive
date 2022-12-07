@@ -9,22 +9,49 @@
 }
 
 .project-new-body {
-  background-color: #000000;
+  background-color: #FEFFFB;
   padding: 5%;
   margin: 3%;
   border-radius: 5px;
-  box-shadow: 0px 3px 3px grey;
-  color: rgb(255, 255, 255);
+  // box-shadow: 0px 3px 3px grey;
+  color: rgb(0, 0, 0);
+  position: relative;
 }
 
-.btn_create_p {
-  background-color: #DBF193;
+.project-new-body::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  z-index: -1;
+  margin: -5px;
+  border-radius: inherit;
+  background-image: linear-gradient(#DBF193, #ffd2ff)
+}
+
+.button-new .btn {
+  background-color: #000000;
   text-decoration: none;
+  color:rgb(255, 255, 255);
+  // margin-bottom: 5%;
   border-radius: 10px;
-  border-bottom: 2px solid black;
-  border-right: 2px solid black;
-  border-top: 2px solid grey;
-  border-left: 2px solid grey;
+  position: relative;
+  // margin-right: 7px;
+}
+
+.button-new .btn::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  z-index: -1;
+  margin: -5px;
+  border-radius: inherit;
+  background-image: linear-gradient(#DBF193, #ffd2ff);
 }
 
 .button-new {

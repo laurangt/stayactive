@@ -1,6 +1,6 @@
 <div class="home_body">
   <div class="home_profile_body">
-    <h1 class="text-dark">@<%= @user.username %></h1>
+    <h1 class="text-dark hpb-name">@<%= @user.username %></h1>
     <div class="d-flex">
       <div class="photo_bio">
         <% if @user.photo.key.present? %>
@@ -13,45 +13,73 @@
   <div class="button_groups">
     <% @groups.each do |group| %>
       <%= link_to group_path(group) do%>
-        <button type="button" class="btn btn-link"><%= group.name %></button>
+        <button type="button" class="btn btn-link button-grad"><%= group.name %></button>
       <% end %>
     <% end %>
   </div>
 
   <h2>My Projects</h2>
     <% @projects.each do |project| %>
-      <%= link_to project_path(project) do %>
-        <div class="project_box">
+        <div class="project_box" data-controller="progressbar" data-progressbar-percentage-value="<%= project.done_percentage %>">
           <div class="project_title_box">
-            <p class="ptb_title"><%= project.title %></p>
-            <% if project.done? %>
-              <i class="fa-sharp fa-solid fa-trophy"></i>
+            <%= link_to project_path(project) do %>
+              <p class="text-white m-2"><%= project.title %></p>
             <% end %>
+            <div class="ptb-trophy-like">
+              <% if project.done? %>
+                <i data-controller="tooltip" data-bs-toggle="tooltip" data-bs-placement="top" title="Congrats for completing your project!" class="fa-sharp fa-solid fa-trophy"></i>
+              <% end %>
+              <button type="button" class="btn btn-link text-white" data-bs-toggle="modal" data-bs-target="#exampleModal">
+                <i class="fa-solid fa-share-nodes"></i>
+              </button>
+            </div>
           </div>
+          <div data-progressbar-target="progressbar"></div>
+          <%= link_to project_path(project) do %>
             <p class="project_descr"><%= project.description %></p>
+          <% end %>
         </div>
-      <% end %>
+
+      <!-- Button trigger modal (inside project_title_box)-->
+
+      <!-- Modal -->
+      <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+          <div class="modal-content p-3">
+            <div class="sp-box">
+              <h2 class="modal-title pb-2" style="text-align: center;">Share your project</h2>
+              <%= simple_form_for [project, @post] do |f| %>
+              <div class="sp-group">
+                <%= f.input :group, collection: @user.groups, as: :radio_buttons, label: "Select group"%>
+              </div>
+                <%= f.input :title, input_html: { value: 'Check out my project' } %>
+                <%= f.input :content %>
+                <div class="btn-cp">
+                  <button type="button" class="btn btn-link btn-np"><%= f.button :submit %></button>
+                </div>
+              <% end %>
+            </div>
+          </div>
+        </div>
+      </div>
     <% end %>
 
-<!-- Button trigger modal -->
-<div class="btn-pluscir" data-bs-toggle="modal" data-bs-target="#homeModal">
-  <i class="fa-solid fa-circle-plus"></i>
-</div>
+  <!-- Button trigger modal -->
+  <div class="btn-pluscir" data-bs-toggle="modal" data-bs-target="#homeModal">
+    <i class="fa-solid fa-circle-plus"></i>
+  </div>
 
-<!-- Modal -->
-<div class="modal fade" id="homeModal" tabindex="-1" aria-labelledby="homeModalLabel" aria-hidden="true">
-  <div class="modal-dialog">
-    <div class="modal-content">
-      <div class="modal-header">
-        <h5 class="modal-title" id="homeModalLabel">Choose one:</h5>
-        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-      </div>
-      <div class="modal-body">
-        <button class="b-home-pop"><%= link_to "Sports groups", groups_path %></button>
-        <button class="b-home-pop"><%= link_to "Add a project", new_project_path %></button>
+  <!-- Modal -->
+  <div class="modal fade" id="homeModal" tabindex="-1" aria-labelledby="homeModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-body b-home-body">
+          <h3 class="modal-title" id="homeModalLabel">Choose one:</h3>
+          <button class="b-home-pop"><%= link_to "Browse sports groups", groups_path %></button>
+          <button class="b-home-pop"><%= link_to "Add a project", new_project_path %></button>
+        </div>
       </div>
     </div>
   </div>
-</div>
 
 </div>

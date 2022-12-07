@@ -6,7 +6,7 @@
     <h1 class="pn_title" style="text-align: center;" >Add A Project</h1>
   </div>
   <div class="project-new-body">
-    <%= simple_form_for (@project) do |f| %>
+    <%= simple_form_for (@project), html: { autocomplete: 'off' }  do |f| %>
         <%= f.input :title %>
         <%= f.input :description %>
       <div class="button-new">

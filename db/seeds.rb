@@ -183,7 +183,7 @@ user15.save!
 
 
 # Groups
-file_group1 = URI.open("https://img.icons8.com/dusk/64/D5B3DC/girl-running--v1.png")
+file_group1 = URI.open("https://img.icons8.com/wired/64/null/girl-running.png")
 group1 = Group.new(
   name: "Running"
 )
@@ -192,7 +192,7 @@ group1.save!
 
 puts "Group1 saved: #{group1}"
 
-file_group2 = URI.open("https://img.icons8.com/dusk/64/null/leaderboard.png")
+file_group2 = URI.open("https://img.icons8.com/wired/64/null/leaderboard.png")
 group2 = Group.new(
   name: "Triathlon"
 )
@@ -200,40 +200,47 @@ group2.photo.attach(io: file_group2, filename: "nes.png", content_type: "image/p
 group2.save!
 puts "Group2 saved: #{group2}"
 
-file_group3 = URI.open("https://img.icons8.com/dusk/64/D5B3DC/swimming.png")
+file_group3 = URI.open("https://img.icons8.com/wired/64/null/swimming.png")
 group3 = Group.new(
   name: "Swimming"
 )
 group3.photo.attach(io: file_group3, filename: "nes.png", content_type: "image/png")
 group3.save!
 
-file_group4 = URI.open("https://img.icons8.com/dusk/64/D5B3DC/trekking.png")
+file_group4 = URI.open("https://img.icons8.com/wired/64/null/trekking.png")
 group4 = Group.new(
   name: "Trekking"
 )
 group4.photo.attach(io: file_group4, filename: "nes.png", content_type: "image/png")
 group4.save!
 
-file_group5 = URI.open("https://img.icons8.com/dusk/64/null/tennis.png")
+file_group5 = URI.open("https://img.icons8.com/wired/64/null/tennis.png")
 group5 = Group.new(
   name: "Tennis"
 )
 group5.photo.attach(io: file_group5, filename: "nes.png", content_type: "image/png")
 group5.save!
 
-file_group6 = URI.open("https://img.icons8.com/dusk/64/null/sleeping-mat.png")
+file_group6 = URI.open("https://img.icons8.com/wired/64/null/sleeping-mat.png")
 group6 = Group.new(
   name: "Yoga"
 )
 group6.photo.attach(io: file_group6, filename: "nes.png", content_type: "image/png")
 group6.save!
 
-file_group7 = URI.open("https://img.icons8.com/dusk/64/null/cycling-road.png")
+file_group7 = URI.open("https://img.icons8.com/wired/64/null/cycling-road.png")
 group7 = Group.new(
   name: "Cycling"
 )
 group7.photo.attach(io: file_group7, filename: "nes.png", content_type: "image/png")
 group7.save!
+
+file_group8 = URI.open("https://img.icons8.com/wired/64/null/bowling.png")
+group8 = Group.new(
+  name: "Bowling"
+)
+group8.photo.attach(io: file_group8, filename: "nes.png", content_type: "image/png")
+group8.save!
 
 
 # Memberships
@@ -466,7 +473,13 @@ post17 = Post.create!(
   membership_id: membership17.id
 )
 
-post18 = Post.create!(
+post17 = Post.create!(
+  title: "Always fear regret, not failure",
+  content: "Almost a year since I started this wonderful journey. My knee pain is finally gone and I have learned how to breath better.",
+  membership_id: membership16.id
+)
+
+post17 = Post.create!(
   title: "Wonderful week in the mountains",
   content: "Had a wonderful holiday mountain trekking with my wife.",
   membership_id: membership18.id
@@ -487,18 +500,26 @@ post20 = Post.create!(
   membership_id: membership20.id
 )
 
-# Post.create!(
-#   title: "Boxing makes me so hungry",
-#   content: "I am back from the box session and I feel like I can eat a cow!",
-#   membership_id: membership7.id
-# )
+post21 = Post.create!(
+  title: "5 things I wish I knew before I started Yoga",
+  content: "
+  - It is not just about flexibility
+  - The physical benefits are only the beginning
+  - I would be hooked",
+  membership_id: membership21.id
+)
 
-# Post.create!(
-#   title: "Need to recover from hangovererapy",
-#   content: "Sorry guys, no box today. I will fight hangover first.",
-#   membership_id: membership7.id
-# )
+post21 = Post.create!(
+  title: "Listen to your body",
+  content: "Now that I am into Yoga I have realized how important it is to listen to your body.",
+  membership_id: membership21.id
+)
 
+post22 = Post.create!(
+  title: "My mind is more focused than ever",
+  content: "Maintaining focus when your body is under stress has enormous value in the real world.",
+  membership_id: membership17.id
+)
 
 #Comments
 Comment.create!(
@@ -512,8 +533,6 @@ Comment.create!(
   membership_id: membership15.id,
   post_id: post5.id
 )
-
-
 
 #Projects
 project1 = Project.new(
@@ -537,59 +556,118 @@ project3 = Project.new(
 )
 project3.save!
 
-# project4 = Project.new(
-#   title: "Running",
-#   description: "Returning finally to the running world",
-#   user_id: user2.id
-# )
-# project4.save!
+project4 = Project.new(
+  title: "Running",
+  description: "Returning finally to the running world",
+  user_id: user4.id
+)
+project4.save!
 
-# project5 = Project.new(
-#   title: "Cycling",
-#   description: "Missing cycling so much that I cannot wait to go out as often as possible",
-#   user_id: user2.id
-# )
-# project5.save!
+project5 = Project.new(
+  title: "Running",
+  description: "Getting as fit as i used to be",
+  user_id: user5.id
+)
+project5.save!
 
 #Goals
 goal1 = Goal.new(
   title: "Yoga training",
-  description: "Planning to do at least 2 sessions a week",
-  end_date: '2023-1-31',
+  description: "Planning to do at least 2 sessions a week.",
+  end_date: '31-1-2023',
   project_id: project2.id
 )
 goal1.save!
 
 goal2 = Goal.new(
   title: "Swimming",
-  description: "Swimming at least twice a week",
-  end_date: '2023-3-1',
+  description: "Swimming at least twice a week.",
+  end_date: '1-3-2023',
   project_id: project3.id
 )
 goal2.save!
 
-# goal3 = Goal.new(
-#   title: "Cycling",
-#   description: "I want to go cycling 20k twice a week",
-#   end_date: '2023-09-10',
-#   status: true,
-#   project_id: project5.id
-# )
-# goal3.save!
+goal3 = Goal.new(
+  title: "Training",
+  description: "min 2x week at least 10km.",
+  end_date: '01-04-2023',
+  project_id: project5.id
+)
+goal3.save!
 
-# goal4 = Goal.new(
-#   title: "Running",
-#   description: "Go for a 5 to 7k run every single day",
-#   end_date: '2023-12-15',
-#   status: true,
-#   project_id: project1.id
-# )
-# goal4.save!
+goal4 = Goal.new(
+  title: "Stretching session after workout everyday",
+  description: "Lets improve flexibility and strech with yoga positions after my workout.",
+  end_date: '01-03-2023',
+  project_id: project2.id
+)
+goal4.save!
+
+goal5 = Goal.new(
+  title: "21 day challenge to improve breathing",
+  description: "Start the 21 day challenge of exercises that help improve lung capacity.",
+  end_date: '03-03-2023',
+  project_id: project2.id
+)
+goal5.save!
+
+goal6 = Goal.new(
+  title: "Combination of exercises on the first 3 weeks",
+  description: "
+  Workout No. 1: (run 1 minute, walk 1 minute) five times, then ride a bike for 30 minutes at an easy, conversational intensity. (Zone 1 to 2 of bpm)
+
+  Workout No. 2: (run 1 minute, walk 1 minute) seven or eight times, then bike ride for 30 minutes at an easy, conversational intensity
+  ",
+  end_date: '03-03-2023',
+  project_id: project1.id
+)
+goal6.save!
+
+goal7 = Goal.new(
+  title: "Learning how to change a bike tire",
+  description: "Since I do not want a flat, I will start looking up YouTube videos and practicing with my own bike.",
+  end_date: '03-03-2023',
+  project_id: project1.id
+)
+goal7.save!
+
+goal8 = Goal.new(
+  title: "Eating on the bike and the run",
+  description: "Doing plenty of practice sessions with foods I considering eating and drinking on race day to make sure it sits well in my stomach.",
+  end_date: '03-03-2023',
+  project_id: project1.id
+)
+goal8.save!
+
+goal9 = Goal.new(
+  title: "Practise in open water",
+  description: "Start felling comfortable swimming in open water and doing, at least.",
+  end_date: '03-03-2023',
+  project_id: project1.id
+)
+goal9.save!
+
+goal10 = Goal.new(
+  title: "Limit the use of social media",
+  description: "During the complete journey, I will limit or if posible; quit social media so I can completely focus on my training sessions and avoid anxiety.",
+  end_date: '30-03-2023',
+  project_id: project1.id
+)
+goal10.save!
+
+log1 = Log.new(
+  content: "Bye, bye Instagram",
+  goal_id: goal10.id
+)
+log1.save!
 
 
-# Logs
-# log1 = Log.new(
-#   content: "New log",
-#   goal_id: 2,
-# )__
-# log1.save!
+log2 = Log.new(
+  content: "I managed to change my first tire. I will try to do it faster in the following days",
+  goal_id: goal7.id
+)
+
+log3 = Log.new(
+  content: "Today I start my onlline course. I really want to improve my lung capacity that has not been the same after covid",
+  goal_id: goal5.id
+)

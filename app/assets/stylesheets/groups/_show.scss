@@ -8,11 +8,6 @@
   margin-bottom: 2%;
 }
 
-.gs-title-icon {
-  display: flex;
-  margin: auto;
-}
-
 .g-show-name {
   margin: auto;
   color: rgb(0, 0, 0);
@@ -22,26 +17,55 @@
   background-color: #DBF193;
   border-radius: 10px;
   margin-bottom: 2%;
-  border-bottom: 2px solid rgb(0, 0, 0);
-  border-right: 2px solid rgb(0, 0, 0);
-  border-top: 2px solid rgb(128, 128, 128);
-  border-left: 2px solid rgb(128, 128, 128);
-  height: 40px;
+  // border-bottom: 2px solid rgb(0, 0, 0);
+  // border-right: 2px solid rgb(0, 0, 0);
+  // border-top: 2px solid rgb(128, 128, 128);
+  // border-left: 2px solid rgb(128, 128, 128);
+  height: 30px;
   color: rgb(0, 0, 0);
+  position: relative;
+  border: 1px solid #c1baba;
+}
+
+.b-create-memb::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  z-index: -1;
+  margin: -5px;
+  border-radius: inherit;
+  background-image: linear-gradient(#DBF193, #ffd2ff);
 }
 
 .b-leave-gr {
   color: rgb(0, 0, 0);
   text-decoration: none;
   margin-bottom: 2%;
-  border-bottom: 2px solid black;
-  border-right: 2px solid black;
-  border-top: 2px solid grey;
-  border-left: 2px solid grey;
+  // border-bottom: 2px solid black;
+  // border-right: 2px solid black;
+  // border-top: 2px solid grey;
+  // border-left: 2px solid grey;
   position: relative;
   // left: 70%;
-  height: 40px;
+  height: 30px;
   border-radius: 10px;
+  border: 1px solid #c1baba;
+}
+
+.b-leave-gr::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  z-index: -1;
+  margin: -5px;
+  border-radius: inherit;
+  background-image: linear-gradient(#DBF193, #ffd2ff);
 }
 
 .group-post-head {
@@ -68,7 +92,11 @@
   box-shadow: 0px 3px 3px rgb(218, 218, 218);
   background-color: rgb(255, 255, 255);
   border-radius: 0px 0px 10px 10px;
-  padding: 2%;
+  padding: 3%;
+}
+
+.group-post-cont p {
+  font-size: small;
 }
 
 .group-post-cont > img {
@@ -81,7 +109,7 @@
   display: flex;
   justify-content: right;
   height: 3vh;
-  width: 39vh;
+  // width: 39vh;
 }
 
 .g-post-del .show-message {
@@ -102,9 +130,14 @@ a {
 
 .likes > div {
   display: flex;
+  align-items: baseline;
   flex-direction: row-reverse;
 }
 
 .likes > div > p {
-  margin-right: 5px;
+  margin-left: 5px;
+}
+
+.likes > p {
+  margin-left: 5px;
 }

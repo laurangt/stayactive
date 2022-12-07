@@ -1,10 +1,10 @@
 <div class="home_body">
   <%#= link_to group_path(@group) do %>
-      <%= link_to url_for(:back) do %>
+  <%= link_to url_for(:back) do %>
     <i class="fa-solid fa-arrow-left fa-lg text-dark"></i>
   <% end %>
   <div class="home_profile_body">
-    <h1>@<%= @user.username %></h1>
+    <h1 class="text-dark hpb-name">@<%= @user.username %></h1>
     <div class="d-flex">
       <div class="photo_bio">
         <% if @user.photo.key.present? %>
@@ -17,23 +17,25 @@
   <div class="button_groups">
     <% @groups.each do |group| %>
       <%= link_to group_path(group) do%>
-        <button type="button" class="btn btn-link rounded"><%= group.name %></button>
+        <button type="button" class="btn btn-link button-grad"><%= group.name %></button>
       <% end %>
     <% end %>
   </div>
 
-  <h2>My Projects</h2>
-    <% @user.projects.each do |project| %>
-      <%= link_to project_path(project) do %>
-        <div class="project_box">
-          <div class="project_title_box">
-            <p class="project_title"><%= project.title %></p>
-            <% if project.done? %>
-              <i class="fa-sharp fa-solid fa-trophy"></i>
-            <% end %>
+  <% if @user.projects.any? %>
+    <h2>My Projects</h2>
+      <% @user.projects.each do |project| %>
+        <%= link_to project_path(project) do %>
+          <div class="project_box">
+            <div class="project_title_box">
+              <p class="text-white m-2"><%= project.title %></p>
+              <% if project.done? %>
+                <i class="fa-sharp fa-solid fa-trophy"></i>
+              <% end %>
+            </div>
+              <p class="project_descr"><%= project.description %></p>
           </div>
-            <p class="project_descr"><%= project.description %></p>
-        </div>
+        <% end %>
       <% end %>
     <% end %>
 

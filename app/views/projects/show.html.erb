@@ -5,7 +5,7 @@
         <i class="fa-solid fa-arrow-left fa-lg text-dark"></i>
       <% end %>
     <% else %>
-      <%= link_to url_for(:back) do %>
+      <%= link_to user_path(@project.user) do %>
         <i class="fa-solid fa-arrow-left fa-lg text-dark"></i>
       <% end %>
     <% end %>
@@ -78,20 +78,15 @@
     <!-- Modal -->
     <div class="modal fade" id="exampleModalLong" tabindex="-1" role="dialog" aria-labelledby="exampleModalLongTitle" aria-hidden="true">
       <div class="modal-dialog" role="document">
-        <div class="modal-content">
-          <div class="modal-header">
-            <h5 class="modal-title" id="exampleModalLongTitle">Create Goal</h5>
-            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-              <span aria-hidden="true">&times;</span>
-            </button>
-          </div>
+        <div class="modal-content pt-3">
           <div class="modal-body-create-g" data-controller='flatpickr'>
+          <h3 class="modal-title pb-2" style="text-align: center;" id="exampleModalLongTitle">Create Goal</h3>
             <%= simple_form_for([@project, @goal]) do |f| %>
               <%# <%= f.label :title, "Title" %>
               <%= f.input :title %>
               <%= f.input :description %>
               <%= f.input :end_date, as: :string, input_html: { data: { flatpickr_target: "endTime" } } %>
-              <%= f.button :submit, value: "Create", class:"btn btn-link b-c-goal" %>
+              <button type="button" class="btn btn-link b-c-goal"><%= f.button :submit, value: "Create" %></button>
             <% end %>
           </div>
         </div>
@@ -103,13 +98,8 @@
       <div class="modal fade" id="editProject" tabindex="-1" role="dialog" aria-labelledby="editProjectTitle" aria-hidden="true">
         <div class="modal-dialog" role="document">
           <div class="modal-content">
-            <div class="modal-header">
-              <h5 class="modal-title" id="editProjectTitle">Edit Project</h5>
-              <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                <span aria-hidden="true">&times;</span>
-              </button>
-            </div>
             <div class="modal-body-edit-p">
+            <h3 class="modal-title pb-2" style="text-align: center;" id="editProjectTitle">Edit Project</h3>
               <%= simple_form_for([@project]) do |f| %>
                 <div class="form-edit-project" style="width:310px;">
                   <%# <%= f.label :title, "Title" %>

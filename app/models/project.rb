@@ -12,4 +12,8 @@ class Project < ApplicationRecord
 
     return false
   end
+
+  def done_percentage
+    self.goals.where(status: true).count.to_f/self.goals.count.to_f
+  end
 end
