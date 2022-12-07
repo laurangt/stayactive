@@ -1,6 +1,6 @@
 <div class="project_show">
-  <div class="project-show-main">
-      <i data-history-back-target="backarrow" data-action="click->history-back#back" class="fa-solid fa-arrow-left fa-lg text-dark"></i>
+  <div class="project-show-main" data-controller="history-back">
+    <i data-action="click->history-back#back" data-history-back-target="arrow" class="fa-solid fa-arrow-left fa-lg text-dark"></i>
   </div>
   <div class="project-show-desc">
     <h1 class="project-show-title"><%= @project.title %></h1>

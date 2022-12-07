@@ -30,6 +30,8 @@
             <div class="ptb-trophy-like">
               <% if project.done? %>
                 <i data-controller="tooltip" data-bs-toggle="tooltip" data-bs-placement="top" title="Congrats for completing your project!" class="fa-sharp fa-solid fa-trophy"></i>
+              <% else %>
+                <p><%= ((project.done_percentage)*100).to_i %>%</p>
               <% end %>
               <button type="button" class="btn btn-link text-white" data-bs-toggle="modal" data-bs-target="#exampleModal">
                 <i class="fa-solid fa-share-nodes"></i>
