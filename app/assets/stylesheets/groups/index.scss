@@ -26,21 +26,21 @@
   background-color: #DBF193;
   border: none;
   position: relative;
-  border: 1px solid #c1baba;
+  border: 1px solid #000000;
 }
 
-.gi-list button::after {
-  content: "";
-  position: absolute;
-  top: 0;
-  right: 0;
-  bottom: 0;
-  left: 0;
-  z-index: -1;
-  margin: -5px;
-  border-radius: inherit;
-  background-image: linear-gradient(#DBF193, rgb(248, 158, 248));
-}
+// .gi-list button::after {
+//   content: "";
+//   position: absolute;
+//   top: 0;
+//   right: 0;
+//   bottom: 0;
+//   left: 0;
+//   z-index: -1;
+//   margin: -5px;
+//   border-radius: inherit;
+//   background-image: linear-gradient(#DBF193, rgb(248, 158, 248));
+// }
 
 h1 {
   font-family: Arial, Helvetica, sans-serif;
