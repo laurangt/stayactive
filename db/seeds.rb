@@ -64,7 +64,7 @@ user4 = User.new(
   email: "alberto@gmail.com",
   password: "123123",
   username: "Mexiberto",
-  bio: "I'm Alberto. I love to exercise, even though; since I suffer from hypothyroidism, it is very difficult for me to be consistent at working out. I would really like to meet other people and go out running or trekking"
+  bio: "I'm Alberto. I love to exercise, but it is very difficult for me to be consistent at working out. I would really like to meet other people and go out running or trekking"
 )
 user4.photo.attach(io: file_user4, filename: "nes.png", content_type: "image/png")
 user4.save!
@@ -421,7 +421,6 @@ post11 = Post.new(
 post11.photo.attach(io: file_post11, filename: "nes.png", content_type: "image/png")
 post11.save!
 
-
 file_post12 = URI.open("https://res.cloudinary.com/dqpgsz5ed/image/upload/v1670087226/sunrise_qorztn.jpg")
 post12 = Post.new(
   title: "Sunrise run",
@@ -501,7 +500,7 @@ post20 = Post.create!(
 )
 
 post21 = Post.create!(
-  title: "5 things I wish I knew before I started Yoga",
+  title: "3 things I wish I knew before I started Yoga",
   content: "
   - It is not just about flexibility
   - The physical benefits are only the beginning
@@ -574,7 +573,7 @@ project5.save!
 goal1 = Goal.new(
   title: "Yoga training",
   description: "Planning to do at least 2 sessions a week.",
-  end_date: '31-1-2023',
+  end_date: '31-01-2023',
   project_id: project2.id
 )
 goal1.save!
@@ -582,7 +581,7 @@ goal1.save!
 goal2 = Goal.new(
   title: "Swimming",
   description: "Swimming at least twice a week.",
-  end_date: '1-3-2023',
+  end_date: '01-03-2023',
   project_id: project3.id
 )
 goal2.save!
@@ -598,7 +597,7 @@ goal3.save!
 goal4 = Goal.new(
   title: "Stretching session after workout everyday",
   description: "Lets improve flexibility and strech with yoga positions after my workout.",
-  end_date: '01-03-2023',
+  end_date: '28-02-2023',
   project_id: project2.id
 )
 goal4.save!
@@ -606,7 +605,7 @@ goal4.save!
 goal5 = Goal.new(
   title: "21 day challenge to improve breathing",
   description: "Start the 21 day challenge of exercises that help improve lung capacity.",
-  end_date: '03-03-2023',
+  end_date: '30-12-2022',
   project_id: project2.id
 )
 goal5.save!
@@ -618,7 +617,7 @@ goal6 = Goal.new(
 
   Workout No. 2: (run 1 minute, walk 1 minute) seven or eight times, then bike ride for 30 minutes at an easy, conversational intensity
   ",
-  end_date: '03-03-2023',
+  end_date: '30-01-2023',
   project_id: project1.id
 )
 goal6.save!
@@ -626,7 +625,8 @@ goal6.save!
 goal7 = Goal.new(
   title: "Learning how to change a bike tire",
   description: "Since I do not want a flat, I will start looking up YouTube videos and practicing with my own bike.",
-  end_date: '03-03-2023',
+  end_date: '10-12-2022',
+  status: true,
   project_id: project1.id
 )
 goal7.save!
@@ -634,7 +634,7 @@ goal7.save!
 goal8 = Goal.new(
   title: "Eating on the bike and the run",
   description: "Doing plenty of practice sessions with foods I considering eating and drinking on race day to make sure it sits well in my stomach.",
-  end_date: '03-03-2023',
+  end_date: '30-12-2022',
   project_id: project1.id
 )
 goal8.save!
@@ -642,7 +642,7 @@ goal8.save!
 goal9 = Goal.new(
   title: "Practise in open water",
   description: "Start felling comfortable swimming in open water and doing, at least.",
-  end_date: '03-03-2023',
+  end_date: '01-12-2023',
   project_id: project1.id
 )
 goal9.save!
@@ -650,24 +650,50 @@ goal9.save!
 goal10 = Goal.new(
   title: "Limit the use of social media",
   description: "During the complete journey, I will limit or if posible; quit social media so I can completely focus on my training sessions and avoid anxiety.",
-  end_date: '30-03-2023',
+  end_date: '10-12-2022',
+  status: true,
   project_id: project1.id
 )
 goal10.save!
 
 log1 = Log.new(
-  content: "Bye, bye Instagram",
+  content: "I have limited the my usage to 20 minutes a day maximum",
   goal_id: goal10.id
 )
 log1.save!
 
-
 log2 = Log.new(
-  content: "I managed to change my first tire. I will try to do it faster in the following days",
-  goal_id: goal7.id
+  content: "I have understood that quitting for a while is the answer. Bye, bye Instagram",
+  goal_id: goal10.id
 )
+log2.save!
 
 log3 = Log.new(
+  content: "I managed to change my first tire. I will try to do it faster the next time",
+  goal_id: goal7.id
+)
+log3.save!
+
+log4 = Log.new(
+  content: "Today I was able to changed the tire under 5 minutes",
+  goal_id: goal7.id
+)
+log4.save!
+
+log5 = Log.new(
   content: "Today I start my onlline course. I really want to improve my lung capacity that has not been the same after covid",
   goal_id: goal5.id
 )
+log5.save!
+
+log6 = Log.new(
+  content: "I pushed my self to complete the stretching session altough I was really tired",
+  goal_id: goal4.id
+)
+log6.save!
+
+log7 = Log.new(
+  content: "I went to the lake and swam for 15 minutes",
+  goal_id: goal9.id
+)
+log7.save!
