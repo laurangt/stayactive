@@ -11,21 +11,29 @@
   margin-bottom: 0;
 }
 
+.hpb-cont {
+  display: flex;
+  margin: auto;
+  flex-direction: column;
+}
+
 .hpb-name {
   font-size: 3vh;
+  text-align: left;
 }
 
 .photo_bio {
   display: flex;
   width: 100%;
-  justify-content: space-between;
+  // justify-content: space-between;
   // margin-bottom: 15px;
   align-items: center;
-  height: 18vh;
+  height: auto;
+  margin-bottom: 5%;
 }
 
 .user_bio {
-  width: 65%;
+  width: 100%;
   height: fit-content;
   font-size: small;
   padding: 1vh 0;
@@ -95,7 +103,7 @@
   color: rgb(0, 0, 0);
   padding: 3%;
   box-shadow: 0px 3px 3px rgb(218, 218, 218);
-  font-size: small;
+  // font-size: small;
 }
 
 .fa-circle-plus {
@@ -108,10 +116,11 @@
   bottom: 10%;
   border-radius: 50%;
   background-color: rgb(0, 0, 0);
-  border-bottom: 2px solid black;
-  border-right: 2px solid black;
-  border-top: 2px solid grey;
-  border-left: 2px solid grey;
+  border: 1px solid #1B1C1E;
+  // border-bottom: 2px solid black;
+  // border-right: 2px solid black;
+  // border-top: 2px solid grey;
+  // border-left: 2px solid grey;
 }
 
 .modal-content {
@@ -127,8 +136,8 @@
 
 .b-home-pop {
   background-color: #DBF193;
-  width: 45%;
-  height: 7vh;
+  width: auto;
+  height: 5vh;
   margin: 5%;
   border-radius: 10px;
 }
