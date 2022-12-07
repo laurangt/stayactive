@@ -9,10 +9,14 @@ export default class extends Controller {
     console.log(this.ele)
     const line = new ProgressBar.Line(this.progressbarTarget, {
       color: '#DBF193',
-      strokeWidth: 4,
-      trailWidth: 1,
+      trailColor: '#000',
+      strokeWidth: 3,
       duration: 3000,
-      easing: 'easeInOut'
+      easing: 'easeInOut',
+      style: {
+        position: 'absolute',
+        bottom: 0
+      }
   });
 
   line.animate(1);
