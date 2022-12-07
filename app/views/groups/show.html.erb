@@ -33,7 +33,8 @@
         </div>
       <% end %>
       <div class="group-post-cont">
-        <p><%= post.title %></p>
+        
+        <%= @markdown.render(post.title).html_safe %>
         <%= @markdown.render(post.content).html_safe %>
 
         <% if post.photo.attached? %>

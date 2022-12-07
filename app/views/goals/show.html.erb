@@ -14,21 +14,49 @@
       <%# <p class='text'><%= @goal.end_date %#></p>
     <p class='text'><%= @goal.status %#></p> %>
     </div>
-      <div class="gsh-content" id="content">
-        <p class='text'><%= log.content %></p>
-        <% if log.photo.key.present? %>
-          <p class="gsh-content-image"><%= cl_image_tag log.photo.key, height: 200, crop: :fill %></p>
-        <% end %>
-        <% if policy(log).destroy? %>
-          <div class = "link">
-            <p class="gsh-cont-del p-2"><%= link_to log_path(log), data: {turbo_method: :delete, turbo_confirm: "Are you sure?"} do %>
-              <i class="fa-solid fa-trash"></i>
-            <% end %></p>
+    <div class="gsh-content" id="content">
+      <p class='text'><%= log.content %></p>
+      <% if log.photo.key.present? %>
+        <p class="gsh-content-image"><%= cl_image_tag log.photo.key, height: 200, crop: :fill %></p>
+      <% end %>
+      <% if policy(log).destroy? %>
+        <div class = "link">
+          <p class="gsh-cont-del p-2"><%= link_to log_path(log), data: {turbo_method: :delete, turbo_confirm: "Are you sure?"} do %>
+            <i class="fa-solid fa-trash"></i>
+          <% end %></p>
+        </div>
+      <% end %>
+
+
+      <!-- Button trigger modal -->
+      <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModalLong">
+        <i class="fa-solid fa-share-nodes"></i>
+      </button>
+
+      <!-- Modal -->
+      <div class="modal fade" id="exampleModalLong" tabindex="-1" role="dialog" aria-labelledby="exampleModalLongTitle" aria-hidden="true">
+        <div class="modal-dialog" role="document">
+          <div class="modal-content p-3">
+            <div class="modal-body">
+             <h2>Share your log</h2>
+              <%= simple_form_for [log, @post] do |f| %>
+                <%= f.input :group, collection: log.goal.project.user.groups, as: :radio_buttons, label: "Select group" %>
+                <%= f.input :title, input_html: { value: @project.title }%>
+                <%= f.input :content, input_html: { value: log.content } %>
+                <div class="btn-cp">
+                  <button type="button" class="btn btn-link btn-np"><%= f.button :submit %></button>
+                </div>
+              <% end %>
+            </div>
           </div>
-        <% end %>
+        </div>
       </div>
-    <% end %>
+
+
+
     </div>
+    <% end %>
+  </div>
 </div>
   <!-- Button trigger modal -->
   <div class="btn-pluscir" data-toggle="modal" data-target="#exampleModalLong">
