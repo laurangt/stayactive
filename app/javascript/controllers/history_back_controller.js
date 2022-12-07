@@ -2,10 +2,11 @@ import { Controller } from "@hotwired/stimulus"
 
 // Connects to data-controller="history-back"
 export default class extends Controller {
-  static targets = ["backarrow"]
+  static targets = ["arrow"]
+
   connect() {
     console.log("hello")
-    console.log(this.backarrowTarget)
+    console.log(this.arrowTarget)
   }
 
   back(){
