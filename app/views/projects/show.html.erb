@@ -31,9 +31,11 @@
   </div>
 
 <%# timeline %>
-  <div class="timeline">
+  <%# <div class="timeline"> %>
     <% @project.goals.each do |goal| %>
+
       <div class="timeline__event">
+
         <div class="timeline__event__icon" data-controller="goal" data-goal-update-url-value="<%= goal_path(goal) %>">
           <input class="checkbox_icon" type="checkbox" data-action="click->goal#toggle" data-goal-target="status"
           <%= goal.status ? "checked" : "" %>/>
@@ -41,6 +43,8 @@
             <i class="fa-solid fa-check"></i>
           <% end %>
         </div>
+
+        <div class="horizontal_line"></div>
 
         <div class="timeline__event__date">
           <p class="p-show-end-date"><%= goal.end_date.strftime("%d/%m/%Y") %></p>
@@ -54,9 +58,10 @@
             <%= goal.description %></p>
           </div>
         </div>
+
       </div>
     <% end %>
-  </div>
+  <%# </div> %>
 
 
   <!--MODAL CREATE to add a goal -->

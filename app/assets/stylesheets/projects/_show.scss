@@ -136,17 +136,24 @@
 .timeline__event__icon {
   border: 1px solid;
   border-color: black;
-  width: 15vw;
+  width: 10vw;
+}
+
+.horizontal_line {
+  border-top: 2px solid black;
+  width: 5vw;
+  display: flex;
+  align-self: center;
 }
 
 .timeline__event__date {
   border: 1px solid;
   border-color: black;
-  width: 35vw;
+  width: 30vw;
 }
 
 .timeline__event__content {
   border: 1px solid;
   border-color: black;
-  width: 50vw;
+  width: 60vw;
 }
