@@ -25,9 +25,7 @@
 <%# timeline %>
   <%# <div class="timeline"> %>
     <% @project.goals.each do |goal| %>
-
       <div class="timeline__event">
-
         <div class="timeline__event__icon" data-controller="goal" data-goal-update-url-value="<%= goal_path(goal) %>">
           <input class="checkbox_icon" type="checkbox" data-action="click->goal#toggle" data-goal-target="status"
           <%= goal.status ? "checked" : "" %>/>

@@ -10,5 +10,6 @@ export default class extends Controller {
 
   back(){
     history.back();
+    location.reload;
   }
 }
