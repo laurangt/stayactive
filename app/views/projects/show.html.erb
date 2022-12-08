@@ -1,14 +1,6 @@
 <div class="project_show">
   <div class="project-show-main">
-    <% if @project.user == current_user %>
-      <%= link_to root_path do %>
-        <i class="fa-solid fa-arrow-left fa-lg text-dark"></i>
-      <% end %>
-    <% else %>
-      <%= link_to user_path(@project.user) do %>
-        <i class="fa-solid fa-arrow-left fa-lg text-dark"></i>
-      <% end %>
-    <% end %>
+    <i data-controller="history-back" data-action="click->history-back#back" data-history-back-target="arrow" class="fa-solid fa-arrow-left fa-lg text-dark"></i>
   </div>
   <div class="project-show-desc">
     <h1 class="project-show-title"><%= @project.title %></h1>

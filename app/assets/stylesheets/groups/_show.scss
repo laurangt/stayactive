@@ -5,7 +5,8 @@
 
 .g-show-title {
   display: flex;
-  margin-bottom: 2%;
+  margin-bottom: 10%;
+  align-items: center;
 }
 
 .g-show-name {
@@ -85,7 +86,7 @@
   width: 40px;
   height: 40px;
   border-radius: 50%;
-  margin: 5px;
+  margin: 7px;
 }
 
 .group-post-cont {
@@ -95,14 +96,19 @@
   padding: 3%;
 }
 
-.group-post-cont p {
-  font-size: small;
-}
+// .group-post-cont p {
+//   font-size: small;
+// }
 
 .group-post-cont > img {
   display: flex;
   margin: auto;
   margin-bottom: 5px;
+}
+
+.group-post-cont a {
+  color: #1B1C1E;
+  text-decoration: underline;
 }
 
 .g-post-del {
@@ -140,4 +146,10 @@ a {
 
 .likes > p {
   margin-left: 5px;
+}
+
+
+.b-home-body label {
+  display: flex;
+  justify-content: left;
 }

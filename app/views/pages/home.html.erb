@@ -1,12 +1,14 @@
 <div class="home_body">
   <div class="home_profile_body">
-    <h1 class="text-dark hpb-name">@<%= @user.username %></h1>
     <div class="d-flex">
       <div class="photo_bio">
         <% if @user.photo.key.present? %>
-          <%= cl_image_tag @user.photo.key, height: 100, width: 100, crop: :fill, style: "object-fit: fill; border-radius: 50%;"%>
+          <%= cl_image_tag @user.photo.key, height: 100, width: 100, crop: :fill, style: "object-fit: fill;border-radius: 50%;margin-right: 5%;border: 1px solid grey;box-shadow: 0px 0px 10px grey;"%>
         <% end %>
-          <p class="user_bio"><%= @user.bio %></p>
+          <div class="hpb-cont">
+            <h1 class="text-dark hpb-name">@<%= @user.username %></h1>
+            <p class="user_bio"><%= @user.bio %></p>
+          </div>
       </div>
     </div>
   </div>
@@ -27,11 +29,17 @@
             <% end %>
             <div class="ptb-trophy-like">
               <% if project.done? %>
-                <i data-controller="tooltip" data-bs-toggle="tooltip" data-bs-placement="top" title="Congrats for completing your project!" class="fa-sharp fa-solid fa-trophy"></i>
+                <i data-controller="tooltip" data-bs-toggle="tooltip" data-bs-placement="top" title="Congrats for completing your project!" class="fa-sharp fa-solid fa-trophy m-2"></i>
+              <% else %>
+                <% if project.goals.any? %>
+                  <p class="me-2"><%= ((project.done_percentage)*100).to_i %>%</p>
+                <% end %>
               <% end %>
-              <button type="button" class="btn btn-link text-white" data-bs-toggle="modal" data-bs-target="#exampleModal">
-                <i class="fa-solid fa-share-nodes"></i>
-              </button>
+              <% if @user.groups.any? %>
+                <button type="button" class="btn btn-link text-white" data-bs-toggle="modal" data-bs-target="#exampleModal">
+                  <i class="fa-solid fa-share-nodes"></i>
+                </button>
+              <% end %>
             </div>
           </div>
           <div data-progressbar-target="progressbar"></div>
@@ -52,8 +60,8 @@
               <div class="sp-group">
                 <%= f.input :group, collection: @user.groups, as: :radio_buttons, label: "Select group"%>
               </div>
-                <%= f.input :title, input_html: { value: 'Check out my project' } %>
-                <%= f.input :content %>
+                <%#= f.input :title, placeholder: project.title %>
+                <%= f.input :content, input_html: { value: 'Check out my project' } %>
                 <div class="btn-cp">
                   <button type="button" class="btn btn-link btn-np"><%= f.button :submit %></button>
                 </div>
@@ -74,8 +82,8 @@
     <div class="modal-dialog">
       <div class="modal-content">
         <div class="modal-body b-home-body">
-          <h3 class="modal-title" id="homeModalLabel">Choose one:</h3>
-          <button class="b-home-pop"><%= link_to "Browse sports groups", groups_path %></button>
+          <h3 class="modal-title mb-4" id="homeModalLabel">Choose one:</h3>
+          <button class="bh-pop"><%= link_to "Browse sports groups", groups_path %></button>
           <button class="b-home-pop"><%= link_to "Add a project", new_project_path %></button>
         </div>
       </div>

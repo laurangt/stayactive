@@ -1,8 +1,6 @@
 <div class="goal_sh">
-  <div class="goal_sh_title">
-    <%= link_to project_path(@project) do %>
-      <i class="fa-solid fa-arrow-left fa-lg text-dark"></i>
-    <% end %>
+  <div class="goal_sh_title" data-controller="history-back">
+    <i data-history-back-target="arrow" data-action="click->history-back#back" class="fa-solid fa-arrow-left fa-lg text-dark"></i>
   </div>
   <div class="goal-sh-desc" id="description">
     <h1 class="goal-sh-title"><%= @goal.title %></h1>
@@ -13,9 +11,11 @@
       <p class='gsh-text'><%= log.created_at.strftime("%d/%m/%Y") %></p>
       <%# <p class='text'><%= @goal.end_date %#></p>
       <p class='text'><%= @goal.status %#></p> %>
-      <button type="button" class="btn btn-link text-white" data-toggle="modal" data-target="#exampleModalLong">
-        <i class="fa-solid fa-share-nodes"></i>
-      </button>
+      <% if log.user == current_user && log.user.groups.any? %>
+        <button type="button" class="btn btn-link text-white" data-toggle="modal" data-target="#exampleModalLong">
+          <i class="fa-solid fa-share-nodes"></i>
+        </button>
+      <% end %>
     </div>
     <div class="gsh-content" id="content">
       <p class='text'><%= log.content %></p>

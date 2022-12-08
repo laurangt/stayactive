@@ -1,16 +1,17 @@
 <div class="home_body">
-  <%#= link_to group_path(@group) do %>
-  <%= link_to url_for(:back) do %>
-    <i class="fa-solid fa-arrow-left fa-lg text-dark"></i>
-  <% end %>
+  <div data-controller="history-back">
+  <i data-history-back-target="arrow" data-action="click->history-back#back" class="fa-solid fa-arrow-left fa-lg text-dark"></i>
+  </div>
   <div class="home_profile_body">
-    <h1 class="text-dark hpb-name">@<%= @user.username %></h1>
     <div class="d-flex">
       <div class="photo_bio">
         <% if @user.photo.key.present? %>
-          <%= cl_image_tag @user.photo.key, height: 100, width: 100, crop: :fill, style: "object-fit: fill; border-radius: 50%;"%>
+          <%= cl_image_tag @user.photo.key, height: 100, width: 100, crop: :fill, style: "object-fit: fill;border-radius: 50%;margin-right: 5%;border: 1px solid grey;box-shadow: 0px 0px 10px grey;"%>
         <% end %>
+        <div class="hpb-cont">
+          <h1 class="text-dark hpb-name">@<%= @user.username %></h1>
           <p class="user_bio"><%= @user.bio %></p>
+        </div>
       </div>
     </div>
   </div>
@@ -25,6 +26,7 @@
   <% if @user.projects.any? %>
     <h2>My Projects</h2>
       <% @user.projects.each do |project| %>
+        <div class="project_box" data-controller="progressbar" data-progressbar-percentage-value="<%= project.done_percentage %>">
         <%= link_to project_path(project) do %>
           <div class="project_box">
             <div class="project_title_box">
@@ -33,9 +35,11 @@
                 <i class="fa-sharp fa-solid fa-trophy"></i>
               <% end %>
             </div>
+          <div data-progressbar-target="progressbar"></div>
               <p class="project_descr"><%= project.description %></p>
           </div>
         <% end %>
+        </div>
       <% end %>
     <% end %>
 

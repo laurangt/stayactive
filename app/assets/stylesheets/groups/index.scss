@@ -5,11 +5,13 @@
 .gi-title-arrow {
   display: flex;
   margin-bottom: 5%;
+  align-items: center;
 }
 
 .gi-title {
   margin: auto;
-  margin-bottom: 5%;
+  // margin-bottom: 5%;
+  display: flex;
 }
 
 .gi-list {
@@ -18,6 +20,7 @@
   column-count: 2;
   display: block;
   padding: 3%;
+  height: 365px;
 }
 
 .gi-list button {
