@@ -178,6 +178,14 @@
   justify-content: left;
 }
 
+.sp-group input {
+  border: 1px solid #1B1C1E;
+}
+
+.form-check-input:checked {
+  background-color: #1B1C1E;
+  border-color: #DBF193;
+}
 
 .sp-group legend {
   font-size: large;
