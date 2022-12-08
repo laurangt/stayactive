@@ -508,11 +508,14 @@ post21 = Post.create!(
   membership_id: membership21.id
 )
 
+file_post21 = URI.open("https://res.cloudinary.com/dqpgsz5ed/image/upload/v1670489033/Yoga_gaurgx.webp")
 post21 = Post.create!(
   title: "Listen to your body",
   content: "Now that I am into Yoga I have realized how important it is to listen to your body.",
   membership_id: membership21.id
 )
+post21.photo.attach(io: file_post21, filename: "nes.png", content_type: "image/png")
+post21.save!
 
 post22 = Post.create!(
   title: "My mind is more focused than ever",
@@ -668,10 +671,12 @@ log2 = Log.new(
 )
 log2.save!
 
+file_log3 = URI.open("https://res.cloudinary.com/dqpgsz5ed/image/upload/v1670489033/Bike_nhjg21.webp")
 log3 = Log.new(
   content: "I managed to change my first tire. I will try to do it faster the next time",
   goal_id: goal7.id
 )
+log3.photo.attach(io: file_log3, filename: "nes.png", content_type: "image/png")
 log3.save!
 
 log4 = Log.new(
