@@ -29,7 +29,7 @@
             <% end %>
             <div class="ptb-trophy-like">
               <% if project.done? %>
-                <i data-controller="tooltip" data-bs-toggle="tooltip" data-bs-placement="top" title="Congrats for completing your project!" class="fa-sharp fa-solid fa-trophy"></i>
+                <i data-controller="tooltip" data-bs-toggle="tooltip" data-bs-placement="top" title="Congrats for completing your project!" class="fa-sharp fa-solid fa-trophy m-2"></i>
               <% else %>
                 <% if project.goals.any? %>
                   <p><%= ((project.done_percentage)*100).to_i %>%</p>

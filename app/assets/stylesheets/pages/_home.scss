@@ -79,6 +79,8 @@
   color: white;
   display: flex;
   justify-content: space-between;
+  align-items: baseline;
+  height: 42px;
 }
 
 .project_title_box .ptb_title {
@@ -87,7 +89,7 @@
 }
 
 .ptb-trophy-like {
-  height: 5vh;
+  // height: 5vh;
   display: flex;
   align-items: baseline;
 }
