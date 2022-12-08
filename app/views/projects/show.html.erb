@@ -36,33 +36,27 @@
   <% @project.goals.each do |goal| %>
     <div class="timeline__event">
 
-      <div class="timeline__event__icon" data-controller="goal" data-goal-update-url-value="<%= goal_path(goal) %>">
-        <input class="checkbox_icon" type="checkbox" data-action="click->goal#toggle" data-goal-target="status" <%= goal.status ? "checked" : "" %>/>
-        <% if goal.status == "checked" %>
-          <i class="fa-solid fa-check"></i>
-        <% end %>
-      </div>
-
-      <div class="horizontal_line"></div>
-
-      <div class="timeline__event__date">
-        <p class="p-show-end-date"><%= goal.end_date.strftime("%d/%m/%Y") %></p>
-      </div>
-
-      <%= link_to project_goal_path(@project, goal)	do %>
-        <div class="timeline__event__content">
           <div class="timeline__event__title">
-            <%= goal.title %>
+            <%= link_to project_goal_path(@project, goal)	do %>
+              <%= goal.title %>
+            <% end %>
+            <div class="date-checkbox">
+              <div class="timeline__event__date">
+                <p class="p-show-end-date"><%= goal.end_date.strftime("%d/%m/%Y") %></p>
+              </div>
+              <div class="timeline__event__icon" data-controller="goal" data-goal-update-url-value="<%= goal_path(goal) %>">
+                <input class="checkbox_icon" type="checkbox" data-action="click->goal#toggle" data-goal-target="status" <%= goal.status ? "checked" : "" %>/>
+              </div>
+            </div>
           </div>
-          <div class="timeline__event__description">
-            <%= goal.description %>
-          </div>
+
+        <div class="timeline__event__description">
+          <%= goal.description %>
           <p class="p-show-goal-del" style="color: white;"><%= link_to goal_path(goal), data: {turbo_method: :delete, turbo_confirm: "Are you sure?"}, class: "text-white text-decoration-none" do %>
               <i class="fa-solid fa-trash"></i>
             <% end %>
           </p>
         </div>
-      <% end %>
 
     </div>
   <% end %>
@@ -81,7 +75,6 @@
           <div class="modal-body-create-g" data-controller='flatpickr'>
             <h3 class="modal-title pb-2" style="text-align: center;" id="exampleModalLongTitle">Create Goal</h3>
             <%= simple_form_for([@project, @goal]) do |f| %>
-              <%# <%= f.label :title, "Title" %>
               <%= f.input :title %>
               <%= f.input :description %>
               <%= f.input :end_date, as: :string, input_html: { data: { flatpickr_target: "endTime" } } %>
