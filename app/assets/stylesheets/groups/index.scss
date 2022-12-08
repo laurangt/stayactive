@@ -5,11 +5,13 @@
 .gi-title-arrow {
   display: flex;
   margin-bottom: 5%;
+  align-items: center;
 }
 
 .gi-title {
   margin: auto;
-  margin-bottom: 5%;
+  // margin-bottom: 5%;
+  display: flex;
 }
 
 .gi-list {
