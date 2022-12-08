@@ -356,11 +356,6 @@ post1 = Post.create!(
   membership_id: membership2.id
 )
 
-post2 = Post.create!(
-  title: "Triathlon, here I go",
-  content: "Managed to finish the first week of triathlon training. What a great friday completing a 10km run!",
-  membership_id: membership1.id
-)
 
 post3 = Post.create!(
   title: "It was just a bad day, not a bad life",
@@ -396,7 +391,7 @@ post7 = Post.create!(
 
 post8 = Post.create!(
   title: "What a great training session",
-  content: "Today, despite the cold weather conditions; I went for a 10k run",
+  content: "Second Marathon:checked",
   membership_id: membership8.id
 )
 
@@ -434,6 +429,12 @@ post13 = Post.create!(
   title: "2 months left",
   content: "Really proud of sticking to my training for the last 2months, I'm really looking forward to race day and drinking the well-deserved free beer at the end of it. ",
   membership_id: membership11.id
+)
+
+post2 = Post.create!(
+  title: "Triathlon, here I go",
+  content: "Managed to finish my 2nd month of triathlon training. What a great friday completing a 16km run!",
+  membership_id: membership1.id
 )
 
 post14 = Post.create!(
@@ -508,16 +509,13 @@ post21 = Post.create!(
   membership_id: membership21.id
 )
 
-file_post21 = URI.open("https://res.cloudinary.com/dqpgsz5ed/image/upload/v1670489033/Yoga_gaurgx.webp")
-post21 = Post.create!(
+post22 = Post.create!(
   title: "Listen to your body",
   content: "Now that I am into Yoga I have realized how important it is to listen to your body.",
   membership_id: membership21.id
 )
-post21.photo.attach(io: file_post21, filename: "nes.png", content_type: "image/png")
-post21.save!
 
-post22 = Post.create!(
+post23 = Post.create!(
   title: "My mind is more focused than ever",
   content: "Maintaining focus when your body is under stress has enormous value in the real world.",
   membership_id: membership17.id
@@ -571,6 +569,28 @@ project5 = Project.new(
   user_id: user5.id
 )
 project5.save!
+
+project6 = Project.new(
+  title: "Running",
+  description: "Distance 21 kilometers",
+  user_id: user6.id
+)
+project6.save!
+
+project7 = Project.new(
+  title: "Cycling",
+  description: "Distance 90 kilometers",
+  user_id: user6.id
+)
+project7.save!
+
+project8 = Project.new(
+  title: "Swimming",
+  description: "1,90 kilometers",
+  user_id: user6.id
+)
+project8.save!
+
 
 #Goals
 goal1 = Goal.new(
@@ -659,6 +679,24 @@ goal10 = Goal.new(
 )
 goal10.save!
 
+goal11 = Goal.new(
+  title: "First running goal",
+  description: "Run 2-3x run",
+  end_date: '01-12-2023',
+  project_id: project6.id
+)
+goal11.save!
+
+
+goal12 = Goal.new(
+  title: "Pace",
+  description: "Reaching 5min/km",
+  end_date: '01-12-2023',
+  project_id: project6.id
+)
+goal12.save!
+
+
 log1 = Log.new(
   content: "I have limited the my usage to 20 minutes a day maximum",
   goal_id: goal10.id
@@ -671,12 +709,10 @@ log2 = Log.new(
 )
 log2.save!
 
-file_log3 = URI.open("https://res.cloudinary.com/dqpgsz5ed/image/upload/v1670489033/Bike_nhjg21.webp")
 log3 = Log.new(
   content: "I managed to change my first tire. I will try to do it faster the next time",
   goal_id: goal7.id
 )
-log3.photo.attach(io: file_log3, filename: "nes.png", content_type: "image/png")
 log3.save!
 
 log4 = Log.new(
