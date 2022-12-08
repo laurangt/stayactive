@@ -176,10 +176,13 @@
     border: 1px solid #1B1C1E;
     background-color: #1B1C1E;
     margin-top: 5%;
-    color: white;
     display: flex;
     justify-content: space-between;
     padding: 10px;
+}
+
+.timeline__event__title a {
+  color: white;
 }
 
 .timeline__event__description {
@@ -209,9 +212,4 @@
 .date-checkbox input {
   margin-left: 10px;
   margin-top: 5px;
-}
-
-a {
-  color: white;
-  font-weight: bold;
 }
