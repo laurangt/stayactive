@@ -60,8 +60,8 @@
               <div class="sp-group">
                 <%= f.input :group, collection: @user.groups, as: :radio_buttons, label: "Select group"%>
               </div>
-                <%= f.input :title, input_html: { value: 'Check out my project' } %>
-                <%= f.input :content %>
+                <%#= f.input :title, placeholder: project.title %>
+                <%= f.input :content, input_html: { value: 'Check out my project' } %>
                 <div class="btn-cp">
                   <button type="button" class="btn btn-link btn-np"><%= f.button :submit %></button>
                 </div>
