@@ -6,6 +6,7 @@
 .g-show-title {
   display: flex;
   margin-bottom: 10%;
+  align-items: center;
 }
 
 .g-show-name {
@@ -103,6 +104,11 @@
   display: flex;
   margin: auto;
   margin-bottom: 5px;
+}
+
+.group-post-cont a {
+  color: #1B1C1E;
+  text-decoration: underline;
 }
 
 .g-post-del {
