@@ -35,9 +35,11 @@
                   <p><%= ((project.done_percentage)*100).to_i %>%</p>
                 <% end %>
               <% end %>
-              <button type="button" class="btn btn-link text-white" data-bs-toggle="modal" data-bs-target="#exampleModal">
-                <i class="fa-solid fa-share-nodes"></i>
-              </button>
+              <% if @user.groups.any? %>
+                <button type="button" class="btn btn-link text-white" data-bs-toggle="modal" data-bs-target="#exampleModal">
+                  <i class="fa-solid fa-share-nodes"></i>
+                </button>
+              <% end %>
             </div>
           </div>
           <div data-progressbar-target="progressbar"></div>
