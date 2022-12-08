@@ -11,9 +11,11 @@
       <p class='gsh-text'><%= log.created_at.strftime("%d/%m/%Y") %></p>
       <%# <p class='text'><%= @goal.end_date %#></p>
       <p class='text'><%= @goal.status %#></p> %>
-      <button type="button" class="btn btn-link text-white" data-toggle="modal" data-target="#exampleModalLong">
-        <i class="fa-solid fa-share-nodes"></i>
-      </button>
+      <% if log.user == current_user && log.user.groups.any? %>
+        <button type="button" class="btn btn-link text-white" data-toggle="modal" data-target="#exampleModalLong">
+          <i class="fa-solid fa-share-nodes"></i>
+        </button>
+      <% end %>
     </div>
     <div class="gsh-content" id="content">
       <p class='text'><%= log.content %></p>
