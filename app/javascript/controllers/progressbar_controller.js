@@ -16,7 +16,7 @@ export default class extends Controller {
       easing: 'easeInOut',
       svgStyle: {
         display: 'block',
-        width: '100%' // ${this.percentageValue} to be % of goals doe if goal.status = true
+        width: '100%'
     },
 
   });
