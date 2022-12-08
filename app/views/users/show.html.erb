@@ -26,6 +26,7 @@
   <% if @user.projects.any? %>
     <h2>My Projects</h2>
       <% @user.projects.each do |project| %>
+        <div class="project_box" data-controller="progressbar" data-progressbar-percentage-value="<%= project.done_percentage %>">
         <%= link_to project_path(project) do %>
           <div class="project_box">
             <div class="project_title_box">
@@ -34,9 +35,11 @@
                 <i class="fa-sharp fa-solid fa-trophy"></i>
               <% end %>
             </div>
+          <div data-progressbar-target="progressbar"></div>
               <p class="project_descr"><%= project.description %></p>
           </div>
         <% end %>
+        </div>
       <% end %>
     <% end %>
 
