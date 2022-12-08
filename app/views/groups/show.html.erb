@@ -22,7 +22,7 @@
       <% end %>
   </div>
 
-  <% @group.posts.reverse.each do |post| %>
+  <% @group.posts.order(created_at: :desc).each do |post| %>
     <div class="g-post-all mb-3">
       <%= link_to user_path(post.membership.user) do %>
         <div class="group-post-head">
