@@ -2,7 +2,7 @@
   <h1 class="mb-4">Settings</h1>
   <p class="d-flex logout"><i class="fa-solid fa-user"></i> Account</p>
   <p class="d-flex logout"><i class="fa-solid fa-question"></i> FAQ</p>
-  <p class="d-flex logout"><i class="fa-brands fa-instagram"></i> Follow us</p>
+  <p class="d-flex logout"><a target=”_blank” id="insta" href="https://www.instagram.com/stay_active_2022/"><i class="fa-brands fa-instagram"></i> Follow us</a></p>
   <p class="d-flex logout"><i class="fa-solid fa-envelope"></i> Contact us</p>
   <p class="d-flex logout"><i class="fa-solid fa-exclamation"></i> Terms of use</p>
   <p class="d-flex logout"><i class="fa-solid fa-right-from-bracket"></i><%= link_to "Log out", destroy_user_session_path, data: {turbo_method: :delete} %></p>
