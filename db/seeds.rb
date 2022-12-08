@@ -356,7 +356,6 @@ post1 = Post.create!(
   membership_id: membership2.id
 )
 
-
 post3 = Post.create!(
   title: "It was just a bad day, not a bad life",
   content: "This was a very stressfull week. I wanted to stay home and rest, however; my running team motivated me to finish a great running session",
@@ -425,6 +424,12 @@ post12 = Post.new(
 post12.photo.attach(io: file_post12, filename: "nes.png", content_type: "image/png")
 post12.save!
 
+post2 = Post.create!(
+  title: "Triathlon, here I go",
+  content: "Managed to finish the first week of triathlon training. What a great friday completing a 10km run!",
+  membership_id: membership1.id
+)
+
 post13 = Post.create!(
   title: "2 months left",
   content: "Really proud of sticking to my training for the last 2months, I'm really looking forward to race day and drinking the well-deserved free beer at the end of it. ",
@@ -449,11 +454,14 @@ post15 = Post.create!(
   membership_id: membership9.id
 )
 
+file_post16 = URI.open("https://res.cloudinary.com/dqpgsz5ed/image/upload/v1670496192/scooter_triathlon_ehnf8s.jpg")
 post16 = Post.create!(
   title: "Keep going!",
   content: "I know from experience triathlon training is hard, but keep going guys. You can do it!",
   membership_id: membership13.id
 )
+post16.photo.attach(io: file_post16, filename: "nes.png", content_type: "image/png")
+post16.save!
 
 post16 = Post.create!(
   title: "Tennis meet up",

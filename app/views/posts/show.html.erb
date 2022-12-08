@@ -18,7 +18,7 @@
       <div class='po-sh-content-member'>
         <%= @markdown.render(@post.content).html_safe %>
         <% if @post.photo.key.present? %>
-          <%= cl_image_tag @post.photo.key, height: 200, crop: :fill%>
+          <%= cl_image_tag @post.photo.key, height: 200, width:300, crop: :fill, style:"margin: auto;display: flex;"%>
         <% end %>
       </div>
 
