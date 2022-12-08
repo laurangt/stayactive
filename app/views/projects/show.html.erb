@@ -31,6 +31,7 @@
         <%= link_to project_goal_path(@project, goal)	do %>
           <div class="timeline__event__title text-white">
               <%= goal.title %>
+        <% end %>
             <div class="date-checkbox">
               <div class="timeline__event__date">
                 <p class="p-show-end-date"><%= goal.end_date.strftime("%d/%m/%Y") %></p>
@@ -43,9 +44,10 @@
               <% end %>
             </div>
           </div>
-
+        <%= link_to project_goal_path(@project, goal)	do %>
           <div class="timeline__event__description">
             <%= goal.description %>
+        <% end %>
               <% if policy(goal).destroy? %>
 
                 <p class="p-show-goal-del" style="color: white;"><%= link_to goal_path(goal), data: {turbo_method: :delete, turbo_confirm: "Are you sure?"}, class: "text-white text-decoration-none" do %>
@@ -54,7 +56,6 @@
                 <% end %>
             </p>
           </div>
-        <% end %>
 
     </div>
   <% end %>
