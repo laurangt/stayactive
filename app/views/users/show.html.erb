@@ -33,6 +33,10 @@
               <p class="text-white m-2"><%= project.title %></p>
               <% if project.done? %>
                 <i class="fa-sharp fa-solid fa-trophy"></i>
+              <% else %>
+                <% if project.goals.any? %>
+                  <p class="me-2"><%= ((project.done_percentage)*100).to_i %>%</p>
+                <% end %>
               <% end %>
             </div>
           <div data-progressbar-target="progressbar"></div>
