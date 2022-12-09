@@ -580,21 +580,21 @@ project5.save!
 
 project6 = Project.new(
   title: "Running",
-  description: "Distance 21 kilometers",
+  description: "Distance: 21km",
   user_id: user6.id
 )
 project6.save!
 
 project7 = Project.new(
   title: "Cycling",
-  description: "Distance 90 kilometers",
+  description: "Distance: 90km",
   user_id: user6.id
 )
 project7.save!
 
 project8 = Project.new(
   title: "Swimming",
-  description: "1,90 kilometers",
+  description: "Distance: 1,90km",
   user_id: user6.id
 )
 project8.save!
@@ -688,21 +688,76 @@ goal10 = Goal.new(
 goal10.save!
 
 goal11 = Goal.new(
-  title: "First running goal",
-  description: "Run 2-3x run",
-  end_date: '01-12-2023',
+  title: "Pace",
+  description: "Reaching 5min/km",
+  end_date: '01-02-2023',
   project_id: project6.id
 )
 goal11.save!
 
-
 goal12 = Goal.new(
-  title: "Pace",
-  description: "Reaching 5min/km",
-  end_date: '01-12-2023',
+  title: "Frequency",
+  description: "Run 2-3x/week",
+  end_date: '01-03-2023',
   project_id: project6.id
 )
 goal12.save!
+
+goal13 = Goal.new(
+  title: "First run",
+  description: "Run in local park",
+  end_date: '11-12-2022',
+  project_id: project6.id
+)
+goal13.save!
+
+goal14 = Goal.new(
+  title: "Frequency",
+  description: "2-3x/week",
+  end_date: '01-03-2022',
+  project_id: project7.id
+)
+goal14.save!
+
+goal15 = Goal.new(
+  title: "Fing good gear",
+  description: "Shoes, saddle, helmet,...",
+  end_date: '01-02-2022',
+  project_id: project7.id
+)
+goal15.save!
+
+goal16 = Goal.new(
+  title: "Frequency",
+  description: "2x/week",
+  end_date: '01-02-2022',
+  project_id: project8.id
+)
+goal16.save!
+
+goal17 = Goal.new(
+  title: "10km",
+  description: "Reaching 10km, good pace",
+  end_date: '31-01-2023',
+  project_id: project6.id
+)
+goal17.save!
+
+goal18 = Goal.new(
+  title: "15km",
+  description: "Reaching 15km, good pace",
+  end_date: '31-03-2023',
+  project_id: project6.id
+)
+goal18.save!
+
+goal19 = Goal.new(
+  title: "20km",
+  description: "Reaching 20km, good pace",
+  end_date: '31-04-2023',
+  project_id: project6.id
+)
+goal19.save!
 
 
 log1 = Log.new(

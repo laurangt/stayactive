@@ -25,7 +25,7 @@
   </div>
 
   <%# timeline %>
-  <% @project.goals.order('end_date DESC').each do |goal| %>
+  <% @project.goals.order('end_date ASC').each do |goal| %>
     <div class="timeline__event">
 
         <%= link_to project_goal_path(@project, goal)	do %>
