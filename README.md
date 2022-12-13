@@ -21,6 +21,14 @@ A phone web app, where people can join a community specific to their sport to st
 - Authentication
 - Authorisation
 
+<h3>The amazing team</h3>
+
+- <a href="https://github.com/mvillalongacdv" target="_blank">Maria Villalonga</a>
+- <a href="https://github.com/ming-wl" target="_blank">Ming Wong Lasin</a>
+- <a href="https://github.com/amercadoarriola" target="_blank">Alberto Mercado </a>
+- <a href="https://github.com/laurangt" target="_blank">Laura Nguyen-Trong </a>
+
+
 <h3>Small insight:</h3>
 
 <img width="283" alt="homepage" src="https://user-images.githubusercontent.com/107079059/207379916-3badc312-f744-4431-8400-dc23482cfec9.png">
