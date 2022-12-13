@@ -4,7 +4,7 @@ A phone web app, where people can join a community specific to their sport to st
 <h3>Check it out:</h3> 
 <a href="https://www.stayactivecommunity.me" target="_blank">StayActive</a>
 
-<h3>Technical tools used:</h3> Ruby on Rails, Javascript, Postgresql, HTML, SCSS, Bootstrap, Cloudinary
+<h3>Languages and Tools used:</h3> Ruby, Javascript, Ruby on Rails, Postgresql, HTML, SCSS, Bootstrap, Cloudinary
 
 <h3>Features:</h3>
 
