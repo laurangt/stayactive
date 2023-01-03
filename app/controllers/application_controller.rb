@@ -1,10 +1,9 @@
 class ApplicationController < ActionController::Base
   before_action :authenticate_user!
   before_action :set_cache_headers
-  #before_action :configure_account_update_params, if: :devise_controller?
 
   def configure_permitted_parameter
-    devise_parameter_sanitizer.permit(:sign_up, keys: [:photo, :username, :bio, :email, :password, :password_confirmation, :email_confirmation])
+    devise_parameter_sanitizer.permit(:sign_up, keys: [:photo, :username, :bio])
   end
 
   include Pundit::Authorization
