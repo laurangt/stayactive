@@ -3,9 +3,8 @@ class ApplicationController < ActionController::Base
   before_action :set_cache_headers
 
   def configure_permitted_parameter
-    devise_parameter_sanitizer.permit(:sign_up, keys: [:username, :bio, :photo])
+    devise_parameter_sanitizer.permit(:sign_up, keys: [:photo, :username, :bio])
   end
-
 
   include Pundit::Authorization
 
@@ -38,5 +37,11 @@ class ApplicationController < ActionController::Base
     response.headers["Cache-Control"] = "no-cache, no-store, max-age=0, must-revalidate"
     response.headers["Pragma"] = "no-cache"
     response.headers["Expires"] = "Fri, 01 Jan 1990 00:00:00 GMT"
+  end
+
+  protected
+
+  def configure_account_update_params
+    devise_parameter_sanitizer.permit(:account_update, keys: [:username, :photo, :bio])
   end
 end
