@@ -1,5 +1,5 @@
 <h1>STAY ACTIVE</h1>
-A phone web app, where people can join a community specific to their sport to stay motivated and inspired to commit to their fitness goals. They can track and share their progress by creating projects and logging their daily activities. 
+A mobile web app, where people can join a community specific to their sport to stay motivated and inspired to commit to their fitness goals. They can track and share their progress by creating projects and logging their daily activities. 
 
 <h3>Check it out:</h3> 
 <a href="https://www.stayactivecommunity.me" target="_blank">StayActive</a>
